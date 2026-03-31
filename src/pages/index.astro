@@ -6,6 +6,6 @@ import { home, defaultLocale, type Locale } from "../i18n";
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 ---
 
-<Layout transparentHeader>
+<Layout headerTheme="light">
 	<HomePage content={home[locale]} />
 </Layout>

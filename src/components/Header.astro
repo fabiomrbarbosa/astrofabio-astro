@@ -1,19 +1,31 @@
 ---
-import { ui, navLinks as allNavLinks, defaultLocale, siteName, siteMeta, type Locale } from "../i18n";
+import {
+	ui,
+	navLinks as allNavLinks,
+	defaultLocale,
+	siteName,
+	siteMeta,
+	type Locale,
+} from "../i18n";
 
 interface Props {
 	locale?: Locale;
-	transparent?: boolean;
+	theme?: "light" | "dark";
 }
 
-const { locale = defaultLocale, transparent = false } = Astro.props;
+const { locale = defaultLocale, theme = "light" } = Astro.props;
 const t = ui[locale];
 const meta = siteMeta[locale];
 const navLinks = allNavLinks[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
 ---
 
-<header class:list={["flex items-center justify-between py-5", { "header--transparent": transparent }]}>
+<header
+	class:list={[
+		"flex items-center justify-between py-5",
+		{ "header--dark": theme === "dark" },
+	]}
+>
 	<a
 		href="/"
 		aria-label={t.logoAriaLabel}
@@ -57,11 +69,16 @@ const targetLocale = locale === "en" ? "pt" : "en";
 		</svg>
 		<div class="hidden md:flex flex-col leading-tight">
 			<span class="text-sm font-semibold text-contrast">{siteName}</span>
-			<span class="text-xs text-muted uppercase tracking-widest">{meta.tagline}</span>
+			<span class="text-xs text-muted uppercase tracking-widest"
+				>{meta.tagline}</span
+			>
 		</div>
 	</a>
 
-	<nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
+	<nav
+		class="hidden md:flex items-center gap-6"
+		aria-label="Primary navigation"
+	>
 		<ul class="flex items-center gap-6 list-none m-0 p-0">
 			{
 				navLinks.map(({ href, label }) => (
@@ -74,10 +91,16 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			}
 		</ul>
 		<div class="lang-switcher">
-				<span class="lang-current">{locale.toUpperCase()}</span>
-				<span class="lang-sep">/</span>
-				<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
-			</div>
+			<span class="lang-current">{locale.toUpperCase()}</span>
+			<span class="lang-sep">/</span>
+			<a
+				href={t.switchLangHref}
+				aria-label={t.switchLangAriaLabel}
+				class="nav-link text-sm"
+				data-lang-switch
+				data-locale={targetLocale}>{t.switchLang}</a
+			>
+		</div>
 	</nav>
 
 	<button
@@ -118,14 +141,22 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			class="flex flex-col leading-tight"
 		>
 			<span class="text-sm font-semibold text-contrast">{siteName}</span>
-			<span class="text-xs text-muted uppercase tracking-widest">{meta.tagline}</span>
+			<span class="text-xs text-muted uppercase tracking-widest"
+				>{meta.tagline}</span
+			>
 		</a>
 		<div class="flex items-center gap-2">
-				<div class="lang-switcher">
-					<span class="lang-current">{locale.toUpperCase()}</span>
-					<span class="lang-sep">/</span>
-					<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
-				</div>
+			<div class="lang-switcher">
+				<span class="lang-current">{locale.toUpperCase()}</span>
+				<span class="lang-sep">/</span>
+				<a
+					href={t.switchLangHref}
+					aria-label={t.switchLangAriaLabel}
+					class="nav-link text-sm"
+					data-lang-switch
+					data-locale={targetLocale}>{t.switchLang}</a
+				>
+			</div>
 			<button
 				id="menu-close"
 				class="border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
@@ -184,30 +215,61 @@ const targetLocale = locale === "en" ? "pt" : "en";
 	toggle.addEventListener("click", openMenu);
 	close.addEventListener("click", closeMenu);
 
+	// Solid header past 50vh
+	const header = document.querySelector("header") as HTMLElement;
+	function onScroll() {
+		header.classList.toggle("header--scrolled", window.scrollY > 120);
+	}
+	window.addEventListener("scroll", onScroll, { passive: true });
+	onScroll();
+
 	// Persist manual language choice so the middleware doesn't override it
-	document.querySelectorAll<HTMLAnchorElement>("[data-lang-switch]").forEach((el) => {
-		el.addEventListener("click", () => {
-			const locale = el.dataset.locale;
-			if (locale) document.cookie = `preferred-locale=${locale};path=/;max-age=${60 * 60 * 24 * 365}`;
+	document
+		.querySelectorAll<HTMLAnchorElement>("[data-lang-switch]")
+		.forEach((el) => {
+			el.addEventListener("click", () => {
+				const locale = el.dataset.locale;
+				if (locale)
+					document.cookie = `preferred-locale=${locale};path=/;max-age=${60 * 60 * 24 * 365}`;
+			});
 		});
-	});
 </script>
 
 <style>
-	/* Transparent / fixed overlay variant */
-	.header--transparent {
+	/* Always fixed and transparent — bg/shadow added on scroll */
+	header {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 40;
-		background-color: transparent;
 		padding-left: var(--spacing-outer);
 		padding-right: var(--spacing-outer);
-		/* Override theme tokens for all child elements */
+		background-color: transparent;
+		transition:
+			background-color 250ms ease,
+			box-shadow 250ms ease;
+	}
+
+	/* Dark initial theme: white text over dark page backgrounds */
+	header.header--dark {
 		--color-contrast: #ffffff;
 		--color-ink: #ffffff;
 		--color-muted: rgba(255, 255, 255, 0.7);
+		--color-overlay: rgba(255, 255, 255, 0.4);
+	}
+
+	/* Scrolled: solid white regardless of initial theme — defined after
+	   header--dark so it wins the cascade when both classes are present */
+	header.header--scrolled {
+		background-color: var(--color-base);
+		box-shadow:
+			0 1px 0 rgba(0, 0, 0, 0.06),
+			0 2px 12px rgba(0, 0, 0, 0.06);
+		--color-contrast: #141413;
+		--color-ink: #30302e;
+		--color-muted: #6e6d68;
+		--color-overlay: #e8e6dc;
 	}
 
 	/* SVG stroke inherits from the theme token — not expressible as a plain utility */
@@ -228,7 +290,7 @@ const targetLocale = locale === "en" ? "pt" : "en";
 
 	.lang-current,
 	.lang-sep {
-		color: var(--color-muted);
+		color: var(--color-overlay);
 	}
 
 	/* Nav link: override the global a { color: accent } default */

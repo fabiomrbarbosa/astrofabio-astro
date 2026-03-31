@@ -6,10 +6,10 @@ import { defaultLocale, htmlLang, siteMeta, siteUrl, type Locale } from "../i18n
 interface Props {
 	title?: string;
 	description?: string;
-	transparentHeader?: boolean;
+	headerTheme?: "light" | "dark";
 }
 
-const { title, description, transparentHeader = false } = Astro.props;
+const { title, description, headerTheme = "light" } = Astro.props;
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const meta = siteMeta[locale];
 
@@ -48,7 +48,7 @@ const ogImage = new URL("/images/og.jpg", siteUrl).href;
 		<link rel="icon" href="/images/favicon.ico" />
 	</head>
 	<body>
-		<Header locale={locale} transparent={transparentHeader} />
+		<Header locale={locale} theme={headerTheme} />
 		<slot />
 	</body>
 </html>

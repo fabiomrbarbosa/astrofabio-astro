@@ -10,7 +10,7 @@ const { content } = Astro.props;
 
 <section
 	id="hero-section"
-	class="bg-contrast relative -mx-(--spacing-outer) min-h-screen flex items-center py-(--spacing-section) overflow-hidden"
+	class="relative -mx-(--spacing-outer) min-h-screen flex items-center py-(--spacing-section) overflow-hidden"
 >
 	<div class="hero-circles" aria-hidden="true">
 		<div class="circles-stack">
@@ -52,7 +52,7 @@ const { content } = Astro.props;
 	</div>
 
 	<div
-		class="relative w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center text-white"
+		class="relative w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
 	>
 		<h1 class="text-7xl max-md:text-6xl font-serif leading-none mb-6">
 			{
@@ -69,7 +69,7 @@ const { content } = Astro.props;
 		</p>
 		<div class="flex max-md:flex-col gap-4 justify-center mt-8">
 			<a href={content.hero.ctaHref} class="button">{content.hero.cta}</a>
-			<a href={content.hero.ctaSecondaryHref} class="button button-alt-dark"
+			<a href={content.hero.ctaSecondaryHref} class="button button-alt"
 				>{content.hero.ctaSecondary}</a
 			>
 		</div>

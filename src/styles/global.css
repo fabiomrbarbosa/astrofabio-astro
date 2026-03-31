@@ -100,7 +100,7 @@
 
 @layer base {
 	html {
-		background-color: var(--color-base);
+		background-color: var(--color-surface);
 		color: var(--color-contrast);
 		font-family: var(--font-sans);
 		font-size: 1rem;
@@ -155,7 +155,7 @@
 	.button,
 	[type="button"],
 	[type="submit"] {
-		@apply border-2 border-accent text-accent rounded-[2em] px-4 py-1 bg-transparent uppercase tracking-widest font-semibold hover:bg-accent hover:text-contrast hover:no-underline transition-colors duration-150;
+		@apply border-2 border-accent text-accent rounded-[2em] px-4 py-1 bg-transparent uppercase tracking-widest font-semibold hover:bg-accent hover:text-base hover:no-underline transition-colors duration-150;
 	}
 
 	.button-alt {
