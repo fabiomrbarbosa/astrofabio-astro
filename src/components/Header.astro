@@ -9,6 +9,7 @@ interface Props {
 const { locale = defaultLocale, transparent = false } = Astro.props;
 const t = ui[locale];
 const navLinks = allNavLinks[locale];
+const targetLocale = locale === "en" ? "pt" : "en";
 ---
 
 <header class:list={["flex items-center justify-between py-5", { "header--transparent": transparent }]}>
@@ -71,7 +72,7 @@ const navLinks = allNavLinks[locale];
 				))
 			}
 		</ul>
-		<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm">{t.switchLang}</a>
+		<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
 	</nav>
 
 	<button
@@ -115,7 +116,7 @@ const navLinks = allNavLinks[locale];
 			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
 		</a>
 		<div class="flex items-center gap-2">
-			<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm">{t.switchLang}</a>
+			<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
 			<button
 				id="menu-close"
 				class="border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
@@ -173,6 +174,14 @@ const navLinks = allNavLinks[locale];
 
 	toggle.addEventListener("click", openMenu);
 	close.addEventListener("click", closeMenu);
+
+	// Persist manual language choice so the middleware doesn't override it
+	document.querySelectorAll<HTMLAnchorElement>("[data-lang-switch]").forEach((el) => {
+		el.addEventListener("click", () => {
+			const locale = el.dataset.locale;
+			if (locale) document.cookie = `preferred-locale=${locale};path=/;max-age=${60 * 60 * 24 * 365}`;
+		});
+	});
 </script>
 
 <style>

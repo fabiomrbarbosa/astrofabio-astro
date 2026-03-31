@@ -66,7 +66,7 @@ export const home: Record<Locale, HomeContent> = {
 	},
 	pt: {
 		hero: {
-			heading: ["Veja a sua vida", "com o olhar dos céus."],
+			heading: ["Veja a sua vida", "pelo olhar dos céus."],
 			subheading:
 				"Com a Astrologia tradicional, pode compreender melhor de onde vem e que caminhos tem à sua frente.",
 			cta: "Marcar consulta",
