@@ -1,36 +1,7 @@
-export const locales = ["en", "pt"] as const;
-export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "en";
+import { locales, defaultLocale, htmlLang, siteName, siteUrl, siteMeta, ui } from "./site";
+import type { Locale } from "./site";
 
-export const htmlLang: Record<Locale, string> = {
-	en: "en-GB",
-	pt: "pt-PT",
-};
-
-export const ui = {
-	en: {
-		siteName: "Fábio Barbosa",
-		siteTagline: "Astrology",
-		siteTitle: "Fábio Barbosa | Astrology",
-		menuOpen: "Open menu",
-		menuClose: "Close menu",
-		logoAriaLabel: "Fábio Barbosa | Astrology — Home",
-		switchLang: "PT",
-		switchLangHref: "/pt",
-		switchLangAriaLabel: "Ver em Português",
-	},
-	pt: {
-		siteName: "Fábio Barbosa",
-		siteTagline: "Astrologia",
-		siteTitle: "Fábio Barbosa | Astrologia",
-		menuOpen: "Abrir menu",
-		menuClose: "Fechar menu",
-		logoAriaLabel: "Fábio Barbosa | Astrologia — Página inicial",
-		switchLang: "EN",
-		switchLangHref: "/",
-		switchLangAriaLabel: "Switch to English",
-	},
-} as const;
+export { locales, defaultLocale, htmlLang, siteName, siteUrl, siteMeta, ui, type Locale };
 
 export interface HomeContent {
 	hero: {

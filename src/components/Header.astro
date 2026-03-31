@@ -1,5 +1,5 @@
 ---
-import { ui, navLinks as allNavLinks, defaultLocale, type Locale } from "../i18n";
+import { ui, navLinks as allNavLinks, defaultLocale, siteName, siteMeta, type Locale } from "../i18n";
 
 interface Props {
 	locale?: Locale;
@@ -8,6 +8,7 @@ interface Props {
 
 const { locale = defaultLocale, transparent = false } = Astro.props;
 const t = ui[locale];
+const meta = siteMeta[locale];
 const navLinks = allNavLinks[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
 ---
@@ -25,7 +26,7 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			viewBox="0 0 560 416"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<title id="logo-title">{t.siteTitle}</title>
+			<title id="logo-title">{meta.title}</title>
 			<clipPath id="LogoClipPath">
 				<path
 					d="M427.2,1.1a168,168,0,0,0-65.75,5.46A158.69,158.69,0,0,0,305.79,35.4,143.88,143.88,0,0,0,267.21,83c-5.07,10.22-9.6,20.09-12.77,31q-4.91,17-8.2,34.35c-2.24,11.62-2.89,24.44-4.15,36.21s-1.83,23.56-2.27,35.41-2.25,24.76-3.31,36.72c-1,11.71-2.54,23.39-4.4,35a157.13,157.13,0,0,1-8.17,31.81c-3.56,9.22-6.83,17.27-12.48,25.38C200,365.3,184.12,378.8,165.05,385.35A74.91,74.91,0,0,1,107.74,382a82.11,82.11,0,0,1-13.19-8.07L73,395.48A159,159,0,0,0,112.31,411a167.67,167.67,0,0,0,91.13-3.19,158.93,158.93,0,0,0,39.5-19,155.34,155.34,0,0,0,32-28.48,144.06,144.06,0,0,0,22.78-37.19c6-14.23,10.06-29.23,13.27-44.31,1.66-7.8,3.09-15.65,4.36-23.52.33-2,1.28-8.77,1.28-8.77s8.45,1,12.28,1.12a137.39,137.39,0,0,0,45.85-6,134.14,134.14,0,0,0,38.72-19.26,131.68,131.68,0,0,0,29.42-29.25,47.33,47.33,0,0,0-28.59-7.26,46.74,46.74,0,0,0-24.8,9.22c-3.7,2.81-6.82,6.31-10.26,9.43a109.3,109.3,0,0,1-11.17,8.85,103.59,103.59,0,0,1-49.49,18.16q1-8.91,1.6-17.85c.84-12.13,1.11-24.3,1.58-36.45.32-8.1.93-16.19,1.77-24.26q2.19-21.18,6.42-42.09a109.38,109.38,0,0,1,5.46-19.64,125,125,0,0,1,9.05-17.89c10.7-17.72,26.2-32.81,45.43-40.93a75.17,75.17,0,0,1,58-.57A81.75,81.75,0,0,1,465.7,42l21.61-21.62A161.34,161.34,0,0,0,427.2,1.1Z"
@@ -55,8 +56,8 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			</g>
 		</svg>
 		<div class="hidden md:flex flex-col leading-tight">
-			<span class="text-sm font-semibold text-contrast">{t.siteName}</span>
-			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
+			<span class="text-sm font-semibold text-contrast">{siteName}</span>
+			<span class="text-xs text-muted uppercase tracking-widest">{meta.tagline}</span>
 		</div>
 	</a>
 
@@ -116,8 +117,8 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			aria-label={t.logoAriaLabel}
 			class="flex flex-col leading-tight"
 		>
-			<span class="text-sm font-semibold text-contrast">{t.siteName}</span>
-			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
+			<span class="text-sm font-semibold text-contrast">{siteName}</span>
+			<span class="text-xs text-muted uppercase tracking-widest">{meta.tagline}</span>
 		</a>
 		<div class="flex items-center gap-2">
 				<div class="lang-switcher">
