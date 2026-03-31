@@ -1,20 +1,21 @@
 ---
-const siteTitle = "Fábio Barbosa | Astrologia";
+import { ui, navLinks as allNavLinks, defaultLocale, type Locale } from "../i18n";
+
+interface Props {
+	locale?: Locale;
+	transparent?: boolean;
+}
+
+const { locale = defaultLocale, transparent = false } = Astro.props;
+const t = ui[locale];
+const navLinks = allNavLinks[locale];
 ---
 
-<header class="flex items-center justify-between py-5">
-	<nav class="flex-1" aria-label="Primary navigation">
-		<ul class="flex items-center gap-6 list-none m-0 p-0">
-			<li><a href="/sobre" class="nav-link text-sm">Sobre</a></li>
-			<li><a href="/servicos" class="nav-link text-sm">Serviços</a></li>
-			<li><a href="/artigos" class="nav-link text-sm">Artigos</a></li>
-		</ul>
-	</nav>
-
+<header class:list={["flex items-center justify-between py-5", { "header--transparent": transparent }]}>
 	<a
 		href="/"
-		aria-label={`${siteTitle} — Página inicial`}
-		class="site-logo shrink-0 flex items-center mx-8"
+		aria-label={t.logoAriaLabel}
+		class="site-logo flex items-center gap-4 shrink-0 hover:no-underline"
 	>
 		<svg
 			class="logo h-11 w-auto block"
@@ -23,7 +24,7 @@ const siteTitle = "Fábio Barbosa | Astrologia";
 			viewBox="0 0 560 416"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<title id="logo-title">{siteTitle}</title>
+			<title id="logo-title">{t.siteTitle}</title>
 			<clipPath id="LogoClipPath">
 				<path
 					d="M427.2,1.1a168,168,0,0,0-65.75,5.46A158.69,158.69,0,0,0,305.79,35.4,143.88,143.88,0,0,0,267.21,83c-5.07,10.22-9.6,20.09-12.77,31q-4.91,17-8.2,34.35c-2.24,11.62-2.89,24.44-4.15,36.21s-1.83,23.56-2.27,35.41-2.25,24.76-3.31,36.72c-1,11.71-2.54,23.39-4.4,35a157.13,157.13,0,0,1-8.17,31.81c-3.56,9.22-6.83,17.27-12.48,25.38C200,365.3,184.12,378.8,165.05,385.35A74.91,74.91,0,0,1,107.74,382a82.11,82.11,0,0,1-13.19-8.07L73,395.48A159,159,0,0,0,112.31,411a167.67,167.67,0,0,0,91.13-3.19,158.93,158.93,0,0,0,39.5-19,155.34,155.34,0,0,0,32-28.48,144.06,144.06,0,0,0,22.78-37.19c6-14.23,10.06-29.23,13.27-44.31,1.66-7.8,3.09-15.65,4.36-23.52.33-2,1.28-8.77,1.28-8.77s8.45,1,12.28,1.12a137.39,137.39,0,0,0,45.85-6,134.14,134.14,0,0,0,38.72-19.26,131.68,131.68,0,0,0,29.42-29.25,47.33,47.33,0,0,0-28.59-7.26,46.74,46.74,0,0,0-24.8,9.22c-3.7,2.81-6.82,6.31-10.26,9.43a109.3,109.3,0,0,1-11.17,8.85,103.59,103.59,0,0,1-49.49,18.16q1-8.91,1.6-17.85c.84-12.13,1.11-24.3,1.58-36.45.32-8.1.93-16.19,1.77-24.26q2.19-21.18,6.42-42.09a109.38,109.38,0,0,1,5.46-19.64,125,125,0,0,1,9.05-17.89c10.7-17.72,26.2-32.81,45.43-40.93a75.17,75.17,0,0,1,58-.57A81.75,81.75,0,0,1,465.7,42l21.61-21.62A161.34,161.34,0,0,0,427.2,1.1Z"
@@ -52,18 +53,145 @@ const siteTitle = "Fábio Barbosa | Astrologia";
 					stroke-width="38"></path>
 			</g>
 		</svg>
+		<div class="hidden md:flex flex-col leading-tight">
+			<span class="text-sm font-semibold text-contrast">{t.siteName}</span>
+			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
+		</div>
 	</a>
 
-	<nav class="flex-1 flex justify-end" aria-label="Secondary navigation">
+	<nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
 		<ul class="flex items-center gap-6 list-none m-0 p-0">
-			<li><a href="/agenda" class="nav-link text-sm">Agenda</a></li>
-			<li><a href="/loja" class="nav-link text-sm">Loja</a></li>
-			<li><a href="/contacto" class="nav-link text-sm">Contacto</a></li>
+			{
+				navLinks.map(({ href, label }) => (
+					<li>
+						<a href={href} class="nav-link text-sm">
+							{label}
+						</a>
+					</li>
+				))
+			}
 		</ul>
+		<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm">{t.switchLang}</a>
 	</nav>
+
+	<button
+		id="menu-toggle"
+		class="md:hidden border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
+		aria-label={t.menuOpen}
+		aria-expanded="false"
+		aria-controls="mobile-menu"
+	>
+		<svg
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			aria-hidden="true"
+		>
+			<line x1="3" y1="6" x2="21" y2="6"></line>
+			<line x1="3" y1="12" x2="21" y2="12"></line>
+			<line x1="3" y1="18" x2="21" y2="18"></line>
+		</svg>
+	</button>
 </header>
 
+<div
+	id="mobile-menu"
+	class="fixed inset-0 z-50 flex flex-col bg-base translate-x-full transition-transform duration-300 ease-in-out"
+	aria-hidden="true"
+>
+	<div
+		class="flex items-center justify-between py-5 px-(--spacing-outer) border-b border-border"
+	>
+		<a
+			href="/"
+			aria-label={t.logoAriaLabel}
+			class="flex flex-col leading-tight"
+		>
+			<span class="text-sm font-semibold text-contrast">{t.siteName}</span>
+			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
+		</a>
+		<div class="flex items-center gap-2">
+			<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm">{t.switchLang}</a>
+			<button
+				id="menu-close"
+				class="border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
+				aria-label={t.menuClose}
+			>
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					aria-hidden="true"
+				>
+					<line x1="4" y1="4" x2="20" y2="20"></line>
+					<line x1="20" y1="4" x2="4" y2="20"></line>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<nav class="px-(--spacing-outer) pt-8" aria-label="Mobile navigation">
+		<ul class="flex flex-col gap-6 list-none m-0 p-0">
+			{
+				navLinks.map(({ href, label }) => (
+					<li>
+						<a href={href} class="nav-link text-sm">
+							{label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</div>
+
+<script>
+	const toggle = document.getElementById("menu-toggle") as HTMLButtonElement;
+	const close = document.getElementById("menu-close") as HTMLButtonElement;
+	const menu = document.getElementById("mobile-menu") as HTMLElement;
+
+	function openMenu() {
+		menu.classList.remove("translate-x-full");
+		menu.setAttribute("aria-hidden", "false");
+		toggle.setAttribute("aria-expanded", "true");
+		document.body.style.overflow = "hidden";
+	}
+
+	function closeMenu() {
+		menu.classList.add("translate-x-full");
+		menu.setAttribute("aria-hidden", "true");
+		toggle.setAttribute("aria-expanded", "false");
+		document.body.style.overflow = "";
+	}
+
+	toggle.addEventListener("click", openMenu);
+	close.addEventListener("click", closeMenu);
+</script>
+
 <style>
+	/* Transparent / fixed overlay variant */
+	.header--transparent {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 40;
+		background-color: transparent;
+		padding-left: var(--spacing-outer);
+		padding-right: var(--spacing-outer);
+		/* Override theme tokens for all child elements */
+		--color-contrast: #ffffff;
+		--color-ink: #ffffff;
+		--color-muted: rgba(255, 255, 255, 0.7);
+	}
+
 	/* SVG stroke inherits from the theme token — not expressible as a plain utility */
 	.logo {
 		stroke: var(--color-contrast);

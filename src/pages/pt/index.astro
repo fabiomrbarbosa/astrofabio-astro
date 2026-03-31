@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HomePage from "../../components/pages/HomePage.astro";
+import { home, defaultLocale, type Locale } from "../../i18n";
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+---
+
+<Layout transparentHeader>
+	<HomePage content={home[locale]} />
+</Layout>

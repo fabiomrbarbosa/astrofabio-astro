@@ -102,7 +102,7 @@
 	html {
 		background-color: var(--color-base);
 		color: var(--color-contrast);
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 1rem;
 		line-height: var(--leading-relaxed);
 		padding-left: var(--spacing-outer);
@@ -152,29 +152,17 @@
 
 	/* Buttons */
 	button,
+	.button,
 	[type="button"],
 	[type="submit"] {
-		background-color: transparent;
-		color: var(--color-accent);
-		border: 2px solid var(--color-accent);
-		border-radius: 2em;
-		padding: 0.25rem 1rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		font-weight: 600;
-		text-decoration: none;
-		cursor: pointer;
-		transition:
-			background-color 150ms ease,
-			color 150ms ease;
+		@apply border-2 border-accent text-accent rounded-[2em] px-4 py-1 bg-transparent uppercase tracking-widest font-semibold hover:bg-accent hover:text-contrast hover:no-underline transition-colors duration-150;
 	}
-	button:hover,
-	button:focus,
-	[type="button"]:hover,
-	[type="button"]:focus,
-	[type="submit"]:hover,
-	[type="submit"]:focus {
-		background-color: var(--color-accent);
-		color: var(--color-contrast);
+
+	.button-alt {
+		@apply border-contrast text-contrast hover:bg-contrast hover:text-base;
+	}
+
+	.button-alt-dark {
+		@apply border-base text-base hover:bg-base hover:text-contrast;
 	}
 }
