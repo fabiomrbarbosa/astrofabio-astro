@@ -72,7 +72,11 @@ const targetLocale = locale === "en" ? "pt" : "en";
 				))
 			}
 		</ul>
-		<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
+		<div class="lang-switcher">
+				<span class="lang-current">{locale.toUpperCase()}</span>
+				<span class="lang-sep">/</span>
+				<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
+			</div>
 	</nav>
 
 	<button
@@ -116,7 +120,11 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			<span class="text-xs text-muted uppercase tracking-widest">{t.siteTagline}</span>
 		</a>
 		<div class="flex items-center gap-2">
-			<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
+				<div class="lang-switcher">
+					<span class="lang-current">{locale.toUpperCase()}</span>
+					<span class="lang-sep">/</span>
+					<a href={t.switchLangHref} aria-label={t.switchLangAriaLabel} class="nav-link text-sm" data-lang-switch data-locale={targetLocale}>{t.switchLang}</a>
+				</div>
 			<button
 				id="menu-close"
 				class="border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
@@ -205,6 +213,21 @@ const targetLocale = locale === "en" ? "pt" : "en";
 	.logo {
 		stroke: var(--color-contrast);
 		max-width: 72px;
+	}
+
+	/* Language switcher */
+	.lang-switcher {
+		display: flex;
+		align-items: center;
+		gap: 0.3em;
+		font-size: 0.875rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.lang-current,
+	.lang-sep {
+		color: var(--color-muted);
 	}
 
 	/* Nav link: override the global a { color: accent } default */
