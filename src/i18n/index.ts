@@ -53,7 +53,7 @@ export const home: Record<Locale, HomeContent> = {
 			subheading:
 				"Through traditional Astrology, you can better understand where you come from and what paths lie ahead.",
 			cta: "Book a consultation",
-			ctaHref: "#",
+			ctaHref: "mailto:fabio@astrofabio.com",
 			ctaSecondary: "Learn more",
 			ctaSecondaryHref: "#",
 		},
@@ -70,7 +70,7 @@ export const home: Record<Locale, HomeContent> = {
 			subheading:
 				"Com a Astrologia tradicional, pode compreender melhor de onde vem e que caminhos tem à sua frente.",
 			cta: "Marcar consulta",
-			ctaHref: "#",
+			ctaHref: "mailto:fabio@astrofabio.com",
 			ctaSecondary: "Saber mais",
 			ctaSecondaryHref: "#",
 		},
