@@ -149,6 +149,10 @@
 		font-weight: 400;
 	}
 
+	p {
+		orphans: 2;
+	}
+
 	/* Links */
 	a {
 		color: var(--color-accent);

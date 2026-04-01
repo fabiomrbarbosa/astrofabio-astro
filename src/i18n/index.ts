@@ -99,9 +99,10 @@ export const home: Record<Locale, HomeContent> = {
 		bio: {
 			heading: "About Fábio",
 			paragraphs: [
-				"I am a traditional astrologer based in Lisbon, Portugal. I have been studying the celestial art for over a decade, drawing on Hellenistic, Medieval, and Renaissance sources to offer consultations grounded in time-tested technique.",
-				"My work is guided by the conviction that astrology, practised with rigour and humility, can be a genuine tool for self-knowledge — not prediction for its own sake, but a way of understanding the rhythms and conditions that shape a life.",
-				"I work primarily in Portuguese and English, and offer both in-person and online consultations.",
+				'I began studying traditional astrology formally in 2023, at the <a href="https://academyofastrology.eu/">Academy of Traditional Astrology</a>, under the guidance of Luís Ribeiro. I also work as a web developer and copywriter, trades that walk the line between art and method.',
+				"What drew me to astrology was the conviction that the cosmos is alive and intelligible, not an inert backdrop, and that it is worth learning to read it. Traditional astrology offers exactly that: a system with history, rules, and an internal logic capable of describing who we are, what surrounds us, and the time we move through.",
+				"What I bring to a consultation, beyond the technique, is attention to your story and what you need to know, as much as to what the planets actually say. The chart is a tool for orientation, not a verdict.",
+				"If you arrived here with genuine curiosity about what your chart has to say, you are in the right place.",
 			],
 		},
 		consultation: {
@@ -138,7 +139,7 @@ export const home: Record<Locale, HomeContent> = {
 				horary: {
 					label: "Your question",
 					placeholder:
-						"State your question as precisely as you can. Feel free to add any context that might help me understand it — the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant.",
+						"State your question as precisely as you can. Feel free to add any context that might help me understand it: the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant.",
 				},
 				elective: {
 					subject: {
@@ -194,9 +195,10 @@ export const home: Record<Locale, HomeContent> = {
 		bio: {
 			heading: "Sobre Fábio",
 			paragraphs: [
-				"Sou astrólogo tradicional com base em Lisboa, Portugal. Estudo a arte celeste há mais de uma década, recorrendo a fontes helenísticas, medievais e renascentistas para oferecer consultas assentes em técnicas testadas ao longo do tempo.",
-				"O meu trabalho é guiado pela convicção de que a astrologia, praticada com rigor e humildade, pode ser uma ferramenta genuína de autoconhecimento — não a previsão pelo seu valor próprio, mas uma forma de compreender os ritmos e as condições que moldam uma vida.",
-				"Trabalho principalmente em português e inglês, e ofereço consultas presenciais e online.",
+				'Comecei a estudar astrologia tradicional formalmente em 2023, na <a href="https://academiadeastrologia.com/">Academia de Estudos Astrológicos</a>, sob orientação de Luís Ribeiro. Trabalho também como web developer e copywriter, ofícios que caminham na fronteira entre a arte e o método.',
+				"O que me trouxe à astrologia foi a convicção de que o cosmos é algo vivo e inteligível, não um pano de fundo inerte, e que vale a pena aprender a lê-lo. A astrologia tradicional oferece exactamente isso: um sistema com história, regras e uma lógica interna capaz de descrever quem somos, o que nos rodeia e o tempo que atravessamos.",
+				"O que trago a uma consulta, para além do mapa, é a minha atenção à sua história e àquilo que procura saber, tanto quanto ao que os planetas têm para dizer. Considero que o seu mapa é um instrumento de orientação, não um veredicto.",
+				"Se chegou aqui com curiosidade genuína sobre o que o seu mapa tem para lhe dizer, está no lugar certo.",
 			],
 		},
 		consultation: {
@@ -233,7 +235,7 @@ export const home: Record<Locale, HomeContent> = {
 				horary: {
 					label: "A sua pergunta",
 					placeholder:
-						"Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la — as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante.",
+						"Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la: as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante.",
 				},
 				elective: {
 					subject: {
