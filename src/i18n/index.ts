@@ -208,8 +208,7 @@ export const home: Record<Locale, HomeContent> = {
 				email: "Endereço de email",
 				dateOfBirth: "Data de nascimento",
 				timeOfBirth: "Hora de nascimento",
-				timeOfBirthHint:
-					"Seja o mais preciso possível — o minuto exacto é o ideal.",
+				timeOfBirthHint: "Seja o mais preciso possível.",
 				cityOfBirth: "Cidade de nascimento",
 				countryOfBirth: "País de nascimento",
 				typeLabel: "Tipo de consulta",
@@ -253,8 +252,7 @@ export const home: Record<Locale, HomeContent> = {
 					name: "Nome completo",
 					dateOfBirth: "Data de nascimento",
 					timeOfBirth: "Hora de nascimento",
-					timeOfBirthHint:
-						"Seja o mais preciso possível — o minuto exacto é o ideal.",
+					timeOfBirthHint: "Seja o mais preciso possível.",
 					cityOfBirth: "Cidade de nascimento",
 					countryOfBirth: "País de nascimento",
 					concerns: {

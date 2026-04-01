@@ -251,6 +251,12 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		color: var(--color-muted);
 	}
 
+	.form-field input[type="date"],
+	.form-field input[type="time"] {
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
 	.form-field input:not([type="checkbox"]),
 	.form-field select,
 	.form-field textarea {
