@@ -82,9 +82,9 @@ export interface HomeContent {
 export const home: Record<Locale, HomeContent> = {
 	en: {
 		hero: {
-			heading: ["See your life", "through the eyes of the sky."],
+			heading: ["Look at your life", "through the mirror of the sky."],
 			subheading:
-				"Through traditional Astrology, you can better understand where you come from and what paths lie ahead.",
+				"Through traditional Astrology, you can better understand who you are and consider which paths lie ahead.",
 			cta: "Book a consultation",
 			ctaHref: "mailto:fabio@astrofabio.com",
 			ctaSecondary: "Learn more",
@@ -177,9 +177,9 @@ export const home: Record<Locale, HomeContent> = {
 	},
 	pt: {
 		hero: {
-			heading: ["Veja a sua vida", "pelo olhar dos céus."],
+			heading: ["Olhe para a sua vida", "pelo espelho do céu."],
 			subheading:
-				"Com a Astrologia tradicional, pode compreender melhor de onde vem e que caminhos tem à sua frente.",
+				"Com a Astrologia tradicional, poderá compreender melhor quem é e avaliar que caminhos tem à sua frente.",
 			cta: "Marcar consulta",
 			ctaHref: "mailto:fabio@astrofabio.com",
 			ctaSecondary: "Saber mais",
