@@ -56,17 +56,41 @@ export const POST: APIRoute = async ({ request }) => {
 	if (!turnstileToken || !turnstileSecret) {
 		return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
 	}
-	const verification = await fetch(
-		"https://challenges.cloudflare.com/turnstile/v0/siteverify",
-		{
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: new URLSearchParams({ secret: turnstileSecret, response: turnstileToken }),
-		},
-	);
-	const verificationResult = await verification.json() as { success: boolean };
-	if (!verificationResult.success) {
-		return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
+	try {
+		const remoteip =
+			request.headers.get("CF-Connecting-IP") ??
+			request.headers.get("X-Forwarded-For") ??
+			undefined;
+
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), 10_000);
+
+		let verificationResult: { success: boolean; "error-codes"?: string[] };
+		try {
+			const verification = await fetch(
+				"https://challenges.cloudflare.com/turnstile/v0/siteverify",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ secret: turnstileSecret, response: turnstileToken, remoteip }),
+					signal: controller.signal,
+				},
+			);
+			verificationResult = await verification.json();
+		} finally {
+			clearTimeout(timeout);
+		}
+
+		if (!verificationResult.success) {
+			console.error("Turnstile rejected token:", verificationResult["error-codes"]);
+			return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
+		}
+	} catch (err) {
+		console.error("Turnstile verification error:", err);
+		return Response.json(
+			{ message: "Could not verify the security challenge. Please try again." },
+			{ status: 502 },
+		);
 	}
 
 	const typeLabel = KNOWN_TYPES[consultationType];
