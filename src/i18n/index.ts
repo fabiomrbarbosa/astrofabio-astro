@@ -1,7 +1,24 @@
-import { locales, defaultLocale, htmlLang, siteName, siteUrl, siteMeta, ui } from "./site";
+import {
+	locales,
+	defaultLocale,
+	htmlLang,
+	siteName,
+	siteUrl,
+	siteMeta,
+	ui,
+} from "./site";
 import type { Locale } from "./site";
 
-export { locales, defaultLocale, htmlLang, siteName, siteUrl, siteMeta, ui, type Locale };
+export {
+	locales,
+	defaultLocale,
+	htmlLang,
+	siteName,
+	siteUrl,
+	siteMeta,
+	ui,
+	type Locale,
+};
 
 export interface HomeContent {
 	hero: {
@@ -97,29 +114,35 @@ export const home: Record<Locale, HomeContent> = {
 				email: "Email address",
 				dateOfBirth: "Date of birth",
 				timeOfBirth: "Time of birth",
-				timeOfBirthHint: "Please be as precise as possible — the exact minute is ideal.",
+				timeOfBirthHint: "Please be as precise as possible.",
 				cityOfBirth: "City of birth",
 				countryOfBirth: "Country of birth",
 				typeLabel: "Type of consultation",
 				types: [
 					{ value: "natal", label: "Natal chart" },
-					{ value: "natal-solar-return", label: "Natal chart & annual revolution" },
+					{
+						value: "natal-solar-return",
+						label: "Natal chart & annual revolution",
+					},
 					{ value: "horary", label: "Horary" },
 					{ value: "elective", label: "Elective" },
 					{ value: "synastry", label: "Synastry" },
 				],
 				concerns: {
 					label: "Specific concerns",
-					placeholder: "Is there a particular area of life or theme you would like to focus on?",
+					placeholder:
+						"Is there a particular area of life or theme you would like to focus on?",
 				},
 				horary: {
 					label: "Your question",
-					placeholder: "State your question as precisely as you can. Feel free to add any context that might help me understand it — the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant.",
+					placeholder:
+						"State your question as precisely as you can. Feel free to add any context that might help me understand it — the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant.",
 				},
 				elective: {
 					subject: {
 						label: "What are you choosing a time for?",
-						placeholder: "e.g. signing a contract, starting a business, getting married…",
+						placeholder:
+							"e.g. signing a contract, starting a business, getting married…",
 					},
 					location: {
 						label: "Where will it take place?",
@@ -127,7 +150,8 @@ export const home: Record<Locale, HomeContent> = {
 					},
 					timeframe: {
 						label: "Timeframe",
-						placeholder: "e.g. sometime in the next three months, between June and August 2025…",
+						placeholder:
+							"e.g. sometime in the next three months, between June and August 2025…",
 					},
 				},
 				synastry: {
@@ -135,12 +159,13 @@ export const home: Record<Locale, HomeContent> = {
 					name: "Their full name",
 					dateOfBirth: "Their date of birth",
 					timeOfBirth: "Their time of birth",
-					timeOfBirthHint: "Please be as precise as possible — the exact minute is ideal.",
+					timeOfBirthHint: "Please be as precise as possible.",
 					cityOfBirth: "Their city of birth",
 					countryOfBirth: "Their country of birth",
 					concerns: {
 						label: "Specific concerns",
-						placeholder: "Is there a particular dynamic or question you would like to explore in this synastry?",
+						placeholder:
+							"Is there a particular dynamic or question you would like to explore in this synastry?",
 					},
 				},
 				terms: "I have read and accept the terms and conditions.",
@@ -183,24 +208,30 @@ export const home: Record<Locale, HomeContent> = {
 				email: "Endereço de email",
 				dateOfBirth: "Data de nascimento",
 				timeOfBirth: "Hora de nascimento",
-				timeOfBirthHint: "Seja o mais preciso possível — o minuto exacto é o ideal.",
+				timeOfBirthHint:
+					"Seja o mais preciso possível — o minuto exacto é o ideal.",
 				cityOfBirth: "Cidade de nascimento",
 				countryOfBirth: "País de nascimento",
 				typeLabel: "Tipo de consulta",
 				types: [
 					{ value: "natal", label: "Mapa natal" },
-					{ value: "natal-solar-return", label: "Mapa natal e revolução solar" },
+					{
+						value: "natal-solar-return",
+						label: "Mapa natal e revolução solar",
+					},
 					{ value: "horary", label: "Horária" },
 					{ value: "elective", label: "Eletiva" },
 					{ value: "synastry", label: "Sinastria" },
 				],
 				concerns: {
 					label: "Preocupações específicas",
-					placeholder: "Existe alguma área da vida ou tema particular que gostaria de explorar?",
+					placeholder:
+						"Existe alguma área da vida ou tema particular que gostaria de explorar?",
 				},
 				horary: {
 					label: "A sua pergunta",
-					placeholder: "Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la — as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante.",
+					placeholder:
+						"Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la — as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante.",
 				},
 				elective: {
 					subject: {
@@ -213,7 +244,8 @@ export const home: Record<Locale, HomeContent> = {
 					},
 					timeframe: {
 						label: "Período disponível",
-						placeholder: "ex: nos próximos três meses, entre junho e agosto de 2025…",
+						placeholder:
+							"ex: nos próximos três meses, entre junho e agosto de 2025…",
 					},
 				},
 				synastry: {
@@ -221,12 +253,14 @@ export const home: Record<Locale, HomeContent> = {
 					name: "Nome completo",
 					dateOfBirth: "Data de nascimento",
 					timeOfBirth: "Hora de nascimento",
-					timeOfBirthHint: "Seja o mais preciso possível — o minuto exacto é o ideal.",
+					timeOfBirthHint:
+						"Seja o mais preciso possível — o minuto exacto é o ideal.",
 					cityOfBirth: "Cidade de nascimento",
 					countryOfBirth: "País de nascimento",
 					concerns: {
 						label: "Preocupações específicas",
-						placeholder: "Existe alguma dinâmica ou questão particular que gostaria de explorar nesta sinastria?",
+						placeholder:
+							"Existe alguma dinâmica ou questão particular que gostaria de explorar nesta sinastria?",
 					},
 				},
 				terms: "Li e aceito os termos e condições.",

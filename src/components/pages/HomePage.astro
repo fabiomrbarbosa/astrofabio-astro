@@ -50,7 +50,7 @@ const { content } = Astro.props;
 			stroke-linecap="round"
 			stroke-linejoin="round"
 		>
-			<line x1="10" y1="0" x2="10" y2="20"></line>
+			<line x1="10" y1="0" x2="10" y2="22"></line>
 			<polyline points="2,14 10,24 18,14"></polyline>
 		</svg>
 	</div>
@@ -71,7 +71,7 @@ const { content } = Astro.props;
 		<p class="text-2xl max-md:text-xl leading-tight">
 			{content.hero.subheading}
 		</p>
-		<div class="flex max-md:flex-col gap-4 justify-center mt-8">
+		<div class="flex max-md:flex-col gap-4 items-center justify-center mt-8">
 			<a href={content.hero.ctaHref} class="button">{content.hero.cta}</a>
 			<a href={content.hero.ctaSecondaryHref} class="button button-alt"
 				>{content.hero.ctaSecondary}</a
@@ -81,16 +81,16 @@ const { content } = Astro.props;
 </section>
 
 <section
-	class="bg-accent relative -mx-(--spacing-outer) flex items-center py-8"
+	class="bg-secondary -mx-(--spacing-outer) flex items-center py-(--spacing-section)"
 >
 	<div
-		class="relative w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center text-white"
+		class="w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-xl text-white"
 	>
-		{content.intro.paragraphs.map((p) => <p class="mb-6 last:mb-0">{p}</p>)}
+		{content.intro.paragraphs.map((p) => <p class="mb-8 last:mb-0">{p}</p>)}
 	</div>
 </section>
 
-<section class="py-(--spacing-section)">
+<section class="-mx-(--spacing-outer) flex items-center py-(--spacing-section)">
 	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
 		<div class="bio-grid">
 			<div class="bio-image">
