@@ -9,7 +9,11 @@ const { form } = Astro.props;
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
-<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script
+	is:inline
+	src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+	async
+	defer></script>
 
 <form
 	id="consultation-form"
@@ -21,11 +25,23 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	<fieldset class="form-section">
 		<div class="form-field">
 			<label for="cf-name">{form.name}</label>
-			<input type="text" id="cf-name" name="name" required autocomplete="name" />
+			<input
+				type="text"
+				id="cf-name"
+				name="name"
+				required
+				autocomplete="name"
+			/>
 		</div>
 		<div class="form-field">
 			<label for="cf-email">{form.email}</label>
-			<input type="email" id="cf-email" name="email" required autocomplete="email" />
+			<input
+				type="email"
+				id="cf-email"
+				name="email"
+				required
+				autocomplete="email"
+			/>
 		</div>
 		<div class="form-row">
 			<div class="form-field">
@@ -45,7 +61,13 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 			</div>
 			<div class="form-field">
 				<label for="cf-country">{form.countryOfBirth}</label>
-				<input type="text" id="cf-country" name="countryOfBirth" required autocomplete="country-name" />
+				<input
+					type="text"
+					id="cf-country"
+					name="countryOfBirth"
+					required
+					autocomplete="country-name"
+				/>
 			</div>
 		</div>
 	</fieldset>
@@ -55,17 +77,25 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		<div class="form-field">
 			<label for="cf-type">{form.typeLabel}</label>
 			<select id="cf-type" name="consultationType" required autocomplete="off">
-				<option value="" disabled selected></option>
+				<option value="" disabled selected>{form.typePlaceholder}</option>
 				{form.types.map((t) => <option value={t.value}>{t.label}</option>)}
 			</select>
 		</div>
 	</fieldset>
 
 	<!-- Default concerns (natal, natal+SR) -->
-	<fieldset class="form-section dynamic-section" data-show-for="natal natal-solar-return" hidden>
+	<fieldset
+		class="form-section dynamic-section"
+		data-show-for="natal natal-solar-return"
+		hidden
+	>
 		<div class="form-field">
 			<label for="cf-concerns">{form.concerns.label}</label>
-			<textarea id="cf-concerns" name="concerns" rows="5" placeholder={form.concerns.placeholder}></textarea>
+			<textarea
+				id="cf-concerns"
+				name="concerns"
+				rows="5"
+				placeholder={form.concerns.placeholder}></textarea>
 		</div>
 	</fieldset>
 
@@ -73,30 +103,59 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	<fieldset class="form-section dynamic-section" data-show-for="horary" hidden>
 		<div class="form-field">
 			<label for="cf-horary">{form.horary.label}</label>
-			<textarea id="cf-horary" name="horaryQuestion" rows="6" placeholder={form.horary.placeholder}></textarea>
+			<textarea
+				id="cf-horary"
+				name="horaryQuestion"
+				rows="6"
+				placeholder={form.horary.placeholder}></textarea>
 		</div>
 	</fieldset>
 
 	<!-- Elective -->
-	<fieldset class="form-section dynamic-section" data-show-for="elective" hidden>
+	<fieldset
+		class="form-section dynamic-section"
+		data-show-for="elective"
+		hidden
+	>
 		<div class="form-field">
 			<label for="cf-elective-subject">{form.elective.subject.label}</label>
-			<input type="text" id="cf-elective-subject" name="electiveSubject" placeholder={form.elective.subject.placeholder} />
+			<input
+				type="text"
+				id="cf-elective-subject"
+				name="electiveSubject"
+				placeholder={form.elective.subject.placeholder}
+			/>
 		</div>
 		<div class="form-row">
 			<div class="form-field">
 				<label for="cf-elective-location">{form.elective.location.label}</label>
-				<input type="text" id="cf-elective-location" name="electiveLocation" placeholder={form.elective.location.placeholder} />
+				<input
+					type="text"
+					id="cf-elective-location"
+					name="electiveLocation"
+					placeholder={form.elective.location.placeholder}
+				/>
 			</div>
 			<div class="form-field">
-				<label for="cf-elective-timeframe">{form.elective.timeframe.label}</label>
-				<input type="text" id="cf-elective-timeframe" name="electiveTimeframe" placeholder={form.elective.timeframe.placeholder} />
+				<label for="cf-elective-timeframe"
+					>{form.elective.timeframe.label}</label
+				>
+				<input
+					type="text"
+					id="cf-elective-timeframe"
+					name="electiveTimeframe"
+					placeholder={form.elective.timeframe.placeholder}
+				/>
 			</div>
 		</div>
 	</fieldset>
 
 	<!-- Synastry -->
-	<fieldset class="form-section dynamic-section" data-show-for="synastry" hidden>
+	<fieldset
+		class="form-section dynamic-section"
+		data-show-for="synastry"
+		hidden
+	>
 		<legend class="form-section-heading">{form.synastry.otherHeading}</legend>
 		<div class="form-field">
 			<label for="cf-other-name">{form.synastry.name}</label>
@@ -125,7 +184,11 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		</div>
 		<div class="form-field">
 			<label for="cf-synastry-concerns">{form.synastry.concerns.label}</label>
-			<textarea id="cf-synastry-concerns" name="synastryConcerns" rows="5" placeholder={form.synastry.concerns.placeholder}></textarea>
+			<textarea
+				id="cf-synastry-concerns"
+				name="synastryConcerns"
+				rows="5"
+				placeholder={form.synastry.concerns.placeholder}></textarea>
 		</div>
 	</fieldset>
 
@@ -142,7 +205,8 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		class="cf-turnstile form-turnstile"
 		data-sitekey={siteKey}
 		data-theme="light"
-	></div>
+	>
+	</div>
 
 	<!-- Status messages -->
 	<div id="cf-success" class="form-status form-success" hidden></div>
@@ -156,7 +220,8 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 <script>
 	const form = document.getElementById("consultation-form") as HTMLFormElement;
 	const typeSelect = document.getElementById("cf-type") as HTMLSelectElement;
-	const dynamicSections = form.querySelectorAll<HTMLFieldSetElement>(".dynamic-section");
+	const dynamicSections =
+		form.querySelectorAll<HTMLFieldSetElement>(".dynamic-section");
 	const submitBtn = document.getElementById("cf-submit") as HTMLButtonElement;
 	const successEl = document.getElementById("cf-success") as HTMLDivElement;
 	const errorEl = document.getElementById("cf-error") as HTMLDivElement;
@@ -184,7 +249,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 				method: "POST",
 				body: new FormData(form),
 			});
-			const json = await res.json() as { message: string };
+			const json = (await res.json()) as { message: string };
 			if (res.ok) {
 				successEl.textContent = json.message;
 				successEl.hidden = false;
@@ -269,7 +334,9 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		color: var(--color-ink);
 		font-size: 1rem;
 		font-family: inherit;
-		transition: border-color 150ms ease, box-shadow 150ms ease;
+		transition:
+			border-color 150ms ease,
+			box-shadow 150ms ease;
 		resize: vertical;
 	}
 
@@ -283,12 +350,17 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 		resize: none;
 	}
 
+	.form-field textarea {
+		resize: vertical;
+	}
+
 	.form-field input:focus,
 	.form-field select:focus,
 	.form-field textarea:focus {
 		outline: none;
 		border-color: var(--color-accent);
-		box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+		box-shadow: 0 0 0 3px
+			color-mix(in srgb, var(--color-accent) 20%, transparent);
 	}
 
 	.form-field input::placeholder,

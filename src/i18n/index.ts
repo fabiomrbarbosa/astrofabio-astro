@@ -48,6 +48,7 @@ export interface HomeContent {
 			cityOfBirth: string;
 			countryOfBirth: string;
 			typeLabel: string;
+			typePlaceholder: string;
 			types: { value: string; label: string }[];
 			concerns: {
 				label: string;
@@ -118,6 +119,7 @@ export const home: Record<Locale, HomeContent> = {
 				cityOfBirth: "City of birth",
 				countryOfBirth: "Country of birth",
 				typeLabel: "Type of consultation",
+				typePlaceholder: "Please select a consultation type",
 				types: [
 					{ value: "natal", label: "Natal chart" },
 					{
@@ -212,6 +214,7 @@ export const home: Record<Locale, HomeContent> = {
 				cityOfBirth: "Cidade de nascimento",
 				countryOfBirth: "País de nascimento",
 				typeLabel: "Tipo de consulta",
+				typePlaceholder: "Por favor seleccione um tipo de consulta",
 				types: [
 					{ value: "natal", label: "Mapa natal" },
 					{

@@ -114,8 +114,7 @@
 		font-family: var(--font-sans);
 		font-size: 1rem;
 		line-height: var(--leading-relaxed);
-		padding-left: var(--spacing-outer);
-		padding-right: var(--spacing-outer);
+		overflow-x: hidden;
 	}
 
 	/* Headings */
