@@ -1,0 +1,336 @@
+---
+import type { HomeContent } from "../i18n";
+
+interface Props {
+	form: HomeContent["consultation"]["form"];
+}
+
+const { form } = Astro.props;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<form
+	id="consultation-form"
+	method="POST"
+	action="/api/consultation"
+	novalidate
+>
+	<!-- Personal details -->
+	<fieldset class="form-section">
+		<div class="form-field">
+			<label for="cf-name">{form.name}</label>
+			<input type="text" id="cf-name" name="name" required autocomplete="name" />
+		</div>
+		<div class="form-field">
+			<label for="cf-email">{form.email}</label>
+			<input type="email" id="cf-email" name="email" required autocomplete="email" />
+		</div>
+		<div class="form-row">
+			<div class="form-field">
+				<label for="cf-dob">{form.dateOfBirth}</label>
+				<input type="date" id="cf-dob" name="dateOfBirth" required />
+			</div>
+			<div class="form-field">
+				<label for="cf-tob">{form.timeOfBirth}</label>
+				<input type="time" id="cf-tob" name="timeOfBirth" required />
+				<p class="form-hint">{form.timeOfBirthHint}</p>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-field">
+				<label for="cf-city">{form.cityOfBirth}</label>
+				<input type="text" id="cf-city" name="cityOfBirth" required />
+			</div>
+			<div class="form-field">
+				<label for="cf-country">{form.countryOfBirth}</label>
+				<input type="text" id="cf-country" name="countryOfBirth" required autocomplete="country-name" />
+			</div>
+		</div>
+	</fieldset>
+
+	<!-- Consultation type -->
+	<fieldset class="form-section">
+		<div class="form-field">
+			<label for="cf-type">{form.typeLabel}</label>
+			<select id="cf-type" name="consultationType" required autocomplete="off">
+				<option value="" disabled selected></option>
+				{form.types.map((t) => <option value={t.value}>{t.label}</option>)}
+			</select>
+		</div>
+	</fieldset>
+
+	<!-- Default concerns (natal, natal+SR) -->
+	<fieldset class="form-section dynamic-section" data-show-for="natal natal-solar-return" hidden>
+		<div class="form-field">
+			<label for="cf-concerns">{form.concerns.label}</label>
+			<textarea id="cf-concerns" name="concerns" rows="5" placeholder={form.concerns.placeholder}></textarea>
+		</div>
+	</fieldset>
+
+	<!-- Horary -->
+	<fieldset class="form-section dynamic-section" data-show-for="horary" hidden>
+		<div class="form-field">
+			<label for="cf-horary">{form.horary.label}</label>
+			<textarea id="cf-horary" name="horaryQuestion" rows="6" placeholder={form.horary.placeholder}></textarea>
+		</div>
+	</fieldset>
+
+	<!-- Elective -->
+	<fieldset class="form-section dynamic-section" data-show-for="elective" hidden>
+		<div class="form-field">
+			<label for="cf-elective-subject">{form.elective.subject.label}</label>
+			<input type="text" id="cf-elective-subject" name="electiveSubject" placeholder={form.elective.subject.placeholder} />
+		</div>
+		<div class="form-row">
+			<div class="form-field">
+				<label for="cf-elective-location">{form.elective.location.label}</label>
+				<input type="text" id="cf-elective-location" name="electiveLocation" placeholder={form.elective.location.placeholder} />
+			</div>
+			<div class="form-field">
+				<label for="cf-elective-timeframe">{form.elective.timeframe.label}</label>
+				<input type="text" id="cf-elective-timeframe" name="electiveTimeframe" placeholder={form.elective.timeframe.placeholder} />
+			</div>
+		</div>
+	</fieldset>
+
+	<!-- Synastry -->
+	<fieldset class="form-section dynamic-section" data-show-for="synastry" hidden>
+		<legend class="form-section-heading">{form.synastry.otherHeading}</legend>
+		<div class="form-field">
+			<label for="cf-other-name">{form.synastry.name}</label>
+			<input type="text" id="cf-other-name" name="otherName" />
+		</div>
+		<div class="form-row">
+			<div class="form-field">
+				<label for="cf-other-dob">{form.synastry.dateOfBirth}</label>
+				<input type="date" id="cf-other-dob" name="otherDateOfBirth" />
+			</div>
+			<div class="form-field">
+				<label for="cf-other-tob">{form.synastry.timeOfBirth}</label>
+				<input type="time" id="cf-other-tob" name="otherTimeOfBirth" />
+				<p class="form-hint">{form.synastry.timeOfBirthHint}</p>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-field">
+				<label for="cf-other-city">{form.synastry.cityOfBirth}</label>
+				<input type="text" id="cf-other-city" name="otherCityOfBirth" />
+			</div>
+			<div class="form-field">
+				<label for="cf-other-country">{form.synastry.countryOfBirth}</label>
+				<input type="text" id="cf-other-country" name="otherCountryOfBirth" />
+			</div>
+		</div>
+		<div class="form-field">
+			<label for="cf-synastry-concerns">{form.synastry.concerns.label}</label>
+			<textarea id="cf-synastry-concerns" name="synastryConcerns" rows="5" placeholder={form.synastry.concerns.placeholder}></textarea>
+		</div>
+	</fieldset>
+
+	<!-- Terms -->
+	<div class="form-field form-terms">
+		<label class="form-checkbox">
+			<input type="checkbox" name="terms" required />
+			<span>{form.terms}</span>
+		</label>
+	</div>
+
+	<!-- Turnstile challenge -->
+	<div
+		class="cf-turnstile form-turnstile"
+		data-sitekey={siteKey}
+		data-theme="light"
+	></div>
+
+	<!-- Status messages -->
+	<div id="cf-success" class="form-status form-success" hidden></div>
+	<div id="cf-error" class="form-status form-error" hidden></div>
+
+	<button type="submit" class="button w-full mt-2" id="cf-submit">
+		{form.submit}
+	</button>
+</form>
+
+<script>
+	const form = document.getElementById("consultation-form") as HTMLFormElement;
+	const typeSelect = document.getElementById("cf-type") as HTMLSelectElement;
+	const dynamicSections = form.querySelectorAll<HTMLFieldSetElement>(".dynamic-section");
+	const submitBtn = document.getElementById("cf-submit") as HTMLButtonElement;
+	const successEl = document.getElementById("cf-success") as HTMLDivElement;
+	const errorEl = document.getElementById("cf-error") as HTMLDivElement;
+
+	function updateSections() {
+		const val = typeSelect.value;
+		dynamicSections.forEach((section) => {
+			const showFor = (section.dataset.showFor ?? "").split(" ");
+			section.hidden = !showFor.includes(val);
+		});
+	}
+
+	typeSelect.addEventListener("change", updateSections);
+	// Run once on load in case the browser pre-fills the select
+	updateSections();
+
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		successEl.hidden = true;
+		errorEl.hidden = true;
+		submitBtn.disabled = true;
+
+		try {
+			const res = await fetch("/api/consultation", {
+				method: "POST",
+				body: new FormData(form),
+			});
+			const json = await res.json() as { message: string };
+			if (res.ok) {
+				successEl.textContent = json.message;
+				successEl.hidden = false;
+				form.reset();
+				updateSections();
+				(globalThis as any).turnstile?.reset();
+			} else {
+				errorEl.textContent = json.message;
+				errorEl.hidden = false;
+				(globalThis as any).turnstile?.reset();
+			}
+		} catch {
+			errorEl.textContent = "Something went wrong. Please try again.";
+			errorEl.hidden = false;
+			(globalThis as any).turnstile?.reset();
+		} finally {
+			submitBtn.disabled = false;
+		}
+	});
+</script>
+
+<style>
+	.form-section {
+		border: none;
+		padding: 0;
+		margin: 0 0 1.5rem;
+	}
+
+	.form-section-heading {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-contrast);
+		margin-bottom: 1rem;
+		padding: 0;
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	@media (max-width: 640px) {
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.form-field {
+		margin-bottom: 1rem;
+	}
+
+	.form-field label:not(.form-checkbox) {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-contrast);
+		margin-bottom: 0.375rem;
+	}
+
+	.form-hint {
+		margin-top: 0.375rem;
+		font-size: 0.8rem;
+		color: var(--color-muted);
+	}
+
+	.form-field input:not([type="checkbox"]),
+	.form-field select,
+	.form-field textarea {
+		width: 100%;
+		padding: 0.625rem 0.875rem;
+		border: 1px solid var(--color-overlay);
+		border-radius: 4px;
+		background-color: var(--color-base);
+		color: var(--color-ink);
+		font-size: 1rem;
+		font-family: inherit;
+		transition: border-color 150ms ease, box-shadow 150ms ease;
+		resize: vertical;
+	}
+
+	.form-field select {
+		cursor: pointer;
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236e6d68' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 0.875rem center;
+		padding-right: 2.5rem;
+		resize: none;
+	}
+
+	.form-field input:focus,
+	.form-field select:focus,
+	.form-field textarea:focus {
+		outline: none;
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+	}
+
+	.form-field input::placeholder,
+	.form-field textarea::placeholder {
+		color: var(--color-muted);
+	}
+
+	.form-terms {
+		margin-top: 0.5rem;
+	}
+
+	.form-turnstile {
+		margin: 1rem 0;
+	}
+
+	.form-checkbox {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.625rem;
+		font-size: 0.875rem;
+		color: var(--color-ink);
+		cursor: pointer;
+	}
+
+	.form-checkbox input[type="checkbox"] {
+		width: 1rem;
+		height: 1rem;
+		flex-shrink: 0;
+		margin-top: 0.1rem;
+		accent-color: var(--color-accent);
+		cursor: pointer;
+	}
+
+	.form-status {
+		padding: 0.75rem 1rem;
+		border-radius: 4px;
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
+	}
+
+	.form-success {
+		background-color: color-mix(in srgb, #3d9e6b 15%, transparent);
+		color: #1d5e3e;
+		border: 1px solid color-mix(in srgb, #3d9e6b 40%, transparent);
+	}
+
+	.form-error {
+		background-color: color-mix(in srgb, #c0392b 12%, transparent);
+		color: #7b1d16;
+		border: 1px solid color-mix(in srgb, #c0392b 35%, transparent);
+	}
+</style>
