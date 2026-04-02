@@ -1,6 +1,6 @@
 ---
 import { getEntry } from "astro:content";
-import { defaultLocale, type Locale } from "../../i18n/site";
+import { defaultLocale, type Locale, ui } from "../../i18n/site";
 
 import iconNatal from "../../assets/icons/icon-natal.svg?raw";
 import iconNatalSolarReturn from "../../assets/icons/icon-natal-solar-return.svg?raw";
@@ -20,6 +20,7 @@ const icons: Record<string, string> = {
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("consultations", locale);
 const content = entry!.data;
+const { bookCta, learnMore } = ui[locale];
 ---
 
 <img
@@ -43,10 +44,17 @@ const content = entry!.data;
 		<p class="text-xl md:text-2xl max-w-2xl mx-auto">
 			{content.hero.lead}
 		</p>
+		<div class="flex max-md:flex-col gap-4 items-center justify-center mt-8">
+			<a href="#book" class="button">{bookCta}</a>
+			<a href="#cards-track" class="button button-alt">{learnMore}</a>
+		</div>
 	</div>
 </section>
 
-<div class="cards-track max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+<div
+	id="cards-track"
+	class="cards-track max-w-(--width-wide) mx-auto px-(--spacing-outer)"
+>
 	{
 		content.types.map((type, i) => (
 			<article class="card" style={`--i: ${i}`}>
@@ -67,13 +75,16 @@ const content = entry!.data;
 							<p set:html={p} />
 						))}
 					</div>
+					<a href={`?type=${type.id}#book`} class="button mt-8 inline-block">
+						{bookCta}
+					</a>
 				</div>
 			</article>
 		))
 	}
 </div>
 
-<section class="bg-overlay py-(--spacing-section)">
+<section id="book" class="bg-overlay py-(--spacing-section)">
 	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
 		<div class="consultation-grid">
 			<div class="consultation-form">
@@ -109,7 +120,7 @@ const content = entry!.data;
 	.card {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
-		gap: 5rem;
+		gap: 4rem;
 		align-items: start;
 		background-color: var(--color-base);
 		border: 1px solid var(--color-overlay);
@@ -122,7 +133,10 @@ const content = entry!.data;
 	@media (min-width: 641px) {
 		.card {
 			position: sticky;
-			top: calc(7rem + var(--i) * 1.5rem);
+			align-items: center;
+			top: calc(7rem + var(--i) * 1rem);
+			min-height: calc(100vh - 20rem);
+			margin-bottom: 5rem;
 			z-index: calc(var(--i) + 1);
 		}
 	}

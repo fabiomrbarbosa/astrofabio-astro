@@ -3,9 +3,7 @@ hero:
     - Look at your life
     - through the mirror of the sky.
   subheading: Through traditional Astrology, you can better understand who you are and consider which paths lie ahead.
-  cta: Book a consultation
-  ctaHref: "mailto:fabio@astrofabio.com"
-  ctaSecondary: Learn more
+  ctaHref: "#book"
   ctaSecondaryHref: "#"
 
 intro:

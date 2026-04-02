@@ -39,6 +39,8 @@ export const ui = {
 		switchLang: "PT",
 		switchLangHref: "/pt",
 		switchLangAriaLabel: "Ver em Português",
+		bookCta: "Book a consultation",
+		learnMore: "Learn more",
 	},
 	pt: {
 		menuOpen: "Abrir menu",
@@ -47,6 +49,8 @@ export const ui = {
 		switchLang: "EN",
 		switchLangHref: "/",
 		switchLangAriaLabel: "Switch to English",
+		bookCta: "Marcar consulta",
+		learnMore: "Saber mais",
 	},
 } as const;
 

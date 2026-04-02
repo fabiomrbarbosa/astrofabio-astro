@@ -3,9 +3,7 @@ hero:
     - Olhe para a sua vida
     - pelo espelho do céu.
   subheading: Com a Astrologia tradicional, poderá compreender melhor quem é e avaliar que caminhos tem à sua frente.
-  cta: Marcar consulta
-  ctaHref: "mailto:fabio@astrofabio.com"
-  ctaSecondary: Saber mais
+  ctaHref: "#book"
   ctaSecondaryHref: "#"
 
 intro:

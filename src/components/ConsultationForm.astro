@@ -296,9 +296,6 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	if (typeParam && validTypes.includes(typeParam)) {
 		typeSelect.value = typeParam;
 		updateSections();
-		document
-			.getElementById("consultation-form")
-			?.scrollIntoView({ behavior: "smooth", block: "start" });
 	}
 
 	typeSelect.addEventListener("change", () => {

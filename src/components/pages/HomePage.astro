@@ -1,11 +1,12 @@
 ---
 import { getEntry } from "astro:content";
-import { defaultLocale, type Locale } from "../../i18n/site";
+import { defaultLocale, type Locale, ui } from "../../i18n/site";
 import ConsultationForm from "../ConsultationForm.astro";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("home", locale);
 const content = entry!.data;
+const { bookCta, learnMore } = ui[locale];
 ---
 
 <img
@@ -77,9 +78,9 @@ const content = entry!.data;
 			{content.hero.subheading}
 		</p>
 		<div class="flex max-md:flex-col gap-4 items-center justify-center mt-8">
-			<a href={content.hero.ctaHref} class="button">{content.hero.cta}</a>
+			<a href={content.hero.ctaHref} class="button">{bookCta}</a>
 			<a href={content.hero.ctaSecondaryHref} class="button button-alt"
-				>{content.hero.ctaSecondary}</a
+				>{learnMore}</a
 			>
 		</div>
 	</div>
@@ -119,7 +120,7 @@ const content = entry!.data;
 	</div>
 </section>
 
-<section class="bg-overlay py-(--spacing-section)">
+<section id="book" class="bg-overlay py-(--spacing-section)">
 	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
 		<div class="consultation-grid">
 			<div class="consultation-intro">

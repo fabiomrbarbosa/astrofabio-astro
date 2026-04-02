@@ -13,9 +13,7 @@ const home = defineCollection({
 		hero: z.object({
 			heading: z.array(z.string()),
 			subheading: z.string(),
-			cta: z.string(),
 			ctaHref: z.string(),
-			ctaSecondary: z.string(),
 			ctaSecondaryHref: z.string(),
 		}),
 		intro: z.object({

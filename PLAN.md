@@ -90,7 +90,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Cloudflare Turnstile integration
 - [x] Mailgun EU API route (`/api/consultation`)
 - [x] Form localStorage persistence (save on input, restore on load, clear on submit)
-- [x] URL `?type=` param pre-selection with auto-scroll
+- [x] URL `?type=` param pre-selection (scroll handled by `#book` hash)
 - [x] Hidden fieldset inputs disabled to exclude from FormData
 - [x] Synastry relationship field (mandatory, EN + PT)
 - [x] Synastry second person's time of birth enforced as required
@@ -114,6 +114,10 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `/pt/consultas` page (PT)
 - [x] `consultations` collection in `content.config.ts` with EN + PT YAML
 - [x] Consultation type icon SVGs (`icon-natal.svg`, `icon-horary.svg`, etc.)
+- [x] Consultations page hero CTAs (Book → `#book`, Learn more → `#cards-track`)
+- [x] Per-card Book CTA (links to `?type=${id}#book`, pre-selects type in form)
+- [x] `bookCta` / `learnMore` UI strings consolidated in `site.ts` (removed from home YAML)
+- [x] Home and consultations page `#book` anchor on the form section
 - [ ] `/about` page (EN) — MDX content at `src/content/about/en.mdx`
 - [ ] `/about` page (PT) — MDX content at `src/content/about/pt.mdx`
 - [ ] `about` collection defined in `content.config.ts`
@@ -152,7 +156,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 1. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout (photo + long-form copy, possibly reusing bio-grid pattern).
 2. **Create `/terms` page** — simpler: plain MDX, no special layout needed.
 3. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; page renders with an empty grey box.
-4. **Wire up hero CTA** — `ctaSecondaryHref` on the hero is `"#"` for both locales; decide what it links to (the `/about` page, the `/consultations` page, or the bio section anchor).
+4. **Wire up secondary CTA** — `ctaSecondaryHref` on the home page hero is still `"#"`; decide what it links to (the `/about` page, the `/consultations` page, or the bio section anchor).
 
 ---
 
