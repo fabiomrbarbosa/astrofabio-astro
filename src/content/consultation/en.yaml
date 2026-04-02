@@ -23,22 +23,22 @@ concerns:
   placeholder: Is there a particular area of life or theme you would like to focus on?
 horary:
   label: Your question
-  placeholder: "State your question as precisely as you can. Feel free to add any context that might help me understand it: the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant."
+  placeholder: "Please state your question as clearly and precisely as possible. If you have any doubts, feel free to provide some context, such as the circumstances that led to your question and any other details you consider relevant."
 elective:
   subject:
     label: What are you choosing a time for?
-    placeholder: "e.g. signing a contract, starting a business, getting married\u2026"
+    placeholder: "e.g. signing a contract, starting a business, traveling\u2026"
   location:
     label: Where will it take place?
     placeholder: City and country
   timeframe:
     label: Timeframe
-    placeholder: "e.g. sometime in the next three months, between June and August 2025\u2026"
+    placeholder: "e.g. sometime in the next month, between June and August this year\u2026"
 synastry:
   otherHeading: The other person
   relationship:
     label: Your relationship to this person
-    placeholder: "e.g. romantic partner, spouse, friend, sibling, colleague, parent\u2026"
+    placeholder: "e.g. romantic partner, spouse, relative, friend, work colleague\u2026"
   name: Their full name
   dateOfBirth: Their date of birth
   timeOfBirth: Their time of birth

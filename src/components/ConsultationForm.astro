@@ -118,34 +118,29 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	>
 		<div class="form-field">
 			<label for="cf-elective-subject">{form.elective.subject.label}</label>
-			<input
-				type="text"
+			<textarea
 				id="cf-elective-subject"
 				name="electiveSubject"
-				placeholder={form.elective.subject.placeholder}
+				rows="4"
+				placeholder={form.elective.subject.placeholder}></textarea>
+		</div>
+		<div class="form-field">
+			<label for="cf-elective-location">{form.elective.location.label}</label>
+			<input
+				type="text"
+				id="cf-elective-location"
+				name="electiveLocation"
+				placeholder={form.elective.location.placeholder}
 			/>
 		</div>
-		<div class="form-row">
-			<div class="form-field">
-				<label for="cf-elective-location">{form.elective.location.label}</label>
-				<input
-					type="text"
-					id="cf-elective-location"
-					name="electiveLocation"
-					placeholder={form.elective.location.placeholder}
-				/>
-			</div>
-			<div class="form-field">
-				<label for="cf-elective-timeframe"
-					>{form.elective.timeframe.label}</label
-				>
-				<input
-					type="text"
-					id="cf-elective-timeframe"
-					name="electiveTimeframe"
-					placeholder={form.elective.timeframe.placeholder}
-				/>
-			</div>
+		<div class="form-field">
+			<label for="cf-elective-timeframe">{form.elective.timeframe.label}</label>
+			<input
+				type="text"
+				id="cf-elective-timeframe"
+				name="electiveTimeframe"
+				placeholder={form.elective.timeframe.placeholder}
+			/>
 		</div>
 	</fieldset>
 

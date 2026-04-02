@@ -1,0 +1,42 @@
+hero:
+  heading: Consultations
+  lead: "# TODO: write hero lead"
+
+types:
+  - id: natal
+    title: Natal Chart Reading
+    paragraphs:
+      - "Your natal chart is a precise map of the sky at the moment you were born — and by extension, of the conditions of the world around you at that time. It describes not only your character and temperament, but also your circumstances: your family, your relationships, your vocation, your potential for prosperity."
+      - To read your natal chart, I will need your date, time, and place of birth. Please be as precise as possible with the data you provide.
+      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification process, in which we compare key moments from your personal history against the planetary cycles that began at your birth.
+
+  - id: natal-solar-return
+    title: Natal Chart and Current Year
+    paragraphs:
+      - Your natal chart corresponds to a fixed moment in time. But the sky continues to move, engaging with the promises inscribed in your nativity and creating, cycle after cycle, new opportunities for them to manifest according to present conditions. In other words, each birthday opens a new chapter in your personal story.
+      - "In this consultation, we revisit your natal chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the moment you are moving through and the tendencies ahead."
+      - This reading is typically done around the time of a birthday, but it can be carried out at any point in the year.
+
+  - id: horary
+    discipline: Horary Astrology
+    title: A Specific Question
+    paragraphs:
+      - Horary astrology addresses concrete questions about something that is personally affecting you at a given moment.
+      - "As is customary in this branch, I will cast a chart for the moment I properly understand your question. If I need more context, I will be in touch before proceeding. A well-formed question is essential for a valid chart."
+      - "<strong>I reserve the right not to answer questions I consider ethically dubious. I also do not make medical diagnoses or provide legal advice.</strong> In any critical situation, I will always encourage you to consult the appropriate professionals so that you can make a fully informed decision."
+
+  - id: elective
+    discipline: Electional Astrology
+    title: Choosing a Moment
+    paragraphs:
+      - Not all moments are equal, nor do they offer the same conditions for pursuing our goals. Electional astrology identifies, within a given period of time, the most favourable moments for specific undertakings — such as signing a contract, a medical procedure, a launch, or a journey.
+      - To do this, I ask that you tell me the nature of the event and provide a realistic window within which you intend to act. The more specific the timeframe, the more effective this process will be. Your birth data will also be useful.
+      - "<strong>An astrological election is not an absolute guarantee of success.</strong> The aim is to maximise the opportunities available to you, according to the configurations of the moment and your own natal chart."
+
+  - id: synastry
+    discipline: Synastry
+    title: Relationship Reading
+    paragraphs:
+      - "Through synastry, we can analyse the relationship between two people — romantic partners, family members, friends, colleagues — by comparing both natal charts. The comparison of the configurations in each nativity makes it possible to identify shared traits and factors of harmony, and to flag potential points of friction."
+      - "For this consultation, it is essential that both participants are present and give their full consent. The purpose is not to feed any latent conflicts, but to foster a genuine interest in one another's wellbeing and in the health of the relationship."
+      - "<strong>A synastry consultation is not a substitute for psychological support if that is what the situation calls for.</strong>"

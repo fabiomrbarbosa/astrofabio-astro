@@ -1,0 +1,152 @@
+---
+import { getEntry } from "astro:content";
+import { defaultLocale, type Locale } from "../../i18n/site";
+
+import iconNatal from "../../assets/icons/icon-natal.svg?raw";
+import iconNatalSolarReturn from "../../assets/icons/icon-natal-solar-return.svg?raw";
+import iconHorary from "../../assets/icons/icon-horary.svg?raw";
+import iconElective from "../../assets/icons/icon-elective.svg?raw";
+import iconSynastry from "../../assets/icons/icon-synastry.svg?raw";
+
+const icons: Record<string, string> = {
+	natal: iconNatal,
+	"natal-solar-return": iconNatalSolarReturn,
+	horary: iconHorary,
+	elective: iconElective,
+	synastry: iconSynastry,
+};
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const entry = await getEntry("consultations", locale);
+const content = entry!.data;
+---
+
+<section
+	class="relative w-full flex items-center py-(--spacing-section) min-h-[60vh]"
+>
+	<div
+		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
+	>
+		<h1
+			class="text-7xl max-md:text-5xl font-serif tracking-tight leading-none mb-6"
+		>
+			{content.hero.heading}
+		</h1>
+		<p class="text-xl md:text-2xl max-w-2xl mx-auto">
+			{content.hero.lead}
+		</p>
+	</div>
+</section>
+
+<div class="cards-track max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+	{
+		content.types.map((type, i) => (
+			<article class="card" style={`--i: ${i}`}>
+				<div
+					class="w-full card-icon"
+					aria-hidden="true"
+					set:html={icons[type.id]}
+				/>
+				<div>
+					{type.discipline && (
+						<p class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-2">
+							{type.discipline}
+						</p>
+					)}
+					<h2 class="card-title font-serif">{type.title}</h2>
+					<div class="card-body">
+						{type.paragraphs.map((p) => (
+							<p set:html={p} />
+						))}
+					</div>
+				</div>
+			</article>
+		))
+	}
+</div>
+
+<div class="h-24"></div>
+
+<style>
+	/* ── Track ───────────────────────────────────────────────────────── */
+
+	.cards-track {
+		padding-bottom: 2rem;
+	}
+
+	/* ── Card
+	   position:sticky is on the card itself — its own content height
+	   becomes the dwell time before the next card slides over it. ── */
+
+	.card {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		align-items: start;
+		background-color: var(--color-base);
+		border: 1px solid var(--color-overlay);
+		border-radius: 16px;
+		padding: 3rem;
+		margin-bottom: 2rem;
+		box-shadow:
+			0 4px 24px color-mix(in srgb, var(--color-ink) 6%, transparent),
+			0 1px 4px color-mix(in srgb, var(--color-ink) 8%, transparent);
+	}
+
+	@media (min-width: 641px) {
+		.card {
+			position: sticky;
+			top: calc(7rem + var(--i) * 1.5rem);
+			z-index: calc(var(--i) + 1);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.card {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			padding: 2rem 1.5rem;
+			border-radius: 12px;
+		}
+	}
+
+	/* ── Icon ────────────────────────────────────────────────────────── */
+
+	.card-icon :global(svg) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	@media (max-width: 640px) {
+		.card-icon :global(svg) {
+			max-width: 10rem;
+		}
+	}
+
+	/* ── Card title ─────────────────────────────────────────────────── */
+
+	.card-title {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		line-height: 1.15;
+		color: var(--color-contrast);
+		margin: 0 0 2rem;
+	}
+
+	/* ── Card body (set:html descendants) ───────────────────────────── */
+
+	.card-body p {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+		color: var(--color-ink);
+	}
+
+	.card-body p:last-child {
+		margin-bottom: 0;
+	}
+
+	.card-body strong {
+		color: var(--color-contrast);
+		font-weight: 600;
+	}
+</style>

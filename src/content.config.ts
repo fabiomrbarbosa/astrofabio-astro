@@ -68,4 +68,22 @@ const consultation = defineCollection({
 	}),
 });
 
-export const collections = { home, consultation };
+const consultationType = z.object({
+	id: z.string(),
+	discipline: z.string().optional(),
+	title: z.string(),
+	paragraphs: z.array(z.string()),
+});
+
+const consultations = defineCollection({
+	loader: glob({ pattern: '*.yaml', base: './src/content/consultations' }),
+	schema: z.object({
+		hero: z.object({
+			heading: z.string(),
+			lead: z.string(),
+		}),
+		types: z.array(consultationType),
+	}),
+});
+
+export const collections = { home, consultation, consultations };

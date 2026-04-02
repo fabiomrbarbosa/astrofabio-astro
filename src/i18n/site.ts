@@ -12,7 +12,10 @@ export const htmlLang: Record<Locale, string> = {
 // Site identity and SEO metadata
 export const siteName = "Fábio Barbosa";
 
-export const siteMeta: Record<Locale, { tagline: string; title: string; description: string }> = {
+export const siteMeta: Record<
+	Locale,
+	{ tagline: string; title: string; description: string }
+> = {
 	en: {
 		tagline: "Astrology",
 		title: "Fábio Barbosa | Astrology",
@@ -51,11 +54,11 @@ export const navLinks = {
 	en: [
 		{ href: "/about", label: "About" },
 		{ href: "/consultations", label: "Consultations" },
-		{ href: "/calculator", label: "Calculator" },
+		{ href: "/software", label: "Software" },
 	],
 	pt: [
 		{ href: "/pt/sobre", label: "Sobre" },
 		{ href: "/pt/consultas", label: "Consultas" },
-		{ href: "/pt/calculadora", label: "Calculadora" },
+		{ href: "/pt/software", label: "Software" },
 	],
 } as const;

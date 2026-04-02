@@ -15,7 +15,7 @@ types:
   - value: horary
     label: "Horária"
   - value: elective
-    label: Eletiva
+    label: Electiva
   - value: synastry
     label: Sinastria
 concerns:
@@ -23,22 +23,22 @@ concerns:
   placeholder: Existe alguma área da vida ou tema particular que gostaria de explorar?
 horary:
   label: A sua pergunta
-  placeholder: "Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la: as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante."
+  placeholder: "Formule a sua pergunta da forma mais directa e precisa possível. Em caso de dúvida, sinta-se à vontade para contextualizar a sua questão, como por exemplo as circunstâncias que a motivaram e o que mais considerar relevante."
 elective:
   subject:
     label: Para que evento quer escolher um momento?
-    placeholder: "ex: assinar um contrato, iniciar um negócio, casar\u2026"
+    placeholder: "ex.: assinar um contrato, iniciar um negócio, viajar\u2026"
   location:
     label: Onde vai acontecer?
     placeholder: Cidade e país
   timeframe:
     label: "Período disponível"
-    placeholder: "ex: nos próximos três meses, entre junho e agosto de 2025\u2026"
+    placeholder: "ex.: durante o próximo mês, entre Junho e Agosto deste ano\u2026"
 synastry:
   otherHeading: A outra pessoa
   relationship:
     label: A sua relação com esta pessoa
-    placeholder: "ex: parceiro/a romântico/a, cônjuge, amigo/a, irmão/irmã, colega, familiar\u2026"
+    placeholder: "ex.: parceiro/a, cônjuge, familiar, amigo/a, colega de trabalho\u2026"
   name: Nome completo
   dateOfBirth: Data de nascimento
   timeOfBirth: Hora de nascimento

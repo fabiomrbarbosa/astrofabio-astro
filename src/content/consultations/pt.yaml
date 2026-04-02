@@ -1,0 +1,42 @@
+hero:
+  heading: Consultas
+  lead: "# TODO: escrever lead do hero"
+
+types:
+  - id: natal
+    title: Estudo do Mapa Natal
+    paragraphs:
+      - "O seu mapa natal é uma representação precisa do céu no momento em que nasceu, e por conseguinte, também das condições do mundo à sua volta. Ou seja, o mapa natal descreve não só o seu carácter e temperamento, mas também as suas circunstâncias: a sua família, os seus relacionamentos, a sua vocação, o seu potencial de prosperidade."
+      - Para analisar o seu mapa natal, precisará de me fornecer a data, hora e local do seu nascimento. Peço que seja o mais preciso possível nos dados que me fornecer.
+      - Caso esteja em dúvida quanto à hora que nasceu e não possa aceder à sua certidão de nascimento, podemos arriscar uma estimativa através de um processo de rectificação, em que comparamos certos momentos-chave da sua história pessoal com os ciclos planetários que terão tido início no seu nascimento.
+
+  - id: natal-solar-return
+    title: Estudo do Mapa Natal e do Ano em Curso
+    paragraphs:
+      - O seu mapa natal corresponde a um momento fixo no tempo. Mas o céu continua em movimento, interagindo com as promessas inscritas na sua natividade e criando, ciclo após ciclo, novas oportunidades para que elas se manifestem de acordo com as condições presentes. Por outras palavras, cada aniversário abre um novo capítulo na sua história pessoal.
+      - "Nesta consulta, revisitamos o seu mapa natal em conjunto com os indicadores actuais (com recurso a técnicas como firdaria, profecções, revolução solar, trânsitos, direcções primárias) para lhe dar uma imagem clara do momento que está agora a atravessar e das tendências futuras."
+      - Geralmente, este estudo é feito por altura do aniversário, mas pode ser realizado em qualquer altura.
+
+  - id: horary
+    discipline: Astrologia Horária
+    title: Questão Concreta
+    paragraphs:
+      - A astrologia horária propõe-se responder a questões específicas sobre algum tema que lhe esteja a afectar pessoalmente em determinado momento.
+      - "Como é prática neste ramo, levantarei um mapa para o instante em que compreender devidamente a sua pergunta. Caso eu precise de mais contexto, entrarei em contacto antes de prosseguir. Uma pergunta bem formulada é essencial para um mapa válido."
+      - "<strong>Reservo o direito de não responder a questões que considere eticamente dúbias. Sublinho também que não faço diagnósticos médicos nem presto aconselhamento legal.</strong> Em qualquer situação crítica, incentivarei sempre a que recorra também aos profissionais adequados para que possa fazer uma decisão plenamente informada."
+
+  - id: elective
+    discipline: Astrologia Electiva
+    title: Eleição de um Momento
+    paragraphs:
+      - Nem todos os momentos são iguais nem oferecem as mesmas condições para concretizarmos os nossos objectivos. A astrologia electiva identifica dentro de um determinado período de tempo os momentos mais favoráveis para determinados empreendimentos, como por exemplo a assinatura de um contrato, um procedimento médico, um lançamento ou uma viagem.
+      - "Para tal, peço-lhe que me informe da natureza do evento e forneça um período realista dentro do qual pretende pôr em prática os seus planos. Quanto mais específico o limite temporal, mais eficaz será este processo. Também me será útil dispor dos seus dados de nascimento."
+      - "<strong>Uma eleição astrológica não é garantia absoluta de sucesso.</strong> O objectivo é maximizar as oportunidades ao seu dispor, segundo as configurações do momento e do seu próprio mapa natal."
+
+  - id: synastry
+    discipline: Sinastria
+    title: Estudo da Relação
+    paragraphs:
+      - "Através da sinastria, podemos fazer a análise da relação entre duas pessoas (parceiros amorosos, familiares, amigos, colegas) a partir de ambos os seus mapas natais. A comparação das configurações de uma e outra natividade permite identificar traços em comum e factores de harmonia, e também alertar para eventuais pontos de atrito."
+      - "Para esta consulta, é fundamental que ambos os participantes estejam presentes e dêem o seu pleno consentimento. O propósito não é alimentar quaisquer conflitos latentes, mas sim fomentar o interesse pelo bem-estar um do outro e da relação."
+      - "<strong>Uma consulta de sinastria não substitui um eventual acompanhamento psicológico.</strong>"

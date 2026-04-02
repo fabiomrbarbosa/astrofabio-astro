@@ -12,6 +12,15 @@ const meta = siteMeta[locale];
 const navLinks = allNavLinks[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
 const currentPath = Astro.url.pathname;
+
+// Derive the alternate-locale URL from navLinks instead of a separate map.
+// Match the current path in the current locale's nav, then pick the same index
+// from the other locale's nav. Fall back to the target locale's root.
+const currentNavIndex = (allNavLinks[locale] as readonly { href: string }[])
+	.findIndex((l) => l.href === currentPath);
+const switchLangHref = currentNavIndex !== -1
+	? allNavLinks[targetLocale][currentNavIndex].href
+	: t.switchLangHref;
 ---
 
 <header
@@ -92,7 +101,7 @@ const currentPath = Astro.url.pathname;
 			<span class="lang-current">{locale.toUpperCase()}</span>
 			<span class="lang-sep">/</span>
 			<a
-				href={t.switchLangHref}
+				href={switchLangHref}
 				aria-label={t.switchLangAriaLabel}
 				class="nav-link text-sm"
 				data-lang-switch
@@ -148,7 +157,7 @@ const currentPath = Astro.url.pathname;
 				<span class="lang-current">{locale.toUpperCase()}</span>
 				<span class="lang-sep">/</span>
 				<a
-					href={t.switchLangHref}
+					href={switchLangHref}
 					aria-label={t.switchLangAriaLabel}
 					class="nav-link text-sm"
 					data-lang-switch

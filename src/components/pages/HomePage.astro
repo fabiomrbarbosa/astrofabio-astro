@@ -17,7 +17,7 @@ const content = entry!.data;
 
 <section
 	id="hero-section"
-	class="relative w-full min-h-screen flex items-center py-(--spacing-section) overflow-hidden"
+	class="relative w-full min-h-[95vh] flex items-center py-(--spacing-section) overflow-hidden"
 >
 	<div class="hero-circles" aria-hidden="true">
 		<div class="circles-stack">
@@ -86,10 +86,10 @@ const content = entry!.data;
 </section>
 
 <section
-	class="bg-secondary flex items-center py-(--spacing-section) md:mx-8 lg:mx-(--spacing-outer) md:rounded-3xl"
+	class="bg-secondary flex items-center py-(--spacing-section) mx-4 md:mx-8 lg:mx-(--spacing-outer) rounded-3xl"
 >
 	<div
-		class="w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-xl text-white"
+		class="w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-l md:text-xl text-white"
 	>
 		{
 			content.intro.paragraphs.map((p) => (
