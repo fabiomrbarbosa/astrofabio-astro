@@ -51,7 +51,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Stage 4 — Secondary Pages 🔄
 
 - `/consultations` (`/pt/consultas`) — standalone consultations page with type cards and embedded form ✅
-- `/about` (`/pt/sobre`) — full bio page with MDX content
+- `/about` (`/pt/sobre`) — full bio page with photo and bio copy ✅
 - `/terms` — terms and conditions (linked from form checkbox)
 
 ### Stage 5 — Polish & Launch 🔲
@@ -118,9 +118,9 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Per-card Book CTA (links to `?type=${id}#book`, pre-selects type in form)
 - [x] `bookCta` / `learnMore` UI strings consolidated in `site.ts` (removed from home YAML)
 - [x] Home and consultations page `#book` anchor on the form section
-- [ ] `/about` page (EN) — MDX content at `src/content/about/en.mdx`
-- [ ] `/about` page (PT) — MDX content at `src/content/about/pt.mdx`
-- [ ] `about` collection defined in `content.config.ts`
+- [x] `/about` page (EN) — `src/pages/about.astro` + `AboutPage.astro`
+- [x] `/pt/sobre` page (PT)
+- [x] `about` collection defined in `content.config.ts` with EN + PT YAML
 - [ ] `/terms` page (EN)
 - [ ] `/terms` page (PT)
 - [ ] `terms` collection or MDX files
@@ -139,23 +139,22 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~72%
+Overall: ~80%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
 | 1 — Foundation           | Complete    | 100% |
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
-| 4 — Secondary Pages      | In progress | 40%  |
+| 4 — Secondary Pages      | In progress | 70%  |
 | 5 — Polish & Launch      | In progress | 10%  |
 
 ---
 
 ## e) Next Actions
 
-1. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout (photo + long-form copy, possibly reusing bio-grid pattern).
-2. **Create `/terms` page** — simpler: plain MDX, no special layout needed.
-3. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; page renders with an empty grey box.
+1. **Create `/terms` page** — define `terms` collection in `content.config.ts` with EN + PT YAML, build a simple page (plain copy, no special layout). Link from the consultation form checkbox (`terms` field in `consultation/en.yaml`).
+2. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
 
 ---
 
@@ -165,5 +164,5 @@ Overall: ~72%
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
-- **Open issue:** hero background SVGs cause GPU compositing tearing on mouse interaction in both pages. CSS `filter: blur` + `translateZ(0)` is the current approach; attempts to move the filter into the SVG itself caused worse tearing. Root cause not yet identified.
+- **Open issue:** hero background SVGs cause GPU compositing tearing on mouse interaction in both pages. Current approach: SVG-native `<feGaussianBlur>` filter + `opacity` on the `<g>` element, `will-change: filter, transform` on the inlined SVG via CSS. Neither the original CSS `filter`/`translateZ(0)` approach nor the SVG-native approach has resolved the tearing. Root cause not yet identified.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.

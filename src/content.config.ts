@@ -84,4 +84,21 @@ const consultations = defineCollection({
 	}),
 });
 
-export const collections = { home, consultation, consultations };
+const about = defineCollection({
+	loader: glob({ pattern: '*.yaml', base: './src/content/about' }),
+	schema: z.object({
+		hero: z.object({
+			heading: z.string(),
+		}),
+		bio: z.object({
+			paragraphs: z.array(z.string()),
+		}),
+		cta: z.object({
+			heading: z.string(),
+			body: z.string(),
+			href: z.string(),
+		}),
+	}),
+});
+
+export const collections = { home, consultation, consultations, about };

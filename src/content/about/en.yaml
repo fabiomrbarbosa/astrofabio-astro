@@ -1,0 +1,14 @@
+hero:
+  heading: About
+
+bio:
+  paragraphs:
+    - 'I began studying traditional astrology formally in 2023, at the <a href="https://academyofastrology.eu/">Academy of Traditional Astrology</a>. In parallel, I also work as a <a href="https://fabiobarbosa.com">web developer and copywriter</a>, two other trades that walk the line between art and method.'
+    - "What drew me to astrology was the conviction that the cosmos is alive and intelligible, not an inert backdrop, and that it is worth learning to read it. Traditional astrology offers exactly that: a complete system with its own logic and methodology, capable of describing who we are, what surrounds us, and the time we move through."
+    - "I see your birth chart as a navigational tool, not a verdict. In our conversations, I hope to be able to offer guidance that fully respects your personal history and helps you to follow your path with greater peace of mind."
+    - If you arrived here with genuine curiosity about what your chart has to say, you are in the right place.
+
+cta:
+  heading: Book a consultation
+  body: A consultation lasts approximately ninety minutes and begins with your natal chart. We may also look at current planetary cycles and any specific question or area of life you wish to explore. To book, simply fill in the form and I will be in touch within a few days to confirm a time.
+  href: /consultations#book

@@ -1,0 +1,90 @@
+---
+import { getEntry } from "astro:content";
+import { defaultLocale, type Locale, ui } from "../../i18n/site";
+
+import backgroundHero from "../../assets/images/background-hero-home.svg?raw";
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const entry = await getEntry("about", locale);
+const content = entry!.data;
+const { bookCta } = ui[locale];
+---
+
+<div class="hero-background" aria-hidden="true" set:html={backgroundHero} />
+
+<section
+	class="relative w-full flex items-center py-(--spacing-section) min-h-[40vh] overflow-hidden"
+>
+	<div
+		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
+	>
+		<h1 class="text-7xl max-md:text-5xl font-serif tracking-tight leading-none">
+			{content.hero.heading}
+		</h1>
+	</div>
+</section>
+
+<section class="py-(--spacing-section)">
+	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+		<div class="bio-grid">
+			<div class="bio-image">
+				<img src="/images/fabio.jpg" alt="Fábio Barbosa" class="bio-photo" />
+			</div>
+			<div class="bio-text">
+				{
+					content.bio.paragraphs.map((p) => (
+						<p class="mb-4 last:mb-0" set:html={p} />
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bg-overlay py-(--spacing-section)">
+	<div class="max-w-(--width-content) mx-auto px-(--spacing-outer) text-center">
+		<h2 class="text-4xl font-serif leading-tight mb-6">
+			{content.cta.heading}
+		</h2>
+		<p class="text-lg mb-8 max-w-2xl mx-auto" set:html={content.cta.body} />
+		<a href={content.cta.href} class="button">{bookCta}</a>
+	</div>
+</section>
+
+<style>
+	.hero-background {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	.hero-background :global(svg) {
+		width: 100%;
+		height: 100%;
+	}
+
+	.bio-grid {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	@media (max-width: 768px) {
+		.bio-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	.bio-photo {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		border-radius: 4px;
+		background-color: var(--color-overlay);
+	}
+</style>
