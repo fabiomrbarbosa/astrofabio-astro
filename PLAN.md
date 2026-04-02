@@ -156,7 +156,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 1. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout (photo + long-form copy, possibly reusing bio-grid pattern).
 2. **Create `/terms` page** — simpler: plain MDX, no special layout needed.
 3. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; page renders with an empty grey box.
-4. **Wire up secondary CTA** — `ctaSecondaryHref` on the home page hero is still `"#"`; decide what it links to (the `/about` page, the `/consultations` page, or the bio section anchor).
+4. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout.
 
 ---
 
