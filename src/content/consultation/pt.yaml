@@ -9,9 +9,9 @@ typeLabel: Tipo de consulta
 typePlaceholder: Por favor seleccione um tipo de consulta
 types:
   - value: natal
-    label: Mapa natal
+    label: Mapa Natal
   - value: natal-solar-return
-    label: Mapa natal e revolução solar
+    label: Mapa Natal e Revolução Solar
   - value: horary
     label: "Horária"
   - value: elective

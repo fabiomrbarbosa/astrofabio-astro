@@ -9,9 +9,9 @@ typeLabel: Type of consultation
 typePlaceholder: Please select a consultation type
 types:
   - value: natal
-    label: Natal chart
+    label: Birth Chart
   - value: natal-solar-return
-    label: Natal chart & annual revolution
+    label: Birth Chart & Solar Return
   - value: horary
     label: Horary
   - value: elective
