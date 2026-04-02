@@ -1,7 +1,7 @@
 # astrofabio.com — Project Plan
 
 > **How to use this file:**
-> At the start of a new session say: *"Claude, continue with PLAN.md"*
+> At the start of a new session say: _"Claude, continue with PLAN.md"_
 > At the end of every session, Claude must update this file — marking completed items, adjusting the progress percentage, and refreshing the Next Actions section.
 
 ---
@@ -22,9 +22,11 @@ Live at **astrofabio.com**, self-hosted via Coolify on Docker.
 ## b) Implementation by Stages
 
 ### Stage 1 — Foundation ✅
+
 Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middleware.
 
 ### Stage 2 — Homepage ✅
+
 - Hero section with animated chart rings and fixed background SVG
 - Intro band (dark full-bleed)
 - Bio section with photo placeholder
@@ -36,6 +38,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - Synastry: relationship field (mandatory), second person's time of birth (mandatory)
 
 ### Stage 3 — Content Architecture ✅
+
 - Content moved from TypeScript objects to YAML files per locale
 - Astro content collections with Zod schemas (`src/content.config.ts`, using `astro/zod`)
 - `ConsultationForm` and `HomePage` both self-load their own content — no props, no threading
@@ -46,10 +49,12 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - `src/i18n/index.ts` deleted — no barrel file
 
 ### Stage 4 — Secondary Pages 🔲
+
 - `/about` (`/pt/sobre`) — full bio page with MDX content
 - `/terms` — terms and conditions (linked from form checkbox)
 
 ### Stage 5 — Polish & Launch 🔲
+
 - Replace `public/images/fabio.jpg` placeholder with real photo
 - OG image at `public/images/og.jpg`
 - Final copy review (EN + PT)
@@ -62,6 +67,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ## c) Checklist
 
 ### Foundation
+
 - [x] Astro v6 SSR project with `@astrojs/node` adapter
 - [x] Tailwind v4 with `@theme` tokens in `global.css`
 - [x] Bilingual routing — EN default, PT at `/pt/`
@@ -72,6 +78,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `aria-current="page"` on active nav links
 
 ### Homepage
+
 - [x] Hero section — animated circles, fixed background SVG, CTA buttons
 - [x] Intro band — full-bleed dark section
 - [x] Bio section — photo + text grid
@@ -89,6 +96,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] All images in `public/images/`; `src/assets/` removed
 
 ### Content Architecture
+
 - [x] `src/content/home/en.yaml` and `pt.yaml`
 - [x] `src/content/consultation/en.yaml` and `pt.yaml`
 - [x] Zod schemas in `src/content.config.ts` (using `astro/zod`)
@@ -100,6 +108,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `src/i18n/index.ts` deleted — no barrel
 
 ### Secondary Pages
+
 - [ ] `/about` page (EN) — MDX content at `src/content/about/en.mdx`
 - [ ] `/about` page (PT) — MDX content at `src/content/about/pt.mdx`
 - [ ] `about` collection defined in `content.config.ts`
@@ -108,6 +117,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [ ] `terms` collection or MDX files
 
 ### Assets & Launch
+
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
@@ -121,13 +131,13 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 **Overall: ~60%**
 
-| Stage | Status | % |
-|---|---|---|
-| 1 — Foundation | Complete | 100% |
-| 2 — Homepage | Complete | 100% |
-| 3 — Content Architecture | Complete | 100% |
-| 4 — Secondary Pages | Not started | 0% |
-| 5 — Polish & Launch | Not started | 0% |
+| Stage                    | Status      | %    |
+| ------------------------ | ----------- | ---- |
+| 1 — Foundation           | Complete    | 100% |
+| 2 — Homepage             | Complete    | 100% |
+| 3 — Content Architecture | Complete    | 100% |
+| 4 — Secondary Pages      | Not started | 0%   |
+| 5 — Polish & Launch      | Not started | 0%   |
 
 ---
 
