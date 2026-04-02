@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import { defaultLocale, htmlLang, siteMeta, siteUrl, type Locale } from "../i18n";
+import { defaultLocale, htmlLang, siteMeta, type Locale } from "../i18n/site";
 
 interface Props {
 	title?: string;
@@ -15,8 +15,8 @@ const meta = siteMeta[locale];
 
 const pageTitle = title ? `${title} | ${meta.title}` : meta.title;
 const pageDescription = description ?? meta.description;
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
-const ogImage = new URL("/images/og.jpg", siteUrl).href;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/images/og.jpg", Astro.site).href;
 ---
 
 <!doctype html>

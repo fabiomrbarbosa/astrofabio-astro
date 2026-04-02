@@ -1,0 +1,49 @@
+name: Full name
+email: Email address
+dateOfBirth: Date of birth
+timeOfBirth: Time of birth
+timeOfBirthHint: Please be as precise as possible.
+cityOfBirth: City of birth
+countryOfBirth: Country of birth
+typeLabel: Type of consultation
+typePlaceholder: Please select a consultation type
+types:
+  - value: natal
+    label: Natal chart
+  - value: natal-solar-return
+    label: Natal chart & annual revolution
+  - value: horary
+    label: Horary
+  - value: elective
+    label: Elective
+  - value: synastry
+    label: Synastry
+concerns:
+  label: Specific concerns
+  placeholder: Is there a particular area of life or theme you would like to focus on?
+horary:
+  label: Your question
+  placeholder: "State your question as precisely as you can. Feel free to add any context that might help me understand it: the circumstances that led to it, how long it has been on your mind, and anything else you consider relevant."
+elective:
+  subject:
+    label: What are you choosing a time for?
+    placeholder: "e.g. signing a contract, starting a business, getting married\u2026"
+  location:
+    label: Where will it take place?
+    placeholder: City and country
+  timeframe:
+    label: Timeframe
+    placeholder: "e.g. sometime in the next three months, between June and August 2025\u2026"
+synastry:
+  otherHeading: The other person
+  name: Their full name
+  dateOfBirth: Their date of birth
+  timeOfBirth: Their time of birth
+  timeOfBirthHint: Please be as precise as possible.
+  cityOfBirth: Their city of birth
+  countryOfBirth: Their country of birth
+  concerns:
+    label: Specific concerns
+    placeholder: Is there a particular dynamic or question you would like to explore in this synastry?
+terms: I have read and accept the terms and conditions.
+submit: Send enquiry

@@ -1,0 +1,49 @@
+name: Nome completo
+email: "Endereço de email"
+dateOfBirth: Data de nascimento
+timeOfBirth: Hora de nascimento
+timeOfBirthHint: Seja o mais preciso possível.
+cityOfBirth: Cidade de nascimento
+countryOfBirth: País de nascimento
+typeLabel: Tipo de consulta
+typePlaceholder: Por favor seleccione um tipo de consulta
+types:
+  - value: natal
+    label: Mapa natal
+  - value: natal-solar-return
+    label: Mapa natal e revolução solar
+  - value: horary
+    label: "Horária"
+  - value: elective
+    label: Eletiva
+  - value: synastry
+    label: Sinastria
+concerns:
+  label: "Preocupações específicas"
+  placeholder: Existe alguma área da vida ou tema particular que gostaria de explorar?
+horary:
+  label: A sua pergunta
+  placeholder: "Formule a sua pergunta com a maior precisão possível. Sinta-se à vontade para acrescentar contexto que me ajude a compreendê-la: as circunstâncias que a motivaram, há quanto tempo a tem em mente, e tudo o que considere relevante."
+elective:
+  subject:
+    label: Para que evento quer escolher um momento?
+    placeholder: "ex: assinar um contrato, iniciar um negócio, casar\u2026"
+  location:
+    label: Onde vai acontecer?
+    placeholder: Cidade e país
+  timeframe:
+    label: "Período disponível"
+    placeholder: "ex: nos próximos três meses, entre junho e agosto de 2025\u2026"
+synastry:
+  otherHeading: A outra pessoa
+  name: Nome completo
+  dateOfBirth: Data de nascimento
+  timeOfBirth: Hora de nascimento
+  timeOfBirthHint: Seja o mais preciso possível.
+  cityOfBirth: Cidade de nascimento
+  countryOfBirth: País de nascimento
+  concerns:
+    label: "Preocupações específicas"
+    placeholder: Existe alguma dinâmica ou questão particular que gostaria de explorar nesta sinastria?
+terms: Li e aceito os termos e condições.
+submit: Enviar pedido

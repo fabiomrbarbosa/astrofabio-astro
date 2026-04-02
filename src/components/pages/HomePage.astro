@@ -1,13 +1,12 @@
 ---
-import type { HomeContent } from "../../i18n";
+import { getEntry } from "astro:content";
+import { defaultLocale, type Locale } from "../../i18n/site";
 import background from "../../assets/background.svg";
 import ConsultationForm from "../ConsultationForm.astro";
 
-interface Props {
-	content: HomeContent;
-}
-
-const { content } = Astro.props;
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const entry = await getEntry("home", locale);
+const content = entry!.data;
 ---
 
 <img src={background.src} alt="" class="hero-background" aria-hidden="true" />
@@ -122,7 +121,7 @@ const { content } = Astro.props;
 				}
 			</div>
 			<div class="consultation-form">
-				<ConsultationForm form={content.consultation.form} />
+				<ConsultationForm />
 			</div>
 		</div>
 	</div>

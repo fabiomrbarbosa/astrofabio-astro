@@ -1,0 +1,28 @@
+hero:
+  heading:
+    - Look at your life
+    - through the mirror of the sky.
+  subheading: Through traditional Astrology, you can better understand who you are and consider which paths lie ahead.
+  cta: Book a consultation
+  ctaHref: "mailto:fabio@astrofabio.com"
+  ctaSecondary: Learn more
+  ctaSecondaryHref: "#"
+
+intro:
+  paragraphs:
+    - Over millennia, astrology has been regarded as one of the principal foundations of our knowledge of the natural world. It is an art with a long tradition and a remarkable capacity to describe what characterises us and the circumstances in which we live, the cycles we move through, and the moments most suited for action.
+    - Here you will find an astrology practice based on traditional methods. The starting point is always your natal chart, studied with care and rigour according to a structured system, learned and practised with seriousness. My intention is that you come to terms with your own nature and learn to move with greater clarity within the conditions of the present moment.
+
+bio:
+  heading: About Fábio
+  paragraphs:
+    - 'I began studying traditional astrology formally in 2023, at the <a href="https://academyofastrology.eu/">Academy of Traditional Astrology</a>, under the guidance of Luís Ribeiro. I also work as a web developer and copywriter, two other trades that walk the line between art and method.'
+    - "What drew me to astrology was the conviction that the cosmos is alive and intelligible, not an inert backdrop, and that it is worth learning to read it. Traditional astrology offers exactly that: a system with history, rules, and an internal logic capable of describing who we are, what surrounds us, and the time we move through."
+    - "What I bring to a consultation, beyond the technique, is attention to your story and what you need to know, as much as to what the planets actually say. The chart is a tool for orientation, not a verdict."
+    - If you arrived here with genuine curiosity about what your chart has to say, you are in the right place.
+
+consultation:
+  heading: Book a consultation
+  advisory:
+    - A consultation lasts approximately ninety minutes and begins with your natal chart. We may also look at current planetary cycles and any specific question or area of life you wish to explore.
+    - To book, simply fill in the form and I will be in touch within a few days to confirm a time.

@@ -1,0 +1,28 @@
+hero:
+  heading:
+    - Olhe para a sua vida
+    - pelo espelho do céu.
+  subheading: Com a Astrologia tradicional, poderá compreender melhor quem é e avaliar que caminhos tem à sua frente.
+  cta: Marcar consulta
+  ctaHref: "mailto:fabio@astrofabio.com"
+  ctaSecondary: Saber mais
+  ctaSecondaryHref: "#"
+
+intro:
+  paragraphs:
+    - Ao longo de milénios, a astrologia foi considerada uma das principais bases do nosso conhecimento do mundo natural. É uma arte com uma longa tradição e uma capacidade notável de descrever aquilo que nos caracteriza e as circunstâncias em que vivemos, os ciclos que atravessamos e os momentos mais propícios para agir.
+    - Aqui encontrará uma prática astrológica segundo métodos tradicionais. O ponto de partida é sempre o seu mapa natal, estudado com atenção e rigor, segundo um sistema estruturado, aprendido e praticado com seriedade. A minha intenção é que se reconcilie com a sua própria natureza e saiba mover-se com maior clareza dentro das condições do momento.
+
+bio:
+  heading: Sobre Fábio
+  paragraphs:
+    - 'Comecei a estudar astrologia tradicional formalmente em 2023, na <a href="https://academiadeastrologia.com/">Academia de Estudos Astrológicos</a>, sob orientação de Luís Ribeiro. Trabalho também como web developer e copywriter, ambos também ofícios que caminham na fronteira entre a arte e o método.'
+    - "O que me trouxe à astrologia foi a convicção de que o cosmos é algo vivo e inteligível, não um pano de fundo inerte, e que vale a pena aprender a lê-lo. A astrologia tradicional oferece exactamente isso: um sistema com história, regras e uma lógica interna capaz de descrever quem somos, o que nos rodeia e o tempo que atravessamos."
+    - O que trago a uma consulta, para além do mapa, é a minha atenção à sua história e àquilo que procura saber, tanto quanto ao que os planetas têm para dizer. Considero que o seu mapa é um instrumento de orientação, não uma sentença.
+    - Se chegou aqui com curiosidade genuína sobre o que o seu mapa tem para lhe dizer, está no lugar certo.
+
+consultation:
+  heading: Marcar consulta
+  advisory:
+    - Uma consulta tem a duração aproximada de noventa minutos e começa com o seu mapa natal. Podemos também observar os ciclos planetários actuais e qualquer questão ou área da vida que deseje explorar.
+    - Para marcar, preencha o formulário e entrarei em contacto em alguns dias para confirmar um horário.

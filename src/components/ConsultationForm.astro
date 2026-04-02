@@ -1,11 +1,10 @@
 ---
-import type { HomeContent } from "../i18n";
+import { getEntry } from "astro:content";
+import { defaultLocale, type Locale } from "../i18n/site";
 
-interface Props {
-	form: HomeContent["consultation"]["form"];
-}
-
-const { form } = Astro.props;
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const entry = await getEntry("consultation", locale);
+const form = entry!.data;
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 

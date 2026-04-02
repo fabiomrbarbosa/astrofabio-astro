@@ -1,12 +1,5 @@
 ---
-import {
-	ui,
-	navLinks as allNavLinks,
-	defaultLocale,
-	siteName,
-	siteMeta,
-	type Locale,
-} from "../i18n";
+import { ui, defaultLocale, siteName, siteMeta, navLinks as allNavLinks, type Locale } from "../i18n/site";
 
 interface Props {
 	locale?: Locale;
@@ -18,6 +11,7 @@ const t = ui[locale];
 const meta = siteMeta[locale];
 const navLinks = allNavLinks[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
+const currentPath = Astro.url.pathname;
 ---
 
 <header
@@ -83,7 +77,11 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			{
 				navLinks.map(({ href, label }) => (
 					<li>
-						<a href={href} class="nav-link text-sm">
+						<a
+							href={href}
+							class="nav-link text-sm"
+							aria-current={currentPath === href ? "page" : undefined}
+						>
 							{label}
 						</a>
 					</li>
@@ -183,7 +181,11 @@ const targetLocale = locale === "en" ? "pt" : "en";
 			{
 				navLinks.map(({ href, label }) => (
 					<li>
-						<a href={href} class="nav-link text-sm">
+						<a
+							href={href}
+							class="nav-link text-sm"
+							aria-current={currentPath === href ? "page" : undefined}
+						>
 							{label}
 						</a>
 					</li>

@@ -1,5 +1,4 @@
-// Site-wide configuration and identity — locales, language settings, metadata, UI strings.
-// Page-specific content (home copy, nav links) lives in index.ts.
+// Site-wide configuration and identity — locales, language settings, metadata, UI strings, nav.
 
 export const locales = ["en", "pt"] as const;
 export type Locale = (typeof locales)[number];
@@ -12,7 +11,6 @@ export const htmlLang: Record<Locale, string> = {
 
 // Site identity and SEO metadata
 export const siteName = "Fábio Barbosa";
-export const siteUrl = "https://astrofabio.com"; // update before go-live
 
 export const siteMeta: Record<Locale, { tagline: string; title: string; description: string }> = {
 	en: {
@@ -47,4 +45,17 @@ export const ui = {
 		switchLangHref: "/",
 		switchLangAriaLabel: "Switch to English",
 	},
+} as const;
+
+export const navLinks = {
+	en: [
+		{ href: "/about", label: "About" },
+		{ href: "/consultations", label: "Consultations" },
+		{ href: "/calculator", label: "Calculator" },
+	],
+	pt: [
+		{ href: "/pt/sobre", label: "Sobre" },
+		{ href: "/pt/consultas", label: "Consultas" },
+		{ href: "/pt/calculadora", label: "Calculadora" },
+	],
 } as const;
