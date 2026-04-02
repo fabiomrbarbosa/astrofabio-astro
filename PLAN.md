@@ -30,6 +30,10 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - Bio section with photo placeholder
 - Consultation section with intro copy
 - Consultation form (dynamic fields by type, Turnstile, Mailgun EU submission)
+- Form state persisted in localStorage across pages/sessions; cleared on submit
+- URL `?type=` param pre-selects consultation type and scrolls to form
+- Hidden fieldset inputs disabled so irrelevant fields excluded from FormData
+- Synastry: relationship field (mandatory), second person's time of birth (mandatory)
 
 ### Stage 3 — Content Architecture ✅
 - Content moved from TypeScript objects to YAML files per locale
@@ -77,6 +81,12 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] ConsultationForm — natal, natal+SR, horary, elective, synastry types
 - [x] Cloudflare Turnstile integration
 - [x] Mailgun EU API route (`/api/consultation`)
+- [x] Form localStorage persistence (save on input, restore on load, clear on submit)
+- [x] URL `?type=` param pre-selection with auto-scroll
+- [x] Hidden fieldset inputs disabled to exclude from FormData
+- [x] Synastry relationship field (mandatory, EN + PT)
+- [x] Synastry second person's time of birth enforced as required
+- [x] All images in `public/images/`; `src/assets/` removed
 
 ### Content Architecture
 - [x] `src/content/home/en.yaml` and `pt.yaml`
@@ -109,7 +119,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-**Overall: ~55%**
+**Overall: ~60%**
 
 | Stage | Status | % |
 |---|---|---|
