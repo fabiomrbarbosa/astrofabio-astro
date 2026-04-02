@@ -46,6 +46,12 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 		<link rel="icon" href="/images/favicon.ico" />
+
+		<!-- Plausible Analytics -->
+		<script
+			defer
+			data-domain="astrofabio.com"
+			src="https://plausible.demiurgos.eu/js/script.js"></script>
 	</head>
 	<body>
 		<Header locale={locale} theme={headerTheme} />
