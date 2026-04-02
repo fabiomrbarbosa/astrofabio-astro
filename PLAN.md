@@ -48,8 +48,9 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - `aria-current="page"` on active nav links (both desktop and mobile)
 - `src/i18n/index.ts` deleted — no barrel file
 
-### Stage 4 — Secondary Pages 🔲
+### Stage 4 — Secondary Pages 🔄
 
+- `/consultations` (`/pt/consultas`) — standalone consultations page with type cards and embedded form ✅
 - `/about` (`/pt/sobre`) — full bio page with MDX content
 - `/terms` — terms and conditions (linked from form checkbox)
 
@@ -109,6 +110,10 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ### Secondary Pages
 
+- [x] `/consultations` page (EN) — `src/pages/consultations.astro` + `ConsultationsPage.astro`
+- [x] `/pt/consultas` page (PT)
+- [x] `consultations` collection in `content.config.ts` with EN + PT YAML
+- [x] Consultation type icon SVGs (`icon-natal.svg`, `icon-horary.svg`, etc.)
 - [ ] `/about` page (EN) — MDX content at `src/content/about/en.mdx`
 - [ ] `/about` page (PT) — MDX content at `src/content/about/pt.mdx`
 - [ ] `about` collection defined in `content.config.ts`
@@ -118,6 +123,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ### Assets & Launch
 
+- [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
@@ -129,15 +135,15 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-**Overall: ~60%**
+**Overall: ~72%**
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
 | 1 — Foundation           | Complete    | 100% |
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
-| 4 — Secondary Pages      | Not started | 0%   |
-| 5 — Polish & Launch      | Not started | 0%   |
+| 4 — Secondary Pages      | In progress | 40%  |
+| 5 — Polish & Launch      | In progress | 10%  |
 
 ---
 
@@ -146,7 +152,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 1. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout (photo + long-form copy, possibly reusing bio-grid pattern).
 2. **Create `/terms` page** — simpler: plain MDX, no special layout needed.
 3. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; page renders with an empty grey box.
-4. **Wire up hero CTA** — `ctaSecondaryHref` on the hero is `"#"` for both locales; decide what it should point to (the bio section anchor, the `/about` page, or the consultation section).
+4. **Wire up hero CTA** — `ctaSecondaryHref` on the hero is `"#"` for both locales; decide what it links to (the `/about` page, the `/consultations` page, or the bio section anchor).
 
 ---
 
