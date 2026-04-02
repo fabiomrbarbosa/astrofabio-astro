@@ -164,5 +164,5 @@ Overall: ~80%
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
-- **Open issue:** hero background SVGs cause GPU compositing tearing on mouse interaction in both pages. Current approach: SVG-native `<feGaussianBlur>` filter + `opacity` on the `<g>` element, `will-change: filter, transform` on the inlined SVG via CSS. Neither the original CSS `filter`/`translateZ(0)` approach nor the SVG-native approach has resolved the tearing. Root cause not yet identified.
+- **Open issue:** hero background SVGs cause GPU compositing tearing on mouse interaction in both pages. Current approach: CSS `filter: blur(80px) saturate(200%)` + `opacity: 0.1` + `will-change: filter, opacity, transform` on `.hero-background`. SVGs are clean blobs with no filter attributes. Neither CSS `filter`/`translateZ(0)`, SVG-native `<feGaussianBlur>`, nor `will-change` has resolved the tearing. Root cause not yet identified.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.

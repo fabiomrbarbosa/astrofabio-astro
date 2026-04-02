@@ -57,8 +57,11 @@ const { bookCta } = ui[locale];
 		inset: 0;
 		width: 100%;
 		height: 100%;
+		filter: blur(80px) saturate(200%);
+		opacity: 0.1;
 		pointer-events: none;
 		z-index: -1;
+		will-change: filter, opacity, transform;
 	}
 
 	.hero-background :global(svg) {
