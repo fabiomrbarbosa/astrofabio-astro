@@ -9,7 +9,7 @@ const content = entry!.data;
 ---
 
 <img
-	src="/images/background.svg"
+	src="/images/background-hero-home.svg"
 	alt=""
 	class="hero-background"
 	aria-hidden="true"
@@ -86,7 +86,7 @@ const content = entry!.data;
 </section>
 
 <section
-	class="bg-secondary flex items-center py-(--spacing-section) mx-4 md:mx-8 lg:mx-(--spacing-outer) rounded-3xl"
+	class="intro bg-secondary flex items-center py-(--spacing-section) mx-4 md:mx-8 lg:mx-(--spacing-outer) rounded-3xl"
 >
 	<div
 		class="w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-l md:text-xl text-white"
@@ -187,7 +187,7 @@ const content = entry!.data;
 		height: 100%;
 		object-fit: cover;
 		filter: blur(80px) saturate(200%);
-		opacity: 0.35;
+		opacity: 0.2;
 		pointer-events: none;
 		z-index: -1;
 	}
@@ -253,6 +253,10 @@ const content = entry!.data;
 	}
 	#circle-ticks {
 		transform: translate(67%, 0%);
+	}
+
+	.intro {
+		box-shadow: 0 1px 8px color-mix(in srgb, var(--color-ink) 15%, transparent);
 	}
 
 	/* Bio section */

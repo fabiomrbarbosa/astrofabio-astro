@@ -1,5 +1,12 @@
 ---
-import { ui, defaultLocale, siteName, siteMeta, navLinks as allNavLinks, type Locale } from "../i18n/site";
+import {
+	ui,
+	defaultLocale,
+	siteName,
+	siteMeta,
+	navLinks as allNavLinks,
+	type Locale,
+} from "../i18n/site";
 
 interface Props {
 	locale?: Locale;
@@ -16,11 +23,13 @@ const currentPath = Astro.url.pathname;
 // Derive the alternate-locale URL from navLinks instead of a separate map.
 // Match the current path in the current locale's nav, then pick the same index
 // from the other locale's nav. Fall back to the target locale's root.
-const currentNavIndex = (allNavLinks[locale] as readonly { href: string }[])
-	.findIndex((l) => l.href === currentPath);
-const switchLangHref = currentNavIndex !== -1
-	? allNavLinks[targetLocale][currentNavIndex].href
-	: t.switchLangHref;
+const currentNavIndex = (
+	allNavLinks[locale] as readonly { href: string }[]
+).findIndex((l) => l.href === currentPath);
+const switchLangHref =
+	currentNavIndex !== -1
+		? allNavLinks[targetLocale][currentNavIndex].href
+		: t.switchLangHref;
 ---
 
 <header
@@ -88,7 +97,7 @@ const switchLangHref = currentNavIndex !== -1
 					<li>
 						<a
 							href={href}
-							class="nav-link text-sm"
+							class="nav-link text-sm tracking-widest font-semibold"
 							aria-current={currentPath === href ? "page" : undefined}
 						>
 							{label}
@@ -192,7 +201,7 @@ const switchLangHref = currentNavIndex !== -1
 					<li>
 						<a
 							href={href}
-							class="nav-link text-sm"
+							class="nav-link text-sm font-semibold"
 							aria-current={currentPath === href ? "page" : undefined}
 						>
 							{label}
@@ -306,6 +315,9 @@ const switchLangHref = currentNavIndex !== -1
 		text-transform: uppercase;
 		transition: color 150ms ease;
 	}
+
+	.nav-link[aria-current="page"],
+	.nav-link:focus,
 	.nav-link:hover {
 		color: var(--color-accent);
 		text-decoration: none;
