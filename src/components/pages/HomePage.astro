@@ -3,18 +3,18 @@ import { getEntry } from "astro:content";
 import { defaultLocale, type Locale, ui } from "../../i18n/site";
 import ConsultationForm from "../ConsultationForm.astro";
 
+import backgroundHero from "../../assets/images/background-hero-home.svg?raw";
+import chartRings from "../../assets/images/chart-rings.svg?raw";
+import chartSpokes from "../../assets/images/chart-spokes.svg?raw";
+import chartTicks from "../../assets/images/chart-ticks.svg?raw";
+
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("home", locale);
 const content = entry!.data;
 const { bookCta, learnMore } = ui[locale];
 ---
 
-<img
-	src="/images/background-hero-home.svg"
-	alt=""
-	class="hero-background"
-	aria-hidden="true"
-/>
+<div class="hero-background" aria-hidden="true" set:html={backgroundHero} />
 
 <section
 	id="hero-section"
@@ -22,24 +22,9 @@ const { bookCta, learnMore } = ui[locale];
 >
 	<div class="hero-circles" aria-hidden="true">
 		<div class="circles-stack">
-			<img
-				src="/images/chart-rings.svg"
-				class="circle-layer"
-				id="circle-rings"
-				alt=""
-			/>
-			<img
-				src="/images/chart-spokes.svg"
-				class="circle-layer"
-				id="circle-spokes"
-				alt=""
-			/>
-			<img
-				src="/images/chart-ticks.svg"
-				class="circle-layer"
-				id="circle-ticks"
-				alt=""
-			/>
+			<div id="circle-rings" class="circle-layer" set:html={chartRings} />
+			<div id="circle-spokes" class="circle-layer" set:html={chartSpokes} />
+			<div id="circle-ticks" class="circle-layer" set:html={chartTicks} />
 		</div>
 	</div>
 
@@ -186,11 +171,16 @@ const { bookCta, learnMore } = ui[locale];
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
 		filter: blur(80px) saturate(200%);
 		opacity: 0.1;
 		pointer-events: none;
 		z-index: -1;
+		transform: translateZ(0);
+	}
+
+	.hero-background :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 
 	.hero-circles {
@@ -218,6 +208,12 @@ const { bookCta, learnMore } = ui[locale];
 		opacity: 0.2;
 		filter: saturate(0.55);
 		will-change: transform;
+	}
+
+	.circle-layer :global(svg) {
+		width: 100%;
+		height: 100%;
+		display: block;
 	}
 
 	#scroll-arrow {

@@ -94,7 +94,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Hidden fieldset inputs disabled to exclude from FormData
 - [x] Synastry relationship field (mandatory, EN + PT)
 - [x] Synastry second person's time of birth enforced as required
-- [x] All images in `public/images/`; `src/assets/` removed
+- [x] Background and chart SVGs moved to `src/assets/images/` and inlined via `?raw` (no network request, no flash); favicon/OG/photo remain in `public/images/`
 
 ### Content Architecture
 
@@ -139,7 +139,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-**Overall: ~72%**
+Overall: ~72%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
@@ -156,7 +156,6 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 1. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout (photo + long-form copy, possibly reusing bio-grid pattern).
 2. **Create `/terms` page** — simpler: plain MDX, no special layout needed.
 3. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; page renders with an empty grey box.
-4. **Create `/about` page** — define `about` collection in `content.config.ts`, add `src/content/about/en.mdx` and `pt.mdx`, build the page layout.
 
 ---
 
@@ -166,4 +165,4 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
-- YAML strings containing `: ` (colon-space) must be quoted, otherwise YAML parses them as mappings.
+- YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.

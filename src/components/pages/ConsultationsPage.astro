@@ -9,6 +9,8 @@ import iconElective from "../../assets/icons/icon-elective.svg?raw";
 import iconSynastry from "../../assets/icons/icon-synastry.svg?raw";
 import ConsultationForm from "../ConsultationForm.astro";
 
+import backgroundHero from "../../assets/images/background-hero-consultations.svg?raw";
+
 const icons: Record<string, string> = {
 	natal: iconNatal,
 	"natal-solar-return": iconNatalSolarReturn,
@@ -23,15 +25,10 @@ const content = entry!.data;
 const { bookCta, learnMore } = ui[locale];
 ---
 
-<img
-	src="/images/background-hero-consultations.svg"
-	alt=""
-	class="hero-background"
-	aria-hidden="true"
-/>
+<div class="hero-background" aria-hidden="true" set:html={backgroundHero} />
 
 <section
-	class="relative w-full flex items-center py-(--spacing-section) min-h-[60vh]"
+	class="relative w-full flex items-center py-(--spacing-section) min-h-[60vh] overflow-hidden"
 >
 	<div
 		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
@@ -100,11 +97,16 @@ const { bookCta, learnMore } = ui[locale];
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
 		filter: blur(80px) saturate(200%);
 		opacity: 0.1;
 		pointer-events: none;
 		z-index: -1;
+		transform: translateZ(0);
+	}
+
+	.hero-background :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 
 	/* ── Track ───────────────────────────────────────────────────────── */
