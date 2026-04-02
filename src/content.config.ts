@@ -54,6 +54,7 @@ const consultation = defineCollection({
 		}),
 		synastry: z.object({
 			otherHeading: z.string(),
+			relationship: formField,
 			name: z.string(),
 			dateOfBirth: z.string(),
 			timeOfBirth: z.string(),

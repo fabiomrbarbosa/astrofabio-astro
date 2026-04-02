@@ -157,6 +157,16 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	>
 		<legend class="form-section-heading">{form.synastry.otherHeading}</legend>
 		<div class="form-field">
+			<label for="cf-synastry-relationship">{form.synastry.relationship.label}</label>
+			<input
+				type="text"
+				id="cf-synastry-relationship"
+				name="synastryRelationship"
+				placeholder={form.synastry.relationship.placeholder}
+				required
+			/>
+		</div>
+		<div class="form-field">
 			<label for="cf-other-name">{form.synastry.name}</label>
 			<input type="text" id="cf-other-name" name="otherName" />
 		</div>
@@ -167,7 +177,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 			</div>
 			<div class="form-field">
 				<label for="cf-other-tob">{form.synastry.timeOfBirth}</label>
-				<input type="time" id="cf-other-tob" name="otherTimeOfBirth" />
+				<input type="time" id="cf-other-tob" name="otherTimeOfBirth" required />
 				<p class="form-hint">{form.synastry.timeOfBirthHint}</p>
 			</div>
 		</div>
@@ -217,6 +227,8 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 </form>
 
 <script>
+	const STORAGE_KEY = "cf-state";
+
 	const form = document.getElementById("consultation-form") as HTMLFormElement;
 	const typeSelect = document.getElementById("cf-type") as HTMLSelectElement;
 	const dynamicSections =
@@ -225,17 +237,81 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	const successEl = document.getElementById("cf-success") as HTMLDivElement;
 	const errorEl = document.getElementById("cf-error") as HTMLDivElement;
 
+	// Show/hide and enable/disable dynamic sections based on selected type.
+	// Disabling inputs inside hidden sections excludes them from FormData automatically.
 	function updateSections() {
 		const val = typeSelect.value;
 		dynamicSections.forEach((section) => {
 			const showFor = (section.dataset.showFor ?? "").split(" ");
-			section.hidden = !showFor.includes(val);
+			const visible = showFor.includes(val);
+			section.hidden = !visible;
+			section
+				.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+					"input, select, textarea",
+				)
+				.forEach((el) => {
+					el.disabled = !visible;
+				});
 		});
 	}
 
-	typeSelect.addEventListener("change", updateSections);
-	// Run once on load in case the browser pre-fills the select
+	// Persist all named, non-sensitive fields to localStorage on every change.
+	function saveState() {
+		const state: Record<string, string> = {};
+		form
+			.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+				'input:not([type="checkbox"]):not([name="cf-turnstile-response"]), select, textarea',
+			)
+			.forEach((el) => {
+				if (el.name) state[el.name] = el.value;
+			});
+		try {
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+		} catch {}
+	}
+
+	// Restore saved state into the form fields.
+	function restoreState() {
+		let raw: string | null = null;
+		try {
+			raw = localStorage.getItem(STORAGE_KEY);
+		} catch {}
+		if (!raw) return;
+		try {
+			const state = JSON.parse(raw) as Record<string, string>;
+			Object.entries(state).forEach(([name, value]) => {
+				const el = form.elements.namedItem(name) as
+					| HTMLInputElement
+					| HTMLSelectElement
+					| HTMLTextAreaElement
+					| null;
+				if (el) el.value = value;
+			});
+		} catch {}
+	}
+
+	// Restore persisted state, then apply URL ?type= param on top (takes priority).
+	restoreState();
 	updateSections();
+
+	const typeParam = new URLSearchParams(location.search).get("type");
+	const validTypes = Array.from(typeSelect.options)
+		.map((o) => o.value)
+		.filter(Boolean);
+	if (typeParam && validTypes.includes(typeParam)) {
+		typeSelect.value = typeParam;
+		updateSections();
+		document
+			.getElementById("consultation-form")
+			?.scrollIntoView({ behavior: "smooth", block: "start" });
+	}
+
+	typeSelect.addEventListener("change", () => {
+		updateSections();
+		saveState();
+	});
+
+	form.addEventListener("input", saveState);
 
 	form.addEventListener("submit", async (e) => {
 		e.preventDefault();
@@ -252,6 +328,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 			if (res.ok) {
 				successEl.textContent = json.message;
 				successEl.hidden = false;
+				try { localStorage.removeItem(STORAGE_KEY); } catch {}
 				form.reset();
 				updateSections();
 				(globalThis as any).turnstile?.reset();

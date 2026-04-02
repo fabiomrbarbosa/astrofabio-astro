@@ -36,6 +36,9 @@ elective:
     placeholder: "ex: nos próximos três meses, entre junho e agosto de 2025\u2026"
 synastry:
   otherHeading: A outra pessoa
+  relationship:
+    label: A sua relação com esta pessoa
+    placeholder: "ex: parceiro/a romântico/a, cônjuge, amigo/a, irmão/irmã, colega, familiar\u2026"
   name: Nome completo
   dateOfBirth: Data de nascimento
   timeOfBirth: Hora de nascimento

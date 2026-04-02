@@ -1,7 +1,6 @@
 ---
 import { getEntry } from "astro:content";
 import { defaultLocale, type Locale } from "../../i18n/site";
-import background from "../../assets/background.svg";
 import ConsultationForm from "../ConsultationForm.astro";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
@@ -9,7 +8,7 @@ const entry = await getEntry("home", locale);
 const content = entry!.data;
 ---
 
-<img src={background.src} alt="" class="hero-background" aria-hidden="true" />
+<img src="/images/background.svg" alt="" class="hero-background" aria-hidden="true" />
 
 <section
 	id="hero-section"

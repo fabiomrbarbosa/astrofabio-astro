@@ -99,7 +99,7 @@ export const POST: APIRoute = async ({ request }) => {
 		`Name: ${name}`,
 		`Email: ${email}`,
 		`Date of birth: ${get("dateOfBirth")}`,
-		`Time of birth: ${get("timeOfBirth") || "Not provided"}`,
+		`Time of birth: ${get("timeOfBirth")}`,
 		`City of birth: ${get("cityOfBirth")}`,
 		`Country of birth: ${get("countryOfBirth")}`,
 		``,
@@ -129,9 +129,10 @@ export const POST: APIRoute = async ({ request }) => {
 		lines.push(
 			``,
 			`--- Other person ---`,
+			`Relationship: ${get("synastryRelationship") || "Not specified"}`,
 			`Name: ${get("otherName")}`,
 			`Date of birth: ${get("otherDateOfBirth")}`,
-			`Time of birth: ${get("otherTimeOfBirth") || "Not provided"}`,
+			`Time of birth: ${get("otherTimeOfBirth")}`,
 			`City of birth: ${get("otherCityOfBirth")}`,
 			`Country of birth: ${get("otherCountryOfBirth")}`,
 		);

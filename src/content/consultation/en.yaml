@@ -36,6 +36,9 @@ elective:
     placeholder: "e.g. sometime in the next three months, between June and August 2025\u2026"
 synastry:
   otherHeading: The other person
+  relationship:
+    label: Your relationship to this person
+    placeholder: "e.g. romantic partner, spouse, friend, sibling, colleague, parent\u2026"
   name: Their full name
   dateOfBirth: Their date of birth
   timeOfBirth: Their time of birth
