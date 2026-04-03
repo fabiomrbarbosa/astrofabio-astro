@@ -12,7 +12,7 @@ const { bookCta } = ui[locale];
 <HeroBackground src="/images/background-hero-home.svg" />
 
 <section
-	class="relative flex min-h-[40vh] w-full items-center overflow-hidden py-[calc(var(--spacing-section)*2)]"
+	class="relative flex min-h-[40vh] w-full items-center overflow-hidden pt-[calc(var(--spacing-section)*2)] pb-[calc(var(--spacing-section)*1.25)]"
 >
 	<div
 		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
@@ -45,7 +45,7 @@ const { bookCta } = ui[locale];
 		<h2 class="mb-6 font-serif text-4xl leading-tight">
 			{content.cta.heading}
 		</h2>
-		<p class="mx-auto mb-8 max-w-2xl text-lg" set:html="{content.cta.body}" />
+		<p class="mx-auto mb-8 max-w-2xl text-lg" set:html={content.cta.body} />
 		<a href="{content.cta.href}" class="button">{bookCta}</a>
 	</div>
 </section>

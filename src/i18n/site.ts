@@ -58,11 +58,11 @@ export const navLinks = {
 	en: [
 		{ href: "/about", label: "About" },
 		{ href: "/consultations", label: "Consultations" },
-		{ href: "/software", label: "Software" },
+		{ href: "https://astrocalculadora.demiurgos.eu", label: "Software" },
 	],
 	pt: [
 		{ href: "/pt/sobre", label: "Sobre" },
 		{ href: "/pt/consultas", label: "Consultas" },
-		{ href: "/pt/software", label: "Software" },
+		{ href: "https://astrocalculadora.demiurgos.eu", label: "Software" },
 	],
 } as const;

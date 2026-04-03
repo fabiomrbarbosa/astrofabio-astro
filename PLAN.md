@@ -148,15 +148,15 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~80%
+Overall: ~83%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
 | 1 — Foundation           | Complete    | 100% |
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
-| 4 — Secondary Pages      | In progress | 70%  |
-| 5 — Polish & Launch      | In progress | 10%  |
+| 4 — Secondary Pages      | In progress | 75%  |
+| 5 — Polish & Launch      | In progress | 20%  |
 
 ---
 
@@ -176,3 +176,7 @@ Overall: ~80%
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.
+- Software nav link points to the external tool at `https://astrocalculadora.demiurgos.eu` (both locales).
+- Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.
+- Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
+- `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.

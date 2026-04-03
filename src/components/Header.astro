@@ -88,7 +88,7 @@ const switchLangHref =
 	</a>
 
 	<nav
-		class="hidden md:flex items-center gap-6"
+		class="nav-primary hidden md:flex items-center gap-6"
 		aria-label="Primary navigation"
 	>
 		<ul class="flex items-center gap-6 list-none m-0 p-0">
@@ -322,11 +322,23 @@ const switchLangHref =
 		transform: translateX(-50%);
 	}
 
-	.nav-link[aria-current="page"],
-	.nav-link:focus,
-	.nav-link:hover {
-		color: var(--color-accent);
+	header .nav-primary > ul .nav-link {
+		padding: 0.5rem 1rem;
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: 2em;
+	}
+
+	header .nav-primary > ul .nav-link[aria-current="page"],
+	header .nav-primary > ul .nav-link:focus,
+	header .nav-primary > ul .nav-link:hover {
+		background: white;
 		text-decoration: none;
+	}
+
+	header.header--scrolled .nav-primary > ul .nav-link[aria-current="page"],
+	header.header--scrolled .nav-primary > ul .nav-link:focus,
+	header.header--scrolled .nav-primary > ul .nav-link:hover {
+		background: var(--color-surface);
 	}
 
 	/* ── Logo animation ──────────────────────────────────────── */
