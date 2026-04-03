@@ -46,6 +46,20 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 
 		<!-- Preload -->{preloadImage && <link rel="preload" as="image" href={preloadImage} />}
 
+		<!-- Strip hash from URL before the browser uses it to jump; scroll handled after DOM ready -->
+		<script is:inline>
+			(function () {
+				var hash = window.location.hash;
+				if (!hash) return;
+				var id = hash.slice(1);
+				history.replaceState(null, "", window.location.pathname + window.location.search);
+				document.addEventListener("DOMContentLoaded", function () {
+					var el = document.getElementById(id);
+					if (el) el.scrollIntoView({ behavior: "smooth" });
+				});
+			})();
+		</script>
+
 		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 		<link rel="icon" href="/images/favicon.ico" />
@@ -60,13 +74,6 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 		<Header locale={locale} theme={headerTheme} />
 		<slot />
 		<script>
-			// On load: strip hash from URL and scroll to target (covers ?query#hash navigations)
-			if (window.location.hash) {
-				const id = window.location.hash.slice(1);
-				history.replaceState(null, "", window.location.pathname + window.location.search);
-				document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-			}
-
 			// On click: intercept pure #hash links
 			document.addEventListener("click", (e) => {
 				const link = (e.target as Element).closest("a[href^='#']");
