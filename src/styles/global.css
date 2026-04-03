@@ -167,14 +167,14 @@
 	.button,
 	[type="button"],
 	[type="submit"] {
-		@apply text-base bg-accent rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-secondary hover:no-underline transition-colors duration-150 cursor-pointer;
+		@apply text-base text-sm bg-accent border border-secondary rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-secondary hover:no-underline transition-colors duration-150 cursor-pointer;
 	}
 
 	.button-alt {
-		@apply bg-ink hover:bg-contrast;
+		@apply border-contrast bg-ink hover:bg-contrast;
 	}
 
 	.button-alt-dark {
-		@apply bg-base text-contrast hover:bg-surface;
+		@apply bg-base border-surface text-contrast hover:bg-surface;
 	}
 }

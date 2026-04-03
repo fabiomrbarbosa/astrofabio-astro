@@ -53,25 +53,33 @@ const { bookCta, learnMore } = ui[locale];
 >
 	{
 		content.types.map((type, i) => (
-			<article class="card" style={`--i: ${i}`}>
-				<div
-					class="w-full card-icon"
-					aria-hidden="true"
-					set:html={icons[type.id]}
-				/>
-				<div>
+			<article class="card rounded-2xl" style={`--i: ${i}`}>
+				<div class="card-header">
 					{type.discipline && (
 						<p class="text-xs font-semibold tracking-widest uppercase text-secondary mb-2">
 							{type.discipline}
 						</p>
 					)}
-					<h2 class="card-title font-serif">{type.title}</h2>
+					<h2 class="card-title font-serif mb-6">{type.title}</h2>
+
+					<div
+						class="w-full card-icon"
+						aria-hidden="true"
+						set:html={icons[type.id]}
+					/>
+				</div>
+
+				<div class="card-content">
 					<div class="card-body">
 						{type.paragraphs.map((p) => (
 							<p set:html={p} />
 						))}
-					</div>
-					<a href="#book" data-type={type.id} class="button mt-8 inline-block">
+					</div>{" "}
+					<a
+						href="#book"
+						data-type={type.id}
+						class="button button-alt mt-8 inline-block"
+					>
 						{bookCta}
 					</a>
 				</div>
@@ -93,6 +101,55 @@ const { bookCta, learnMore } = ui[locale];
 				typeSelect.dispatchEvent(new Event("change"));
 			});
 		});
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const cards = document.querySelectorAll(".card");
+
+		const updateCards = () => {
+			const viewportHeight = window.innerHeight;
+			const topOffset = viewportHeight * 0.1; // 10vh
+
+			cards.forEach((card, index) => {
+				// We only effect cards that have a next sibling card
+				if (index === cards.length - 1) return;
+
+				const nextCard = cards[index + 1];
+				const nextRect = nextCard.getBoundingClientRect();
+
+				// Calculate how far the next card is from the bottom of the viewport up to the top offset
+				// When nextRect.top is at viewportHeight, progress is 0.
+				// When nextRect.top reaches topOffset, progress is 1.
+
+				const dist = nextRect.top - topOffset;
+				const range = viewportHeight - topOffset;
+
+				// Progress goes from 0 (next card just entering view) to 1 (next card hits top)
+				// Actually, we want scale to decrease as next card goes UP.
+				// So when next card is at bottom, scale is 1.
+				// When next card is at top, scale is 0.95.
+
+				let progress = 1 - dist / range;
+
+				// Clamp
+				if (progress < 0) progress = 0;
+				if (progress > 1) progress = 1;
+
+				// Apply effects
+				const scale = 1 - progress * 0.1; // Scale down by 10%
+
+				card.style.transform = `scale(${scale})`;
+			});
+
+			requestAnimationFrame(updateCards);
+		};
+
+		window.addEventListener("scroll", () => {
+			requestAnimationFrame(updateCards);
+		});
+
+		// Initial run
+		updateCards();
+	});
 </script>
 
 <section id="book" class="bg-overlay py-(--spacing-section)">
@@ -112,18 +169,15 @@ const { bookCta, learnMore } = ui[locale];
 		padding-bottom: 2rem;
 	}
 
-	/* ── Card
-	   position:sticky is on the card itself — its own content height
-	   becomes the dwell time before the next card slides over it. ── */
+	/* ── Card ── */
 
 	.card {
 		display: grid;
-		grid-template-columns: 1fr 2.5fr;
-		gap: 4rem;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
 		align-items: start;
 		background-color: var(--color-base);
 		border: 1px solid var(--color-overlay);
-		border-radius: 16px;
 		padding: 3rem;
 		margin-bottom: 2rem;
 		box-shadow: 0 1px 8px color-mix(in srgb, var(--color-ink) 4%, transparent);
@@ -132,10 +186,8 @@ const { bookCta, learnMore } = ui[locale];
 	@media (min-width: 641px) {
 		.card {
 			position: sticky;
-			align-items: center;
-			top: calc(7rem + var(--i) * 1rem);
-			min-height: calc(100vh - 22rem);
-			margin-bottom: 5rem;
+			top: calc(7rem);
+			margin-bottom: 3rem;
 			z-index: calc(var(--i) + 1);
 		}
 	}
@@ -154,13 +206,8 @@ const { bookCta, learnMore } = ui[locale];
 	.card-icon :global(svg) {
 		display: block;
 		width: 100%;
+		max-width: 10rem;
 		height: auto;
-	}
-
-	@media (max-width: 640px) {
-		.card-icon :global(svg) {
-			max-width: 10rem;
-		}
 	}
 
 	/* ── Card title ─────────────────────────────────────────────────── */
@@ -169,7 +216,6 @@ const { bookCta, learnMore } = ui[locale];
 		font-size: clamp(1.75rem, 4vw, 2.5rem);
 		line-height: 1.15;
 		color: var(--color-contrast);
-		margin: 0 0 2rem;
 	}
 
 	/* ── Card body (set:html descendants) ───────────────────────────── */
