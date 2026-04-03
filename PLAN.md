@@ -126,6 +126,13 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [ ] `/terms` page (PT)
 - [ ] `terms` collection or MDX files
 
+### Components
+
+- [ ] `NewsletterBox.astro` — newsletter signup section component (EN + PT copy, form UI, integration TBD)
+- [ ] `Footer.astro` — site-wide footer (nav links, locale switcher, copyright, social links TBD)
+- [ ] Footer wired into `Layout.astro`
+- [ ] Footer and newsletter copy added to `site.ts` (or dedicated YAML if substantial)
+
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
@@ -155,8 +162,10 @@ Overall: ~80%
 
 ## e) Next Actions
 
-1. **Create `/terms` page** — define `terms` collection in `content.config.ts` with EN + PT YAML, build a simple page (plain copy, no special layout). Link from the consultation form checkbox (`terms` field in `consultation/en.yaml`).
-2. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
+1. **Newsletter box component** — `NewsletterBox.astro` with EN + PT copy; decide on integration (Mailgun list, third-party, or just a mailto for now). Add to relevant pages.
+2. **Footer component** — `Footer.astro` with nav links, locale switcher, copyright line; wire into `Layout.astro` so it appears on all pages.
+3. **Create `/terms` page** — define `terms` collection in `content.config.ts` with EN + PT YAML, build a simple page (plain copy, no special layout). Link from the consultation form checkbox (`terms` field in `consultation/en.yaml`).
+4. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
 
 ---
 
