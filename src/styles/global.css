@@ -171,10 +171,10 @@
 	}
 
 	.button-alt {
-		@apply bg-ink hover:bg-contrast hover:text-base;
+		@apply bg-ink hover:bg-contrast;
 	}
 
 	.button-alt-dark {
-		@apply border-base text-base hover:bg-base hover:text-contrast;
+		@apply bg-base text-contrast hover:bg-surface;
 	}
 }
