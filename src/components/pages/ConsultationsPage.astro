@@ -27,20 +27,18 @@ const { bookCta, learnMore } = ui[locale];
 <HeroBackground src="/images/background-hero-consultations.svg" />
 
 <section
-	class="relative w-full flex items-center py-(--spacing-section) min-h-[75vh] overflow-hidden"
+	class="relative flex min-h-[70vh] w-full items-center overflow-hidden py-[calc(var(--spacing-section)*2)]"
 >
 	<div
-		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
+		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
 	>
 		<h1
-			class="text-7xl max-md:text-5xl font-serif tracking-tight leading-none mb-6"
+			class="mb-6 font-serif text-7xl leading-none tracking-tight max-md:text-5xl"
 		>
 			{content.hero.heading}
 		</h1>
-		<p class="text-xl md:text-2xl max-w-2xl mx-auto">
-			{content.hero.lead}
-		</p>
-		<div class="flex max-md:flex-col gap-4 items-center justify-center mt-8">
+		<p class="mx-auto max-w-2xl text-l md:text-xl">{content.hero.lead}</p>
+		<div class="mt-8 flex items-center justify-center gap-4 max-md:flex-col">
 			<a href="#book" class="button">{bookCta}</a>
 			<a href="#cards-track" class="button button-alt-dark">{learnMore}</a>
 		</div>
@@ -49,21 +47,21 @@ const { bookCta, learnMore } = ui[locale];
 
 <div
 	id="cards-track"
-	class="cards-track max-w-(--width-wide) mx-auto px-(--spacing-outer)"
+	class="cards-track mx-auto max-w-(--width-wide) px-(--spacing-outer)"
 >
 	{
 		content.types.map((type, i) => (
-			<article class="card rounded-2xl" style={`--i: ${i}`}>
+			<article class="card rounded-2xl" style={{ "--i": i }}>
 				<div class="card-header">
 					{type.discipline && (
-						<p class="text-xs font-semibold tracking-widest uppercase text-secondary mb-2">
+						<p class="text-secondary mb-2 text-xs font-semibold tracking-widest uppercase">
 							{type.discipline}
 						</p>
 					)}
-					<h2 class="card-title font-serif mb-6">{type.title}</h2>
+					<h2 class="card-title mb-6 font-serif">{type.title}</h2>
 
 					<div
-						class="w-full card-icon"
+						class="card-icon w-full"
 						aria-hidden="true"
 						set:html={icons[type.id]}
 					/>
@@ -106,6 +104,8 @@ const { bookCta, learnMore } = ui[locale];
 		const cards = document.querySelectorAll(".card");
 
 		const updateCards = () => {
+			if (window.innerWidth <= 641) return;
+
 			const viewportHeight = window.innerHeight;
 			const topOffset = viewportHeight * 0.005; // 10vh
 			console.log(topOffset);
@@ -138,7 +138,7 @@ const { bookCta, learnMore } = ui[locale];
 				// Apply effects
 				const scale = 1 - progress * 0.1; // Scale down by 10%
 
-				card.style.transform = `scale(${scale})`;
+				(card as HTMLElement).style.transform = `scale(${scale})`;
 			});
 
 			requestAnimationFrame(updateCards);
@@ -153,8 +153,8 @@ const { bookCta, learnMore } = ui[locale];
 	});
 </script>
 
-<section id="book" class="bg-overlay py-(--spacing-section) scroll-mt-6">
-	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+<section id="book" class="bg-overlay scroll-mt-6 py-(--spacing-section)">
+	<div class="mx-auto max-w-(--width-wide) px-(--spacing-outer)">
 		<div class="consultation-grid">
 			<div class="consultation-form">
 				<ConsultationForm />

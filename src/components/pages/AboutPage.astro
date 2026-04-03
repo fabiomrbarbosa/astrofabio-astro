@@ -12,19 +12,19 @@ const { bookCta } = ui[locale];
 <HeroBackground src="/images/background-hero-home.svg" />
 
 <section
-	class="relative w-full flex items-center py-(--spacing-section) min-h-[40vh] overflow-hidden"
+	class="relative flex min-h-[40vh] w-full items-center overflow-hidden py-[calc(var(--spacing-section)*2)]"
 >
 	<div
-		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
+		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
 	>
-		<h1 class="text-7xl max-md:text-5xl font-serif tracking-tight leading-none">
+		<h1 class="font-serif text-7xl leading-none tracking-tight max-md:text-5xl">
 			{content.hero.heading}
 		</h1>
 	</div>
 </section>
 
 <section class="py-(--spacing-section)">
-	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+	<div class="mx-auto max-w-(--width-wide) px-(--spacing-outer)">
 		<div class="bio-grid">
 			<div class="bio-image">
 				<img src="/images/fabio.jpg" alt="Fábio Barbosa" class="bio-photo" />
@@ -32,7 +32,7 @@ const { bookCta } = ui[locale];
 			<div class="bio-text">
 				{
 					content.bio.paragraphs.map((p) => (
-						<p class="mb-4 last:mb-0" set:html={p} />
+						<p class="mb-4 last:mb-0" set:html="{p}" />
 					))
 				}
 			</div>
@@ -41,12 +41,12 @@ const { bookCta } = ui[locale];
 </section>
 
 <section class="bg-overlay py-(--spacing-section)">
-	<div class="max-w-(--width-content) mx-auto px-(--spacing-outer) text-center">
-		<h2 class="text-4xl font-serif leading-tight mb-6">
+	<div class="mx-auto max-w-(--width-content) px-(--spacing-outer) text-center">
+		<h2 class="mb-6 font-serif text-4xl leading-tight">
 			{content.cta.heading}
 		</h2>
-		<p class="text-lg mb-8 max-w-2xl mx-auto" set:html={content.cta.body} />
-		<a href={content.cta.href} class="button">{bookCta}</a>
+		<p class="mx-auto mb-8 max-w-2xl text-lg" set:html="{content.cta.body}" />
+		<a href="{content.cta.href}" class="button">{bookCta}</a>
 	</div>
 </section>
 
