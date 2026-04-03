@@ -81,14 +81,18 @@ const { bookCta, learnMore } = ui[locale];
 </div>
 
 <script>
-	document.querySelectorAll<HTMLAnchorElement>("a[data-type]").forEach((link) => {
-		link.addEventListener("click", () => {
-			const typeSelect = document.getElementById("cf-type") as HTMLSelectElement | null;
-			if (!typeSelect) return;
-			typeSelect.value = link.dataset.type!;
-			typeSelect.dispatchEvent(new Event("change"));
+	document
+		.querySelectorAll<HTMLAnchorElement>("a[data-type]")
+		.forEach((link) => {
+			link.addEventListener("click", () => {
+				const typeSelect = document.getElementById(
+					"cf-type",
+				) as HTMLSelectElement | null;
+				if (!typeSelect) return;
+				typeSelect.value = link.dataset.type!;
+				typeSelect.dispatchEvent(new Event("change"));
+			});
 		});
-	});
 </script>
 
 <section id="book" class="bg-overlay py-(--spacing-section)">
@@ -130,7 +134,7 @@ const { bookCta, learnMore } = ui[locale];
 			position: sticky;
 			align-items: center;
 			top: calc(7rem + var(--i) * 1rem);
-			min-height: calc(100vh - 25rem);
+			min-height: calc(100vh - 22rem);
 			margin-bottom: 5rem;
 			z-index: calc(var(--i) + 1);
 		}
