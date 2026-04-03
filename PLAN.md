@@ -129,6 +129,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
+- [x] Hero background images preloaded via `preloadImage` prop on `Layout.astro`
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review

@@ -7,9 +7,10 @@ interface Props {
 	title?: string;
 	description?: string;
 	headerTheme?: "light" | "dark";
+	preloadImage?: string;
 }
 
-const { title, description, headerTheme = "light" } = Astro.props;
+const { title, description, headerTheme = "light", preloadImage } = Astro.props;
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const meta = siteMeta[locale];
 
@@ -42,6 +43,8 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Preload -->{preloadImage && <link rel="preload" as="image" href={preloadImage} />}
 
 		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
