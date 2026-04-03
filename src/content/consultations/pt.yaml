@@ -1,6 +1,6 @@
 hero:
   heading: Consultas
-  lead: "Uma consulta astrológica oferece ferramentas para compreender a própria vida ou uma determinada situação. Aplicam-se diferentes técnicas consoante o assunto em questão, com o objectivo de esclarecer as circunstâncias e dar pistas sobre o rumo a seguir."
+  lead: "Uma consulta astrológica oferece ferramentas para compreender a própria vida ou uma determinada situação. Consoante o assunto em questão, aplicam-se diferentes técnicas por forma a esclarecer as suas circunstâncias e dar pistas sobre o rumo a seguir."
 
 types:
   - id: natal
