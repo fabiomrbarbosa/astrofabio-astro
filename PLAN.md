@@ -181,4 +181,4 @@ Overall: ~83%
 - Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.
 - Logo SVG and animation live in `SiteLogo.astro`; Header imports it. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback.
-- Logo clip uses `<mask>` (not `<clipPath>`) for better anti-aliasing on Chrome. Mask paths are filled white; `transform: translateZ(0)` was removed to avoid GPU layer blurring.
+- Logo clip uses `<clipPath>`. A `<mask>` was tried for Chrome anti-aliasing but caused visible clipping on the small stroke. `transform: translateZ(0)` was removed to avoid GPU layer blurring.
