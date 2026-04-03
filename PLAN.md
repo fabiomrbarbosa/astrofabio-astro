@@ -132,7 +132,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
-- [ ] Final PT copy review
+- [ ] Final PT copy review (about bio known to need a looser rewrite)
 - [ ] Lighthouse audit (performance, a11y, SEO)
 - [ ] Coolify deploy tested end-to-end
 
