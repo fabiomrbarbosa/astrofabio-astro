@@ -2,8 +2,8 @@
 import { getEntry } from "astro:content";
 import { defaultLocale, type Locale, ui } from "../../i18n/site";
 import ConsultationForm from "../ConsultationForm.astro";
+import HeroBackground from "../HeroBackground.astro";
 
-import backgroundHero from "../../assets/images/background-hero-home.svg?raw";
 import chartRings from "../../assets/images/chart-rings.svg?raw";
 import chartSpokes from "../../assets/images/chart-spokes.svg?raw";
 import chartTicks from "../../assets/images/chart-ticks.svg?raw";
@@ -14,7 +14,7 @@ const content = entry!.data;
 const { bookCta, learnMore } = ui[locale];
 ---
 
-<div class="hero-background" aria-hidden="true" set:html={backgroundHero} />
+<HeroBackground src="/images/background-hero-home.svg" />
 
 <section
 	id="hero-section"
@@ -166,23 +166,6 @@ const { bookCta, learnMore } = ui[locale];
 </script>
 
 <style>
-	.hero-background {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		filter: blur(80px) saturate(200%);
-		opacity: 0.1;
-		pointer-events: none;
-		z-index: -1;
-		will-change: filter, opacity, transform;
-	}
-
-	.hero-background :global(svg) {
-		width: 100%;
-		height: 100%;
-	}
-
 	.hero-circles {
 		position: absolute;
 		inset: 0;

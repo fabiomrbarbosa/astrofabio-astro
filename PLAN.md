@@ -94,7 +94,8 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Hidden fieldset inputs disabled to exclude from FormData
 - [x] Synastry relationship field (mandatory, EN + PT)
 - [x] Synastry second person's time of birth enforced as required
-- [x] Background and chart SVGs moved to `src/assets/images/` and inlined via `?raw` (no network request, no flash); favicon/OG/photo remain in `public/images/`
+- [x] Chart SVGs inlined via `?raw` for the animated circles overlay
+- [x] Background hero SVGs served as regular files from `public/images/`; abstracted into `HeroBackground.astro` component (takes `src` prop)
 
 ### Content Architecture
 
@@ -164,5 +165,4 @@ Overall: ~80%
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
-- **Open issue:** hero background SVGs cause GPU compositing tearing on mouse interaction in both pages. Current approach: CSS `filter: blur(80px) saturate(200%)` + `opacity: 0.1` + `will-change: filter, opacity, transform` on `.hero-background`. SVGs are clean blobs with no filter attributes. Neither CSS `filter`/`translateZ(0)`, SVG-native `<feGaussianBlur>`, nor `will-change` has resolved the tearing. Root cause not yet identified.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.
