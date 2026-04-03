@@ -180,3 +180,4 @@ Overall: ~83%
 - Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.
 - Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.
+- Logo SVG and animation live in `SiteLogo.astro`; Header imports it. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback.
