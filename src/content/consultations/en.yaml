@@ -9,14 +9,14 @@ types:
     paragraphs:
       - "Your natal chart is a precise map of the sky at the moment you were born — and by extension, of the conditions of the world around you at that time. It describes not only your character and temperament, but also your circumstances: your family, your relationships, your vocation, your potential for prosperity."
       - To read your natal chart, I will need your date, time, and place of birth. Please be as precise as possible with the data you provide.
-      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification process, in which we compare key moments from your personal history against the planetary cycles that began at your birth.
+      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification process based on certain key moments from your personal history.
 
   - id: natal-solar-return
     discipline: Natal Astrology + Predictive Techniques
     title: Birth Chart and Current Year
     paragraphs:
       - Your natal chart corresponds to a fixed moment in time. But the sky continues to move, engaging with the promises inscribed in your nativity and opening new chapters in your life according to present conditions.
-      - "In this consultation, we revisit your natal chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the moment you are moving through and the tendencies ahead."
+      - "In this consultation, we revisit your natal chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the moment and the tendencies ahead."
       - This reading is typically done around the time of a birthday, but it can be carried out at any point in the year.
 
   - id: horary

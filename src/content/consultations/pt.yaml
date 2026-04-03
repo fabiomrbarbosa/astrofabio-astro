@@ -9,14 +9,14 @@ types:
     paragraphs:
       - "O seu mapa natal é uma representação precisa do céu no momento em que nasceu, e por conseguinte, também das condições do mundo à sua volta. Ou seja, o mapa natal descreve não só o seu carácter e temperamento, mas também as suas circunstâncias: a sua família, os seus relacionamentos, a sua vocação, o seu potencial de prosperidade."
       - Para analisar o seu mapa natal, precisará de me fornecer a data, hora e local do seu nascimento. Peço que seja o mais preciso possível nos dados que me fornecer.
-      - Caso esteja em dúvida quanto à hora que nasceu e não possa aceder à sua certidão de nascimento, podemos arriscar uma estimativa através de um processo de rectificação, em que comparamos certos momentos-chave da sua história pessoal com os ciclos planetários que terão tido início no seu nascimento.
+      - Caso esteja em dúvida quanto à hora que nasceu e não possa aceder à sua certidão de nascimento, podemos arriscar uma estimativa através de um processo de rectificação baseado em certos momentos-chave da sua história pessoal.
 
   - id: natal-solar-return
     discipline: Astrologia Natal + Técnicas Preditivas
     title: Estudo do Mapa Natal e do Ano em Curso
     paragraphs:
       - O seu mapa natal corresponde a um momento fixo no tempo. Mas o céu continua em movimento, interagindo com as promessas inscritas na sua natividade e abrindo novos capítulos na sua vida de acordo com as condições presentes.
-      - "Nesta consulta, revisitamos o seu mapa natal em conjunto com os indicadores actuais (com recurso a técnicas como firdaria, profecções, revolução solar, trânsitos, direcções primárias) para lhe dar uma imagem clara do momento que está agora a atravessar e das tendências futuras."
+      - "Nesta consulta, revisitamos o seu mapa natal em conjunto com os indicadores actuais (com recurso a técnicas como firdaria, profecções, revolução solar, trânsitos, direcções primárias) para lhe dar uma imagem clara do momento e das tendências futuras."
       - Geralmente, este estudo é feito por altura do aniversário, mas pode ser realizado em qualquer altura.
 
   - id: horary
