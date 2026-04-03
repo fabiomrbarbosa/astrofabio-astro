@@ -27,7 +27,7 @@ const { bookCta, learnMore } = ui[locale];
 <HeroBackground src="/images/background-hero-consultations.svg" />
 
 <section
-	class="relative w-full flex items-center py-(--spacing-section) min-h-[60vh] overflow-hidden"
+	class="relative w-full flex items-center py-(--spacing-section) min-h-[75vh] overflow-hidden"
 >
 	<div
 		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
@@ -107,7 +107,8 @@ const { bookCta, learnMore } = ui[locale];
 
 		const updateCards = () => {
 			const viewportHeight = window.innerHeight;
-			const topOffset = viewportHeight * 0.1; // 10vh
+			const topOffset = viewportHeight * 0.005; // 10vh
+			console.log(topOffset);
 
 			cards.forEach((card, index) => {
 				// We only effect cards that have a next sibling card
@@ -173,7 +174,7 @@ const { bookCta, learnMore } = ui[locale];
 
 	.card {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 1.75fr;
 		gap: 3rem;
 		align-items: start;
 		background-color: var(--color-base);
@@ -187,7 +188,7 @@ const { bookCta, learnMore } = ui[locale];
 		.card {
 			position: sticky;
 			top: calc(7rem);
-			margin-bottom: 3rem;
+			margin-bottom: 10vh;
 			z-index: calc(var(--i) + 1);
 		}
 	}

@@ -1,22 +1,22 @@
 hero:
   heading: Consultations
-  lead: "# TODO: write hero lead"
+  lead: "Astrological consultation offers tools to understand one’s life or a given situation. Different techniques are applied according to the matter at hand, in order to clarify circumstances and give guidance on the way forward."
 
 types:
   - id: natal
     discipline: Natal Astrology
     title: Birth Chart Reading
     paragraphs:
-      - "Your natal chart is a map of the sky at the moment you were born — and by extension, of the conditions of the world around you at that time. It describes not only your character and temperament, but also your circumstances: your family, your relationships, your vocation, your potential for prosperity."
-      - To read your natal chart, I will need your date, time, and place of birth. Please be as precise as possible with the data you provide.
-      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification process based on certain key moments from your personal history.
+      - "Your birth chart is a map of the sky at the moment you were born — and by extension, of the conditions of the world around you at that time. It describes not only your personality, but also your circumstances: your family, your relationships, your work, your potential for prosperity."
+      - To read your birth chart, I will need your date, time, and place of birth. Please be as precise as possible.
+      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification based on certain key moments from your personal history.
 
   - id: natal-solar-return
     discipline: Natal Astrology + Predictive Techniques
     title: Birth Chart and Current Year
     paragraphs:
-      - Your natal chart corresponds to a fixed moment in time. But the sky continues to move, engaging with the promises inscribed in your nativity and opening new chapters in your life according to present conditions.
-      - "In this consultation, we revisit your natal chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the moment and the tendencies ahead."
+      - Your birth chart corresponds to a fixed moment in time. But the sky continues to move, engaging with the promises inscribed in your nativity and opening new chapters in your life according to present conditions.
+      - "In this consultation, we revisit your birth chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the present moment and the tendencies lying ahead."
       - This reading is typically done around the time of a birthday, but it can be carried out at any point in the year.
 
   - id: horary
@@ -33,12 +33,12 @@ types:
     paragraphs:
       - Not all moments are equal, nor do they offer the same conditions for pursuing our goals. Electional astrology identifies the most favourable moments for specific undertakings — such as signing a contract, a business launch, or a journey.
       - To do this, I ask that you provide a realistic time window within which you intend to act. The more specific the timeframe, the better. Your birth data will also be useful.
-      - "<strong>An astrological election is not an absolute guarantee of success.</strong> The aim is to maximise the opportunities available to you, according to the configurations of the moment and your own natal chart."
+      - "<strong>An astrological election is not an absolute guarantee of success.</strong> The aim is to maximise the opportunities available to you, according to the configurations of the moment and your own birth chart."
 
   - id: synastry
     discipline: Synastry
     title: Relationship Reading
     paragraphs:
-      - "Through synastry, we can analyse the relationship between two people — romantic partners, family members, friends, colleagues — by comparing both natal charts."
+      - "Through synastry, we can analyse the relationship between two people — romantic partners, family members, friends, colleagues — by comparing both birth charts."
       - "The comparison of the configurations in each nativity makes it possible to identify shared traits and factors of harmony, and to flag potential points of friction. The desired attitude is not one of confrontation, but a genuine interest in one another's wellbeing and in the health of the relationship."
       - "For this consultation, <strong>it is essential that both participants are present and give their full consent</strong>. "

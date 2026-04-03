@@ -1,6 +1,6 @@
-import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 const formField = z.object({
 	label: z.string(),
@@ -8,7 +8,7 @@ const formField = z.object({
 });
 
 const home = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './src/content/home' }),
+	loader: glob({ pattern: "*.yaml", base: "./src/content/home" }),
 	schema: z.object({
 		hero: z.object({
 			heading: z.array(z.string()),
@@ -31,7 +31,7 @@ const home = defineCollection({
 });
 
 const consultation = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './src/content/consultation' }),
+	loader: glob({ pattern: "*.yaml", base: "./src/content/consultation" }),
 	schema: z.object({
 		name: z.string(),
 		email: z.string(),
@@ -74,7 +74,7 @@ const consultationType = z.object({
 });
 
 const consultations = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './src/content/consultations' }),
+	loader: glob({ pattern: "*.yaml", base: "./src/content/consultations" }),
 	schema: z.object({
 		hero: z.object({
 			heading: z.string(),
@@ -85,7 +85,7 @@ const consultations = defineCollection({
 });
 
 const about = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './src/content/about' }),
+	loader: glob({ pattern: "*.yaml", base: "./src/content/about" }),
 	schema: z.object({
 		hero: z.object({
 			heading: z.string(),
