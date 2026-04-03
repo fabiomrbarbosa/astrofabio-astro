@@ -59,6 +59,17 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 	<body>
 		<Header locale={locale} theme={headerTheme} />
 		<slot />
+		<script>
+			document.addEventListener("click", (e) => {
+				const link = (e.target as Element).closest("a[href^='#']");
+				if (!link) return;
+				const id = link.getAttribute("href")!.slice(1);
+				const target = document.getElementById(id);
+				if (!target) return;
+				e.preventDefault();
+				target.scrollIntoView({ behavior: "smooth" });
+			});
+		</script>
 	</body>
 </html>
 
