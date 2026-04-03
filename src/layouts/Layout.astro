@@ -60,6 +60,14 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 		<Header locale={locale} theme={headerTheme} />
 		<slot />
 		<script>
+			// On load: strip hash from URL and scroll to target (covers ?query#hash navigations)
+			if (window.location.hash) {
+				const id = window.location.hash.slice(1);
+				history.replaceState(null, "", window.location.pathname + window.location.search);
+				document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+			}
+
+			// On click: intercept pure #hash links
 			document.addEventListener("click", (e) => {
 				const link = (e.target as Element).closest("a[href^='#']");
 				if (!link) return;
