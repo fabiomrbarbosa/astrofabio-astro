@@ -175,7 +175,7 @@ Overall: ~92%
 
 ## Notes
 
-- `set:html` is used on all paragraph renderers — i18n strings may contain safe HTML (links etc.).
+- `set:html` is used on all paragraph renderers and the booking form terms label — i18n strings may contain safe HTML (links etc.). The terms checkbox label uses `stopPropagation()` on the link to prevent toggling the checkbox when the link is clicked.
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.

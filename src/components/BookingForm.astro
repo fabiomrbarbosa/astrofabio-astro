@@ -200,7 +200,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 	<div class="form-field form-terms">
 		<label class="form-checkbox">
 			<input type="checkbox" name="terms" required />
-			<span>{form.terms}</span>
+			<span set:html={form.terms} />
 		</label>
 	</div>
 

@@ -48,5 +48,5 @@ synastry:
   concerns:
     label: Specific concerns
     placeholder: Is there a particular dynamic or question you would like to explore in this synastry?
-terms: I have read and accept the terms and conditions.
+terms: 'I have read and accept the <a href="/terms" onclick="event.stopPropagation()">terms and conditions</a>.'
 submit: Send enquiry

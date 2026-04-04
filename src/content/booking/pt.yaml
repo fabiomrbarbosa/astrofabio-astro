@@ -48,5 +48,5 @@ synastry:
   concerns:
     label: "Preocupações específicas"
     placeholder: Existe alguma dinâmica ou questão particular que gostaria de explorar nesta sinastria?
-terms: Li e aceito os termos e condições.
+terms: 'Li e aceito os <a href="/pt/termos" onclick="event.stopPropagation()">termos e condições</a>.'
 submit: Enviar pedido
