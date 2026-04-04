@@ -95,6 +95,8 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const typeLabel = KNOWN_TYPES[consultationType];
 
+	const locale = get("locale") || "en";
+
 	const lines: string[] = [
 		`Name: ${name}`,
 		`Email: ${email}`,
@@ -104,6 +106,7 @@ export const POST: APIRoute = async ({ request }) => {
 		`Country of birth: ${get("countryOfBirth")}`,
 		``,
 		`Consultation type: ${typeLabel}`,
+		`Form language: ${locale}`,
 	];
 
 	if (consultationType === "natal" || consultationType === "natal-solar-return") {
