@@ -197,7 +197,7 @@ const switchLangHref =
 	window.addEventListener("scroll", onScroll, { passive: true });
 	onScroll();
 
-	// Persist manual language choice so the middleware doesn't override it
+	// Persist manual language choice so the middleware doesn't override its
 	document
 		.querySelectorAll<HTMLAnchorElement>("[data-lang-switch]")
 		.forEach((el) => {
