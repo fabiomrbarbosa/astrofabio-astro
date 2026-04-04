@@ -265,10 +265,12 @@ const switchLangHref =
 		transition: color 150ms ease;
 	}
 
-	header > nav ul {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+	@media screen and (min-device-width: 768px) {
+		header > nav ul {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	}
 
 	header .nav-primary > ul .nav-link {
