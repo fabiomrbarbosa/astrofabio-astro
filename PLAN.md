@@ -135,6 +135,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
 - [x] Footer wired into `Layout.astro`
 - [x] `SiteLogo` updated with `instanceId` prop to avoid duplicate SVG clipPath IDs when used in both header and footer
+- [x] `SiteLogo` `animated` prop (default `true`) — footer passes `animated={false}` via `logo-no-animate` class
 
 ### Assets & Launch
 
@@ -186,5 +187,6 @@ Overall: ~92%
 - `routeEquivalents` in `site.ts` is the single source for EN↔PT path mapping — derived from `navLinks` (by index) plus manual entries for homepage and utility pages. Add new translated routes here.
 - `booking` content collection (formerly `consultation`) holds booking form UI strings. `BookingForm.astro` (formerly `ConsultationForm.astro`) self-loads it.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.
-- Logo SVG and animation live in `SiteLogo.astro`; Header imports it. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback.
+- Logo SVG and animation live in `SiteLogo.astro`; Header imports it with default `animated={true}`. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback. Footer passes `animated={false}` which adds `logo-no-animate` class to disable the draw-in animation.
 - Logo clip uses `<clipPath>`. A `<mask>` was tried for Chrome anti-aliasing but caused visible clipping on the small stroke. `transform: translateZ(0)` was removed to avoid GPU layer blurring.
+- `BookingForm` sends a hidden `locale` field (`en` or `pt`) with the form; `/api/consultation` reads it and appends `Form language:` to the email body.
