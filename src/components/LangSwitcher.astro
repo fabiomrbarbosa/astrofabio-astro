@@ -2,7 +2,7 @@
 import {
 	ui,
 	defaultLocale,
-	navLinks as allNavLinks,
+	routeEquivalents,
 	type Locale,
 } from "../i18n/site";
 
@@ -15,13 +15,7 @@ const t = ui[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
 const currentPath = Astro.url.pathname;
 
-const currentNavIndex = (
-	allNavLinks[locale] as readonly { href: string }[]
-).findIndex((l) => l.href === currentPath);
-const switchLangHref =
-	currentNavIndex !== -1
-		? allNavLinks[targetLocale][currentNavIndex].href
-		: t.switchLangHref;
+const switchLangHref = routeEquivalents[currentPath] ?? t.switchLangHref;
 ---
 
 <div class="lang-switcher">

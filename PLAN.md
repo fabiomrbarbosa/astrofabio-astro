@@ -41,7 +41,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 - Content moved from TypeScript objects to YAML files per locale
 - Astro content collections with Zod schemas (`src/content.config.ts`, using `astro/zod`)
-- `ConsultationForm` and `HomePage` both self-load their own content — no props, no threading
+- `BookingForm` and `HomePage` both self-load their own content — no props, no threading
 - Page files (`index.astro`, `pt/index.astro`) are trivially thin — Layout + component only
 - `site.ts` is the single source for site config, nav links, UI strings
 - `Astro.site` used for canonical URL (no duplicate in `site.ts`)
@@ -52,7 +52,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 - `/consultations` (`/pt/consultas`) — standalone consultations page with type cards and embedded form ✅
 - `/about` (`/pt/sobre`) — full bio page with photo and bio copy ✅
-- `/terms` — terms and conditions (linked from form checkbox)
+- `/terms` (`/pt/termos`) — terms and conditions ✅
 
 ### Stage 5 — Polish & Launch 🔲
 
@@ -86,7 +86,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Consultation section — intro copy + form
 - [x] EN bio copy (4 paragraphs)
 - [x] PT bio copy (4 paragraphs)
-- [x] ConsultationForm — natal, natal+SR, horary, elective, synastry types
+- [x] BookingForm — natal, natal+SR, horary, elective, synastry types
 - [x] Cloudflare Turnstile integration
 - [x] Mailgun EU API route (`/api/consultation`)
 - [x] Form localStorage persistence (save on input, restore on load, clear on submit)
@@ -100,9 +100,9 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Content Architecture
 
 - [x] `src/content/home/en.yaml` and `pt.yaml`
-- [x] `src/content/consultation/en.yaml` and `pt.yaml`
+- [x] `src/content/booking/en.yaml` and `pt.yaml` (renamed from `consultation/`)
 - [x] Zod schemas in `src/content.config.ts` (using `astro/zod`)
-- [x] `ConsultationForm` self-loads via `getEntry('consultation', locale)`
+- [x] `BookingForm` self-loads via `getEntry('booking', locale)` (renamed from `ConsultationForm`)
 - [x] `HomePage` self-loads via `getEntry('home', locale)` — no props
 - [x] Page files are thin wrappers: Layout + component only
 - [x] `site.ts` owns: locales, siteMeta, ui strings, navLinks
@@ -111,7 +111,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ### Secondary Pages
 
-- [x] `/consultations` page (EN) — `src/pages/consultations.astro` + `ConsultationsPage.astro`
+- [x] `/consultations` page (EN) — `src/pages/consultations.astro` + `ConsultationsPage.astro` (uses `BookingForm`)
 - [x] `/pt/consultas` page (PT)
 - [x] `consultations` collection in `content.config.ts` with EN + PT YAML
 - [x] Consultation type icon SVGs (`icon-natal.svg`, `icon-horary.svg`, etc.)
@@ -122,9 +122,11 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `/about` page (EN) — `src/pages/about.astro` + `AboutPage.astro`
 - [x] `/pt/sobre` page (PT)
 - [x] `about` collection defined in `content.config.ts` with EN + PT YAML
-- [ ] `/terms` page (EN)
-- [ ] `/terms` page (PT)
-- [ ] `terms` collection or MDX files
+- [x] `/terms` page (EN) — `src/pages/terms.astro` + `TermsPage.astro`
+- [x] `/pt/termos` page (PT)
+- [x] `terms` collection in `content.config.ts` with EN + PT YAML (9 sections, astrologer disclaimers)
+- [x] `routeEquivalents` map in `site.ts` — unified EN↔PT path lookup for all routes; `LangSwitcher` simplified to single map lookup
+- [x] Footer copyright area: safe space notice (🏳️‍🌈🏳️‍⚧️♾️) + T&C link
 
 ### Components
 
@@ -151,14 +153,14 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~88%
+Overall: ~92%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
 | 1 — Foundation           | Complete    | 100% |
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
-| 4 — Secondary Pages      | In progress | 75%  |
+| 4 — Secondary Pages      | Complete    | 100% |
 | 5 — Polish & Launch      | In progress | 40%  |
 
 ---
@@ -166,9 +168,8 @@ Overall: ~88%
 ## e) Next Actions
 
 1. **Newsletter box component** — `NewsletterBox.astro` with EN + PT copy; decide on integration (Mailgun list, third-party, or just a mailto for now). Add to relevant pages.
-2. ~~**Footer component**~~ — done. `Footer.astro` + `LangSwitcher.astro` created, wired into `Layout.astro`.
-3. **Create `/terms` page** — define `terms` collection in `content.config.ts` with EN + PT YAML, build a simple page (plain copy, no special layout). Link from the consultation form checkbox (`terms` field in `consultation/en.yaml`).
-4. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
+2. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
+3. **Final copy review** — EN + PT. PT about bio known to need a looser rewrite.
 
 ---
 
@@ -182,6 +183,8 @@ Overall: ~88%
 - App nav link points to `https://app.astrofabio.com` (both locales), labelled "App" / "App".
 - Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.
 - Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
+- `routeEquivalents` in `site.ts` is the single source for EN↔PT path mapping — derived from `navLinks` (by index) plus manual entries for homepage and utility pages. Add new translated routes here.
+- `booking` content collection (formerly `consultation`) holds booking form UI strings. `BookingForm.astro` (formerly `ConsultationForm.astro`) self-loads it.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.
 - Logo SVG and animation live in `SiteLogo.astro`; Header imports it. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback.
 - Logo clip uses `<clipPath>`. A `<mask>` was tried for Chrome anti-aliasing but caused visible clipping on the small stroke. `transform: translateZ(0)` was removed to avoid GPU layer blurring.

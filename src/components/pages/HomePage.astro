@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import { defaultLocale, type Locale, ui } from "../../i18n/site";
-import ConsultationForm from "../ConsultationForm.astro";
+import BookingForm from "../BookingForm.astro";
 import HeroBackground from "../HeroBackground.astro";
 
 import chartRings from "../../assets/images/chart-rings.svg?raw";
@@ -119,7 +119,7 @@ const { bookCta, learnMore } = ui[locale];
 				}
 			</div>
 			<div class="consultation-form">
-				<ConsultationForm />
+				<BookingForm />
 			</div>
 		</div>
 	</div>

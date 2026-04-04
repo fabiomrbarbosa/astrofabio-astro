@@ -41,6 +41,9 @@ export const ui = {
 		switchLangAriaLabel: "Ver em Português",
 		bookCta: "Book a consultation",
 		learnMore: "Learn more",
+		safeSpace: "A queer and neurodivergent-safe space 🏳️‍🌈🏳️‍⚧️♾️",
+		termsLabel: "Terms & Conditions",
+		termsHref: "/terms",
 	},
 	pt: {
 		menuOpen: "Abrir menu",
@@ -51,6 +54,9 @@ export const ui = {
 		switchLangAriaLabel: "Switch to English",
 		bookCta: "Marcar consulta",
 		learnMore: "Saber mais",
+		safeSpace: "Um espaço seguro para pessoas queer e neurodivergentes 🏳️‍🌈🏳️‍⚧️♾️",
+		termsLabel: "Termos e Condições",
+		termsHref: "/pt/termos",
 	},
 } as const;
 
@@ -66,3 +72,16 @@ export const navLinks = {
 		{ href: "https://app.astrofabio.com", label: "App" },
 	],
 } as const;
+
+// Complete map of every path to its equivalent in the other locale.
+// Derived from navLinks (same index = same page) plus manually listed routes.
+export const routeEquivalents: Record<string, string> = {
+	"/": "/pt",
+	"/pt": "/",
+	...Object.fromEntries([
+		...navLinks.en.map((l, i) => [l.href, navLinks.pt[i].href]),
+		...navLinks.pt.map((l, i) => [l.href, navLinks.en[i].href]),
+	]),
+	"/terms": "/pt/termos",
+	"/pt/termos": "/terms",
+};

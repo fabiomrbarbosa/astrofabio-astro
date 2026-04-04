@@ -4,6 +4,7 @@ import LangSwitcher from "./LangSwitcher.astro";
 import {
 	defaultLocale,
 	navLinks as allNavLinks,
+	ui,
 	type Locale,
 } from "../i18n/site";
 
@@ -13,6 +14,7 @@ interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 const navLinks = allNavLinks[locale];
+const t = ui[locale];
 const currentPath = Astro.url.pathname;
 ---
 
@@ -44,10 +46,18 @@ const currentPath = Astro.url.pathname;
 				<LangSwitcher locale={locale} />
 			</nav>
 		</div>
-		<div class="border-t border-muted pt-6">
-			<small class="text-muted text-[0.8125rem] tracking-[0.04em]"
-				>© 2026 Fábio Barbosa</small
-			>
+		<div
+			class="border-t border-muted pt-6 flex flex-col sm:flex-row sm:justify-between gap-2"
+		>
+			<span class="text-muted text-sm shrink-0">
+				© 2026 Fábio Barbosa ·
+				<a
+					href={t.termsHref}
+					class="text-muted hover:text-ink no-underline transition-colors duration-150"
+					>{t.termsLabel}</a
+				>
+			</span>
+			<span class="text-muted text-sm">{t.safeSpace}</span>
 		</div>
 	</div>
 </footer>

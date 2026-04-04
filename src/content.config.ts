@@ -30,8 +30,8 @@ const home = defineCollection({
 	}),
 });
 
-const consultation = defineCollection({
-	loader: glob({ pattern: "*.yaml", base: "./src/content/consultation" }),
+const booking = defineCollection({
+	loader: glob({ pattern: "*.yaml", base: "./src/content/booking" }),
 	schema: z.object({
 		name: z.string(),
 		email: z.string(),
@@ -101,4 +101,19 @@ const about = defineCollection({
 	}),
 });
 
-export const collections = { home, consultation, consultations, about };
+const terms = defineCollection({
+	loader: glob({ pattern: "*.yaml", base: "./src/content/terms" }),
+	schema: z.object({
+		hero: z.object({
+			heading: z.string(),
+		}),
+		sections: z.array(
+			z.object({
+				heading: z.string(),
+				paragraphs: z.array(z.string()),
+			})
+		),
+	}),
+});
+
+export const collections = { home, booking, consultations, about, terms };

@@ -1,0 +1,47 @@
+hero:
+  heading: Termos e Condições
+
+sections:
+  - heading: 1. Sobre estes termos
+    paragraphs:
+      - Estes termos regem a utilização dos serviços disponibilizados através deste website por Fábio Barbosa, astrólogo. Ao marcar uma consulta, confirma que leu, compreendeu e aceita estes termos na totalidade.
+      - Estes termos podem ser atualizados ocasionalmente. Aplica-se a versão publicada nesta página no momento da marcação.
+
+  - heading: 2. Natureza do serviço
+    paragraphs:
+      - As consultas disponibilizadas aqui são leituras astrológicas baseadas em métodos tradicionais. Partem do simbolismo e dos ciclos planetários como instrumento de reflexão e autoconhecimento.
+      - A astrologia não é uma ciência no sentido académico, e estas sessões não substituem aconselhamento médico, psicológico, psiquiátrico, jurídico, financeiro ou qualquer outro de natureza regulamentada. Nada do que for comunicado durante uma consulta deve ser interpretado como diagnóstico, prognóstico ou recomendação vinculativa.
+      - As interpretações e observações partilhadas durante uma sessão representam uma leitura simbólica e pessoal do mapa astral. São oferecidas de boa fé como ponto de partida para reflexão. Fábio Barbosa não afirma prever o futuro com certeza, e não é dada qualquer garantia de que um determinado resultado venha ou não a ocorrer.
+      - Cada pessoa é responsável pelas decisões que toma na própria vida. Fábio Barbosa não aceita qualquer responsabilidade por ações tomadas ou não tomadas com base em algo comunicado durante uma consulta.
+
+  - heading: 3. Elegibilidade
+    paragraphs:
+      - Para marcar uma consulta é necessário ter pelo menos 18 anos de idade. Ao fazer a marcação, confirma que é maior de idade.
+
+  - heading: 4. Marcações e pagamentos
+    paragraphs:
+      - As consultas são confirmadas apenas após recepção do pagamento integral. Receberá uma confirmação por email após o processamento do pagamento.
+      - Os preços são apresentados em euros e incluem os impostos aplicáveis. O pagamento é feito através de transferência bancária com IBAN ou por MB Way.
+
+  - heading: 5. Cancelamentos e reagendamentos
+    paragraphs:
+      - Se precisar de cancelar ou reagendar, por favor faça-o com pelo menos 48 horas de antecedência em relação à sessão marcada. Os cancelamentos efetuados com antecedência suficiente têm direito a reembolso total ou reagendamento sem custos adicionais.
+      - Cancelamentos efetuados com menos de 48 horas de antecedência, ou faltas sem aviso, não têm direito a reembolso. Poderão ser consideradas exceções em situações de emergência genuína, a critério de Fábio Barbosa.
+      - Se Fábio Barbosa precisar de cancelar ou reagendar uma sessão, será proposta uma alternativa ou o reembolso total.
+
+  - heading: 6. Confidencialidade
+    paragraphs:
+      - Toda a informação pessoal partilhada — incluindo dados de nascimento e tudo o que for discutido durante a sessão — é tratada com total confidencialidade. Não será partilhada com terceiros.
+      - As notas de sessão e os dados do mapa são conservados exclusivamente para efeitos de realização e acompanhamento da consulta. Pode solicitar a eliminação dos seus dados em qualquer momento através de fabio@astrofabio.com.
+
+  - heading: 7. Propriedade intelectual
+    paragraphs:
+      - Todos os materiais escritos, gravações e mapas produzidos no âmbito de uma consulta destinam-se exclusivamente a uso pessoal. Não podem ser reproduzidos, partilhados publicamente ou utilizados comercialmente sem consentimento prévio por escrito.
+
+  - heading: 8. Lei aplicável
+    paragraphs:
+      - Estes termos são regidos pela lei portuguesa. Quaisquer litígios decorrentes da utilização destes serviços ficam sujeitos à jurisdição dos tribunais portugueses.
+
+  - heading: 9. Contacto
+    paragraphs:
+      - Para qualquer questão relacionada com estes termos, pode entrar em contacto através de <a href="mailto:fabio@astrofabio.com">fabio@astrofabio.com</a>.
