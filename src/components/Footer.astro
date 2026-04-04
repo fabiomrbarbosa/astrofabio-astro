@@ -18,14 +18,15 @@ const currentPath = Astro.url.pathname;
 
 <footer class="py-(--spacing-section) bg-contrast">
 	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
-		<div
-			class="flex gap-[clamp(2rem,6vw,5rem)] items-start mb-[clamp(2rem,5vw,4rem)]"
-		>
+		<div class="flex gap-20 mb-20 items-start">
 			<div class="shrink-0">
 				<SiteLogo locale={locale} instanceId="footer" />
 			</div>
-			<nav class="flex flex-col gap-5" aria-label="Footer navigation">
-				<ul class="list-none m-0 p-0 flex flex-col gap-2.5">
+			<nav
+				class="flex grow flex-col md:flex-row gap-10 justify-between"
+				aria-label="Footer navigation"
+			>
+				<ul class="list-none m-0 p-0 flex flex-col md:flex-row gap-3 md:gap-6">
 					{
 						navLinks.map(({ href, label }) => (
 							<li>
