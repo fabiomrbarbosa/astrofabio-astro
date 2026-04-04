@@ -1,0 +1,65 @@
+---
+import {
+	ui,
+	defaultLocale,
+	navLinks as allNavLinks,
+	type Locale,
+} from "../i18n/site";
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const t = ui[locale];
+const targetLocale = locale === "en" ? "pt" : "en";
+const currentPath = Astro.url.pathname;
+
+const currentNavIndex = (
+	allNavLinks[locale] as readonly { href: string }[]
+).findIndex((l) => l.href === currentPath);
+const switchLangHref =
+	currentNavIndex !== -1
+		? allNavLinks[targetLocale][currentNavIndex].href
+		: t.switchLangHref;
+---
+
+<div class="lang-switcher">
+	<span class="lang-current">{locale.toUpperCase()}</span>
+	<span class="lang-sep">/</span>
+	<a
+		href={switchLangHref}
+		aria-label={t.switchLangAriaLabel}
+		data-lang-switch
+		data-locale={targetLocale}
+	>{t.switchLang}</a>
+</div>
+
+<style>
+	.lang-switcher {
+		display: flex;
+		align-items: center;
+		gap: 0.3em;
+		font-size: 0.875rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.lang-current,
+	.lang-sep {
+		color: var(--color-ink);
+		opacity: 0.4;
+	}
+
+	a {
+		color: var(--color-ink);
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 150ms ease;
+	}
+
+	a:hover {
+		color: var(--color-accent);
+		text-decoration: none;
+	}
+</style>

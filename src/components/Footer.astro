@@ -1,0 +1,60 @@
+---
+import SiteLogo from "./SiteLogo.astro";
+import LangSwitcher from "./LangSwitcher.astro";
+import {
+	defaultLocale,
+	navLinks as allNavLinks,
+	type Locale,
+} from "../i18n/site";
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const navLinks = allNavLinks[locale];
+const currentPath = Astro.url.pathname;
+---
+
+<footer class="py-(--spacing-section) bg-contrast">
+	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
+		<div
+			class="flex gap-[clamp(2rem,6vw,5rem)] items-start mb-[clamp(2rem,5vw,4rem)]"
+		>
+			<div class="shrink-0">
+				<SiteLogo locale={locale} instanceId="footer" />
+			</div>
+			<nav class="flex flex-col gap-5" aria-label="Footer navigation">
+				<ul class="list-none m-0 p-0 flex flex-col gap-2.5">
+					{
+						navLinks.map(({ href, label }) => (
+							<li>
+								<a
+									href={href}
+									class="text-ink text-sm tracking-[0.06em] uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
+									aria-current={currentPath === href ? "page" : undefined}
+								>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<LangSwitcher locale={locale} />
+			</nav>
+		</div>
+		<div class="border-t border-muted pt-6">
+			<small class="text-muted text-[0.8125rem] tracking-[0.04em]"
+				>© 2026 Fábio Barbosa</small
+			>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer-inner {
+		/* Remap tokens for dark surface — light palette inverted into text hierarchy */
+		--color-contrast: var(--color-base); /* #fff — logo stroke, site name */
+		--color-ink: var(--color-surface); /* #f5f4ed — nav links, lang switcher */
+	}
+</style>

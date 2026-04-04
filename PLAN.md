@@ -129,14 +129,17 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Components
 
 - [ ] `NewsletterBox.astro` — newsletter signup section component (EN + PT copy, form UI, integration TBD)
-- [ ] `Footer.astro` — site-wide footer (nav links, locale switcher, copyright, social links TBD)
-- [ ] Footer wired into `Layout.astro`
-- [ ] Footer and newsletter copy added to `site.ts` (or dedicated YAML if substantial)
+- [x] `Footer.astro` — site-wide footer (logo, nav links, locale switcher, copyright)
+- [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
+- [x] Footer wired into `Layout.astro`
+- [x] `SiteLogo` updated with `instanceId` prop to avoid duplicate SVG clipPath IDs when used in both header and footer
 
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
 - [x] Hero background images preloaded via `preloadImage` prop on `Layout.astro`
+- [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
+- [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
@@ -148,7 +151,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~83%
+Overall: ~88%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
@@ -156,14 +159,14 @@ Overall: ~83%
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
 | 4 — Secondary Pages      | In progress | 75%  |
-| 5 — Polish & Launch      | In progress | 20%  |
+| 5 — Polish & Launch      | In progress | 40%  |
 
 ---
 
 ## e) Next Actions
 
 1. **Newsletter box component** — `NewsletterBox.astro` with EN + PT copy; decide on integration (Mailgun list, third-party, or just a mailto for now). Add to relevant pages.
-2. **Footer component** — `Footer.astro` with nav links, locale switcher, copyright line; wire into `Layout.astro` so it appears on all pages.
+2. ~~**Footer component**~~ — done. `Footer.astro` + `LangSwitcher.astro` created, wired into `Layout.astro`.
 3. **Create `/terms` page** — define `terms` collection in `content.config.ts` with EN + PT YAML, build a simple page (plain copy, no special layout). Link from the consultation form checkbox (`terms` field in `consultation/en.yaml`).
 4. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
 
@@ -176,7 +179,7 @@ Overall: ~83%
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.
-- Software nav link points to the external tool at `https://astrocalculadora.demiurgos.eu` (both locales).
+- App nav link points to `https://app.astrofabio.com` (both locales), labelled "App" / "App".
 - Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.
 - Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides.
