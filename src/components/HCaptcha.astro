@@ -1,0 +1,6 @@
+---
+const siteKey = import.meta.env.PUBLIC_HCAPTCHA_SITE_KEY;
+---
+
+<div class="h-captcha form-captcha" data-sitekey={siteKey} data-theme="light"></div>
+<script is:inline src="https://js.hcaptcha.com/1/api.js" async defer></script>

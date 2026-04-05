@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { verify as verifyHCaptcha } from "hcaptcha";
 import Mailgun from "mailgun.js";
 
 const KNOWN_TYPES: Record<string, string> = {
@@ -50,43 +51,20 @@ export const POST: APIRoute = async ({ request }) => {
 		return Response.json({ message: "Please accept the terms and conditions." }, { status: 422 });
 	}
 
-	// Verify Turnstile token
-	const turnstileToken = get("cf-turnstile-response");
-	const turnstileSecret = import.meta.env.TURNSTILE_SECRET_KEY;
-	if (!turnstileToken || !turnstileSecret) {
+	// Verify hCaptcha token
+	const hcaptchaToken = get("h-captcha-response");
+	const hcaptchaSecret = import.meta.env.HCAPTCHA_SECRET_KEY;
+	if (!hcaptchaToken || !hcaptchaSecret) {
 		return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
 	}
 	try {
-		const remoteip =
-			request.headers.get("CF-Connecting-IP") ??
-			request.headers.get("X-Forwarded-For") ??
-			undefined;
-
-		const controller = new AbortController();
-		const timeout = setTimeout(() => controller.abort(), 10_000);
-
-		let verificationResult: { success: boolean; "error-codes"?: string[] };
-		try {
-			const verification = await fetch(
-				"https://challenges.cloudflare.com/turnstile/v0/siteverify",
-				{
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ secret: turnstileSecret, response: turnstileToken, remoteip }),
-					signal: controller.signal,
-				},
-			);
-			verificationResult = await verification.json();
-		} finally {
-			clearTimeout(timeout);
-		}
-
-		if (!verificationResult.success) {
-			console.error("Turnstile rejected token:", verificationResult["error-codes"]);
+		const result = await verifyHCaptcha(hcaptchaSecret, hcaptchaToken);
+		if (!result.success) {
+			console.error("hCaptcha rejected token:", result["error-codes"]);
 			return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
 		}
 	} catch (err) {
-		console.error("Turnstile verification error:", err);
+		console.error("hCaptcha verification error:", err);
 		return Response.json(
 			{ message: "Could not verify the security challenge. Please try again." },
 			{ status: 502 },
