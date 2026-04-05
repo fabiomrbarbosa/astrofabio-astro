@@ -13,6 +13,7 @@ const form = entry!.data;
 	method="POST"
 	action="/api/consultation"
 	novalidate
+	data-error-network={form.messages.errorNetwork}
 >
 	<!-- Personal details -->
 	<fieldset class="form-section">
@@ -326,7 +327,7 @@ const form = entry!.data;
 				(globalThis as any).hcaptcha?.reset();
 			}
 		} catch {
-			errorEl.textContent = "Something went wrong. Please try again.";
+			errorEl.textContent = form.dataset.errorNetwork ?? "Something went wrong. Please try again.";
 			errorEl.hidden = false;
 			(globalThis as any).hcaptcha?.reset();
 		} finally {

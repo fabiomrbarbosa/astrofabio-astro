@@ -44,6 +44,9 @@ export const ui = {
 		safeSpace: "A queer and neurodivergent-safe space 🏳️‍🌈🏳️‍⚧️♾️",
 		termsLabel: "Terms & Conditions",
 		termsHref: "/terms",
+		newsletterHeading: "Newsletter",
+		newsletterLabel: "Your email address",
+		newsletterSubmit: "Subscribe",
 	},
 	pt: {
 		menuOpen: "Abrir menu",
@@ -57,6 +60,9 @@ export const ui = {
 		safeSpace: "Um espaço seguro para pessoas queer e neurodivergentes 🏳️‍🌈🏳️‍⚧️♾️",
 		termsLabel: "Termos e Condições",
 		termsHref: "/pt/termos",
+		newsletterHeading: "Newsletter",
+		newsletterLabel: "O seu endereço de email",
+		newsletterSubmit: "Subscrever",
 	},
 } as const;
 

@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { getEntry } from "astro:content";
 import { verify as verifyHCaptcha } from "hcaptcha";
 import Mailgun from "mailgun.js";
 
@@ -18,8 +19,9 @@ export const POST: APIRoute = async ({ request }) => {
 	const toEmail = import.meta.env.CONTACT_EMAIL;
 
 	if (!apiKey || !domain || !toEmail) {
+		const entry = await getEntry("booking", "en");
 		return Response.json(
-			{ message: "Server configuration error. Please contact me directly." },
+			{ message: entry!.data.messages.errorServer },
 			{ status: 500 },
 		);
 	}
@@ -28,10 +30,15 @@ export const POST: APIRoute = async ({ request }) => {
 	try {
 		data = await request.formData();
 	} catch {
-		return Response.json({ message: "Invalid request." }, { status: 400 });
+		const entry = await getEntry("booking", "en");
+		return Response.json({ message: entry!.data.messages.errorServer }, { status: 400 });
 	}
 
 	const get = (key: string) => (data.get(key) as string | null)?.trim() ?? "";
+
+	const locale = get("locale") || "en";
+	const entry = await getEntry("booking", locale as "en" | "pt");
+	const msgs = (entry ?? (await getEntry("booking", "en")))!.data.messages;
 
 	const name = get("name");
 	const email = get("email");
@@ -39,41 +46,36 @@ export const POST: APIRoute = async ({ request }) => {
 	const terms = data.get("terms");
 
 	if (!name || !email || !consultationType) {
-		return Response.json({ message: "Please fill in all required fields." }, { status: 422 });
+		return Response.json({ message: msgs.errorRequired }, { status: 422 });
 	}
 	if (!EMAIL_RE.test(email)) {
-		return Response.json({ message: "Please enter a valid email address." }, { status: 422 });
+		return Response.json({ message: msgs.errorEmail }, { status: 422 });
 	}
 	if (!(consultationType in KNOWN_TYPES)) {
-		return Response.json({ message: "Please select a valid consultation type." }, { status: 422 });
+		return Response.json({ message: msgs.errorType }, { status: 422 });
 	}
 	if (terms !== "on") {
-		return Response.json({ message: "Please accept the terms and conditions." }, { status: 422 });
+		return Response.json({ message: msgs.errorTerms }, { status: 422 });
 	}
 
 	// Verify hCaptcha token
 	const hcaptchaToken = get("h-captcha-response");
 	const hcaptchaSecret = import.meta.env.HCAPTCHA_SECRET_KEY;
 	if (!hcaptchaToken || !hcaptchaSecret) {
-		return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
+		return Response.json({ message: msgs.errorCaptcha }, { status: 422 });
 	}
 	try {
 		const result = await verifyHCaptcha(hcaptchaSecret, hcaptchaToken);
 		if (!result.success) {
 			console.error("hCaptcha rejected token:", result["error-codes"]);
-			return Response.json({ message: "Security check failed. Please try again." }, { status: 422 });
+			return Response.json({ message: msgs.errorCaptcha }, { status: 422 });
 		}
 	} catch (err) {
 		console.error("hCaptcha verification error:", err);
-		return Response.json(
-			{ message: "Could not verify the security challenge. Please try again." },
-			{ status: 502 },
-		);
+		return Response.json({ message: msgs.errorCaptcha }, { status: 502 });
 	}
 
 	const typeLabel = KNOWN_TYPES[consultationType];
-
-	const locale = get("locale") || "en";
 
 	const lines: string[] = [
 		`Name: ${name}`,
@@ -138,14 +140,8 @@ export const POST: APIRoute = async ({ request }) => {
 		});
 	} catch (err) {
 		console.error("Mailgun error:", err);
-		return Response.json(
-			{ message: "Your message could not be sent. Please try again or contact me directly." },
-			{ status: 502 },
-		);
+		return Response.json({ message: msgs.errorServer }, { status: 502 });
 	}
 
-	return Response.json({
-		message:
-			"Thank you — your enquiry has been received. I will be in touch within a few days to confirm a time.",
-	});
+	return Response.json({ message: msgs.success });
 };

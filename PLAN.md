@@ -137,6 +137,13 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `SiteLogo` updated with `instanceId` prop to avoid duplicate SVG clipPath IDs when used in both header and footer
 - [x] `SiteLogo` `animated` prop (default `true`) — footer passes `animated={false}` via `logo-no-animate` class
 
+### Booking Form i18n
+
+- [x] `messages` block added to `booking/en.yaml` and `booking/pt.yaml` (success, errorRequired, errorEmail, errorType, errorTerms, errorCaptcha, errorServer, errorNetwork)
+- [x] `messages` schema added to `content.config.ts` booking collection
+- [x] `/api/consultation` uses `getEntry('booking', locale)` to return localized response messages
+- [x] `BookingForm.astro` passes `errorNetwork` via `data-error-network` attribute; catch block reads it
+
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)

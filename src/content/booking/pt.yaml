@@ -50,3 +50,12 @@ synastry:
     placeholder: Existe alguma dinâmica ou questão particular que gostaria de explorar nesta sinastria?
 terms: 'Li e aceito os <a href="/pt/termos" onclick="event.stopPropagation()">termos e condições</a>.'
 submit: Enviar pedido
+messages:
+  success: "Obrigado — o seu pedido foi recebido. Entrarei em contacto dentro de alguns dias para confirmar o horário."
+  errorRequired: "Por favor preencha todos os campos obrigatórios."
+  errorEmail: "Por favor introduza um endereço de email válido."
+  errorType: "Por favor seleccione um tipo de consulta válido."
+  errorTerms: "Por favor aceite os termos e condições."
+  errorCaptcha: "Verificação de segurança falhou. Por favor tente novamente."
+  errorServer: "A sua mensagem não pôde ser enviada. Por favor tente novamente ou contacte-me directamente."
+  errorNetwork: "Algo correu mal. Por favor tente novamente."

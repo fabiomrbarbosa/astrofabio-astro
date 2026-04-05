@@ -50,3 +50,12 @@ synastry:
     placeholder: Is there a particular dynamic or question you would like to explore in this synastry?
 terms: 'I have read and accept the <a href="/terms" onclick="event.stopPropagation()">terms and conditions</a>.'
 submit: Send enquiry
+messages:
+  success: "Thank you — your enquiry has been received. I will be in touch within a few days to confirm a time."
+  errorRequired: "Please fill in all required fields."
+  errorEmail: "Please enter a valid email address."
+  errorType: "Please select a valid consultation type."
+  errorTerms: "Please accept the terms and conditions."
+  errorCaptcha: "Security check failed. Please try again."
+  errorServer: "Your message could not be sent. Please try again or contact me directly."
+  errorNetwork: "Something went wrong. Please try again."

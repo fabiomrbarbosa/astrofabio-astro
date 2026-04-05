@@ -63,6 +63,16 @@ const booking = defineCollection({
 		}),
 		terms: z.string(),
 		submit: z.string(),
+		messages: z.object({
+			success: z.string(),
+			errorRequired: z.string(),
+			errorEmail: z.string(),
+			errorType: z.string(),
+			errorTerms: z.string(),
+			errorCaptcha: z.string(),
+			errorServer: z.string(),
+			errorNetwork: z.string(),
+		}),
 	}),
 });
 

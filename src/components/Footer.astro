@@ -20,21 +20,21 @@ const currentPath = Astro.url.pathname;
 
 <footer class="py-(--spacing-section) bg-contrast">
 	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
-		<div class="flex gap-20 mb-20 items-start">
+		<div class="flex flex-col md:flex-row gap-12 mb-30 items-start">
 			<div class="shrink-0">
 				<SiteLogo locale={locale} instanceId="footer" animated={false} />
 			</div>
 			<nav
-				class="flex grow flex-col md:flex-row gap-10 justify-between"
+				class="flex flex-col grow gap-10 justify-between"
 				aria-label="Footer navigation"
 			>
-				<ul class="list-none m-0 p-0 flex flex-col md:flex-row gap-3 md:gap-6">
+				<ul class="list-none m-0 p-0 flex flex-col gap-3">
 					{
 						navLinks.map(({ href, label }) => (
 							<li>
 								<a
 									href={href}
-									class="text-ink text-sm tracking-[0.06em] uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
+									class="text-ink text-sm tracking-widest uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
 									aria-current={currentPath === href ? "page" : undefined}
 								>
 									{label}
@@ -45,6 +45,48 @@ const currentPath = Astro.url.pathname;
 				</ul>
 				<LangSwitcher locale={locale} />
 			</nav>
+			<div class="w-full md:w-[40%] shrink-0">
+				<p
+					class="text-xs font-semibold tracking-widest uppercase text-ink mb-3"
+				>
+					{t.newsletterHeading}
+				</p>
+				<form
+					action="https://buttondown.com/api/emails/embed-subscribe/astrofabio"
+					method="post"
+					class="flex flex-col"
+				>
+					<label for="bd-email" class="sr-only">{t.newsletterLabel}</label>
+					<div class="flex">
+						<input
+							type="email"
+							name="email"
+							id="bd-email"
+							placeholder={t.newsletterLabel}
+							required
+							class="flex-1 min-w-0 pl-3 pr-5 py-2 text-sm font-[inherit] bg-[color-mix(in_srgb,var(--color-ink)_10%,transparent)] border border-[color-mix(in_srgb,var(--color-ink)_25%,transparent)] border-r-0 rounded-l-[2em] text-ink placeholder:text-[color-mix(in_srgb,var(--color-ink)_45%,transparent)] outline-none focus:border-accent transition-colors duration-150"
+						/>
+						<button
+							type="submit"
+							class="px-4 py-2 -ml-4 text-[0.75rem] font-[inherit] font-semibold tracking-widest uppercase bg-accent text-base border-none rounded-r-[2em] cursor-pointer whitespace-nowrap transition-colors duration-150 hover:bg-secondary shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)]"
+							>{t.newsletterSubmit}</button
+						>
+					</div>
+					<p
+						class="mt-2 text-[0.7rem] text-[color-mix(in_srgb,var(--color-ink)_40%,transparent)]"
+					>
+						<a
+							href="https://buttondown.com/refer/astrofabio"
+							target="_blank"
+							rel="noopener"
+							class="no-underline hover:text-ink transition-colors duration-150"
+							style="color: inherit;"
+						>
+							Powered by Buttondown
+						</a>
+					</p>
+				</form>
+			</div>
 		</div>
 		<div
 			class="border-t border-muted pt-6 flex flex-col sm:flex-row sm:justify-between gap-2"
