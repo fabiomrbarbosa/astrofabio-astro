@@ -146,7 +146,9 @@ const form = entry!.data;
 	>
 		<legend class="form-section-heading">{form.synastry.otherHeading}</legend>
 		<div class="form-field">
-			<label for="cf-synastry-relationship">{form.synastry.relationship.label}</label>
+			<label for="cf-synastry-relationship"
+				>{form.synastry.relationship.label}</label
+			>
 			<input
 				type="text"
 				id="cf-synastry-relationship"
@@ -190,18 +192,19 @@ const form = entry!.data;
 		</div>
 	</fieldset>
 
-	<input type="hidden" name="locale" value={locale} />
+	<div class="form-row mb-6">
+		<input type="hidden" name="locale" value={locale} />
 
-	<!-- Terms -->
-	<div class="form-field form-terms">
-		<label class="form-checkbox">
-			<input type="checkbox" name="terms" required />
-			<span set:html={form.terms} />
-		</label>
+		<!-- Terms -->
+		<div class="form-field form-terms">
+			<label class="form-checkbox">
+				<input type="checkbox" name="terms" required />
+				<span set:html={form.terms} />
+			</label>
+		</div>
+		<!-- hCaptcha challenge -->
+		<HCaptcha />
 	</div>
-
-	<!-- hCaptcha challenge -->
-	<HCaptcha />
 
 	<!-- Status messages -->
 	<div id="cf-success" class="form-status form-success" hidden></div>
@@ -232,9 +235,9 @@ const form = entry!.data;
 			const visible = showFor.includes(val);
 			section.hidden = !visible;
 			section
-				.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
-					"input, select, textarea",
-				)
+				.querySelectorAll<
+					HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+				>("input, select, textarea")
 				.forEach((el) => {
 					el.disabled = !visible;
 				});
@@ -245,9 +248,9 @@ const form = entry!.data;
 	function saveState() {
 		const state: Record<string, string> = {};
 		form
-			.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
-				'input:not([type="checkbox"]):not([name="h-captcha-response"]), select, textarea',
-			)
+			.querySelectorAll<
+				HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+			>('input:not([type="checkbox"]):not([name="h-captcha-response"]), select, textarea')
 			.forEach((el) => {
 				if (el.name) state[el.name] = el.value;
 			});
@@ -311,7 +314,9 @@ const form = entry!.data;
 			if (res.ok) {
 				successEl.textContent = json.message;
 				successEl.hidden = false;
-				try { localStorage.removeItem(STORAGE_KEY); } catch {}
+				try {
+					localStorage.removeItem(STORAGE_KEY);
+				} catch {}
 				form.reset();
 				updateSections();
 				(globalThis as any).hcaptcha?.reset();
