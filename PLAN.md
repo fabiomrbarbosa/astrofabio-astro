@@ -130,7 +130,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ### Components
 
-- [ ] `NewsletterBox.astro` — newsletter signup section component (EN + PT copy, form UI, integration TBD)
+- [x] Newsletter signup form embedded in footer second column — Buttondown embed, EN + PT strings in `site.ts`, pill-split input+button, "Powered by Buttondown" credit link
 - [x] `Footer.astro` — site-wide footer (logo, nav links, locale switcher, copyright)
 - [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
 - [x] Footer wired into `Layout.astro`
@@ -175,7 +175,7 @@ Overall: ~92%
 
 ## e) Next Actions
 
-1. **Newsletter box component** — `NewsletterBox.astro` with EN + PT copy; decide on integration (Mailgun list, third-party, or just a mailto for now). Add to relevant pages.
+1. **Page `description` attributes** — each secondary page currently falls back to the site-level description; write bespoke `description` props for `/consultations`, `/about`, `/terms` and their PT equivalents.
 2. **Replace photo placeholder** — `public/images/fabio.jpg` is currently missing; bio section and about page both render with an empty grey box.
 3. **Final copy review** — EN + PT. PT about bio known to need a looser rewrite.
 
