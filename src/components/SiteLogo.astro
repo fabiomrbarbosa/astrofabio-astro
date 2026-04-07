@@ -11,9 +11,10 @@ interface Props {
 	locale?: Locale;
 	instanceId?: string;
 	animated?: boolean;
+	variant?: "light" | "dark";
 }
 
-const { locale = defaultLocale, instanceId = "default", animated = true } = Astro.props;
+const { locale = defaultLocale, instanceId = "default", animated = true, variant = "light" } = Astro.props;
 const t = ui[locale];
 const meta = siteMeta[locale];
 const clipId = `LogoClipPath-${instanceId}`;
@@ -23,7 +24,7 @@ const titleId = `logo-title-${instanceId}`;
 <a
 	href="/"
 	aria-label={t.logoAriaLabel}
-	class:list={["site-logo flex items-center gap-4 shrink-0 hover:no-underline", { "logo-no-animate": !animated }]}
+	class:list={["site-logo flex items-center gap-4 shrink-0 hover:no-underline", { "logo-no-animate": !animated, "logo-dark": variant === "dark" }]}
 >
 	<svg
 		class="logo w-full max-w-15 max-md:max-w-12 h-auto block"
@@ -62,7 +63,7 @@ const titleId = `logo-title-${instanceId}`;
 		</g>
 	</svg>
 	<div class="hidden md:flex flex-col leading-tight">
-		<span class="text-sm font-semibold text-contrast">{siteName}</span>
+		<span class:list={["text-sm font-semibold", variant === "dark" ? "text-base" : "text-contrast"]}>{siteName}</span>
 		<span class="text-xs text-muted uppercase tracking-widest"
 			>{meta.tagline}</span
 		>
@@ -73,6 +74,10 @@ const titleId = `logo-title-${instanceId}`;
 	/* SVG stroke inherits from the theme token */
 	.logo {
 		stroke: var(--color-contrast);
+	}
+
+	.logo-dark .logo {
+		stroke: var(--color-base);
 	}
 
 	/* ── Logo animation ──────────────────────────────────────── */
@@ -90,6 +95,10 @@ const titleId = `logo-title-${instanceId}`;
 		stroke-dasharray: 1870;
 		stroke-dashoffset: 0;
 		transition: stroke 0.4s ease;
+	}
+
+	:global(.logo-dark .logo__trace path) {
+		stroke: var(--color-base);
 	}
 
 	/* Animation only in non-Safari browsers */

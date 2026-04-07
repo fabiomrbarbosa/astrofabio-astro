@@ -40,7 +40,7 @@ const { bookCta, learnMore } = ui[locale];
 		<p class="mx-auto max-w-2xl text-l md:text-xl">{content.hero.lead}</p>
 		<div class="mt-8 flex items-center justify-center gap-4 max-md:flex-col">
 			<a href="#book" class="button">{bookCta}</a>
-			<a href="#cards-track" class="button button-alt-dark">{learnMore}</a>
+			<a href="#cards-track" class="button button-alt">{learnMore}</a>
 		</div>
 	</div>
 </section>
@@ -73,11 +73,7 @@ const { bookCta, learnMore } = ui[locale];
 							<p set:html={p} />
 						))}
 					</div>{" "}
-					<a
-						href="#book"
-						data-type={type.id}
-						class="button button-alt mt-8 inline-block"
-					>
+					<a href="#book" data-type={type.id} class="button mt-8 inline-block">
 						{bookCta}
 					</a>
 				</div>

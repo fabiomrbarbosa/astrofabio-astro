@@ -18,11 +18,11 @@ const t = ui[locale];
 const currentPath = Astro.url.pathname;
 ---
 
-<footer class="py-(--spacing-section) bg-contrast">
+<footer class="py-(--spacing-section) bg-contrast text-base">
 	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
 		<div class="flex flex-col md:flex-row gap-12 mb-30 items-start">
 			<div class="shrink-0">
-				<SiteLogo locale={locale} instanceId="footer" animated={false} />
+				<SiteLogo locale={locale} instanceId="footer" animated={false} variant="dark" />
 			</div>
 			<nav
 				class="flex flex-col grow gap-10 justify-between"
@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
 							<li>
 								<a
 									href={href}
-									class="text-ink text-sm tracking-widest uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
+									class="text-base text-sm tracking-widest uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
 									aria-current={currentPath === href ? "page" : undefined}
 								>
 									{label}
@@ -43,12 +43,10 @@ const currentPath = Astro.url.pathname;
 						))
 					}
 				</ul>
-				<LangSwitcher locale={locale} />
+				<LangSwitcher locale={locale} variant="dark" />
 			</nav>
 			<div class="w-full md:w-[40%] shrink-0">
-				<p
-					class="text-xs font-semibold tracking-widest uppercase text-ink mb-3"
-				>
+				<p class="text-sm font-semibold tracking-widest uppercase mb-3">
 					{t.newsletterHeading}
 				</p>
 				<form
@@ -64,27 +62,12 @@ const currentPath = Astro.url.pathname;
 							id="bd-email"
 							placeholder={t.newsletterLabel}
 							required
-							class="flex-1 min-w-0 pl-3 pr-5 py-2 text-sm font-[inherit] bg-[color-mix(in_srgb,var(--color-ink)_10%,transparent)] border border-[color-mix(in_srgb,var(--color-ink)_25%,transparent)] border-r-0 rounded-l-[2em] text-ink placeholder:text-[color-mix(in_srgb,var(--color-ink)_45%,transparent)] outline-none focus:border-accent transition-colors duration-150"
+							class="flex-1 min-w-0 pl-3 pr-5 py-2 text-sm font-[inherit] bg-[color-mix(in_srgb,var(--color-ink)_10%,transparent)] border border-[color-mix(in_srgb,var(--color-base)_25%,transparent)] border-r-0 rounded-l-[2em] text-base placeholder:text-[color-mix(in_srgb,var(--color-base)_45%,transparent)] outline-none focus:border-accent transition-colors duration-150"
 						/>
-						<button
-							type="submit"
-							class="px-4 py-2 -ml-4 text-[0.75rem] font-[inherit] font-semibold tracking-widest uppercase bg-accent text-base border-none rounded-r-[2em] cursor-pointer whitespace-nowrap transition-colors duration-150 hover:bg-secondary shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)]"
+						<button type="submit" class="button-alt -ml-6"
 							>{t.newsletterSubmit}</button
 						>
 					</div>
-					<p
-						class="mt-2 text-[0.7rem] text-[color-mix(in_srgb,var(--color-ink)_40%,transparent)]"
-					>
-						<a
-							href="https://buttondown.com/refer/astrofabio"
-							target="_blank"
-							rel="noopener"
-							class="no-underline hover:text-ink transition-colors duration-150"
-							style="color: inherit;"
-						>
-							Powered by Buttondown
-						</a>
-					</p>
 				</form>
 			</div>
 		</div>
@@ -103,11 +86,3 @@ const currentPath = Astro.url.pathname;
 		</div>
 	</div>
 </footer>
-
-<style>
-	.footer-inner {
-		/* Remap tokens for dark surface — light palette inverted into text hierarchy */
-		--color-contrast: var(--color-base); /* #fff — logo stroke, site name */
-		--color-ink: var(--color-surface); /* #f5f4ed — nav links, lang switcher */
-	}
-</style>

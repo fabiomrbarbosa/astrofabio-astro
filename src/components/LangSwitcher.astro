@@ -8,9 +8,10 @@ import {
 
 interface Props {
 	locale?: Locale;
+	variant?: "light" | "dark";
 }
 
-const { locale = defaultLocale } = Astro.props;
+const { locale = defaultLocale, variant = "light" } = Astro.props;
 const t = ui[locale];
 const targetLocale = locale === "en" ? "pt" : "en";
 const currentPath = Astro.url.pathname;
@@ -18,7 +19,7 @@ const currentPath = Astro.url.pathname;
 const switchLangHref = routeEquivalents[currentPath] ?? t.switchLangHref;
 ---
 
-<div class="lang-switcher">
+<div class:list={["lang-switcher", { "lang-switcher--dark": variant === "dark" }]}>
 	<span class="lang-current">{locale.toUpperCase()}</span>
 	<span class="lang-sep">/</span>
 	<a
@@ -55,5 +56,14 @@ const switchLangHref = routeEquivalents[currentPath] ?? t.switchLangHref;
 	a:hover {
 		color: var(--color-accent);
 		text-decoration: none;
+	}
+
+	.lang-switcher--dark .lang-current,
+	.lang-switcher--dark .lang-sep {
+		color: var(--color-base);
+	}
+
+	.lang-switcher--dark a {
+		color: var(--color-base);
 	}
 </style>
