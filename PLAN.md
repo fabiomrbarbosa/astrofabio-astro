@@ -137,6 +137,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `SiteLogo` updated with `instanceId` prop to avoid duplicate SVG clipPath IDs when used in both header and footer
 - [x] `SiteLogo` `animated` prop (default `true`) — footer passes `animated={false}` via `logo-no-animate` class
 - [x] `SiteLogo` and `LangSwitcher` `variant` prop (`"light"` | `"dark"`) — footer passes `variant="dark"` to both; dark variant flips stroke and text from `color-contrast`/`color-ink` to `color-base`
+- [x] `SiteLogo` `layout` prop (`"horizontal"` | `"stacked"`) — stacked uses `flex-col items-start` and always shows the text block; footer passes `layout="stacked"`
 
 ### Booking Form i18n
 
