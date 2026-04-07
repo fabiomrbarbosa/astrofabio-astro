@@ -12,9 +12,10 @@ interface Props {
 	instanceId?: string;
 	animated?: boolean;
 	variant?: "light" | "dark";
+	layout?: "horizontal" | "stacked";
 }
 
-const { locale = defaultLocale, instanceId = "default", animated = true, variant = "light" } = Astro.props;
+const { locale = defaultLocale, instanceId = "default", animated = true, variant = "light", layout = "horizontal" } = Astro.props;
 const t = ui[locale];
 const meta = siteMeta[locale];
 const clipId = `LogoClipPath-${instanceId}`;
@@ -24,7 +25,7 @@ const titleId = `logo-title-${instanceId}`;
 <a
 	href="/"
 	aria-label={t.logoAriaLabel}
-	class:list={["site-logo flex items-center gap-4 shrink-0 hover:no-underline", { "logo-no-animate": !animated, "logo-dark": variant === "dark" }]}
+	class:list={["site-logo flex gap-4 shrink-0 hover:no-underline", layout === "stacked" ? "flex-col items-start" : "items-center", { "logo-no-animate": !animated, "logo-dark": variant === "dark" }]}
 >
 	<svg
 		class="logo w-full max-w-15 max-md:max-w-12 h-auto block"
@@ -62,7 +63,7 @@ const titleId = `logo-title-${instanceId}`;
 				stroke-width="44"></path>
 		</g>
 	</svg>
-	<div class="hidden md:flex flex-col leading-tight">
+	<div class:list={[layout === "stacked" ? "flex" : "hidden md:flex", "flex-col leading-tight"]}>
 		<span class:list={["text-sm font-semibold", variant === "dark" ? "text-base" : "text-contrast"]}>{siteName}</span>
 		<span class="text-xs text-muted uppercase tracking-widest"
 			>{meta.tagline}</span

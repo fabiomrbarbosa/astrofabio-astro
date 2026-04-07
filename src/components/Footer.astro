@@ -22,7 +22,13 @@ const currentPath = Astro.url.pathname;
 	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
 		<div class="flex flex-col md:flex-row gap-12 mb-30 items-start">
 			<div class="shrink-0">
-				<SiteLogo locale={locale} instanceId="footer" animated={false} variant="dark" />
+				<SiteLogo
+					locale={locale}
+					instanceId="footer"
+					animated={false}
+					variant="dark"
+					layout="stacked"
+				/>
 			</div>
 			<nav
 				class="flex flex-col grow gap-10 justify-between"
