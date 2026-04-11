@@ -199,3 +199,4 @@ Overall: ~92%
 - Logo SVG and animation live in `SiteLogo.astro`; Header imports it with default `animated={true}`. Animation is suppressed on Safari/iOS via `@supports not (font: -apple-system-body)`; paths are visible by default as fallback. Footer passes `animated={false}` which adds `logo-no-animate` class to disable the draw-in animation.
 - Logo clip uses `<clipPath>`. A `<mask>` was tried for Chrome anti-aliasing but caused visible clipping on the small stroke. `transform: translateZ(0)` was removed to avoid GPU layer blurring.
 - `BookingForm` sends a hidden `locale` field (`en` or `pt`) with the form; `/api/consultation` reads it and appends `Form language:` to the email body.
+- Mobile menu scroll lock uses `position: fixed` + `top: -${scrollY}px` + `width: 100%` on `body` (not `overflow: hidden`) to prevent iOS Safari from resetting scroll position when the menu opens. Scroll position is restored from `body.style.top` on close.
