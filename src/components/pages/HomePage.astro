@@ -11,7 +11,7 @@ import chartTicks from "../../assets/images/chart-ticks.svg?raw";
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("home", locale);
 const content = entry!.data;
-const { bookCta, learnMore } = ui[locale];
+const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 ---
 
 <HeroBackground src="/images/background-hero-home.svg" />
@@ -71,20 +71,6 @@ const { bookCta, learnMore } = ui[locale];
 	</div>
 </section>
 
-<section
-	class="intro bg-secondary flex items-center py-(--spacing-section) mx-4 md:mx-8 lg:mx-(--spacing-outer) rounded-3xl"
->
-	<div
-		class="w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-l md:text-xl text-white"
-	>
-		{
-			content.intro.paragraphs.map((p) => (
-				<p class="mb-8 last:mb-0" set:html={p} />
-			))
-		}
-	</div>
-</section>
-
 <section class="flex items-center py-(--spacing-section)">
 	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
 		<div class="bio-grid">
@@ -92,14 +78,12 @@ const { bookCta, learnMore } = ui[locale];
 				<img src="/images/fabio.jpg" alt="Fábio Barbosa" class="bio-photo" />
 			</div>
 			<div class="bio-text">
-				<h2 class="text-4xl font-serif leading-tight mb-6">
-					{content.bio.heading}
-				</h2>
 				{
-					content.bio.paragraphs.map((p) => (
+					content.intro.paragraphs.map((p) => (
 						<p class="mb-4 last:mb-0" set:html={p} />
 					))
 				}
+				<a href={aboutCtaHref} class="button mt-6">{aboutCta}</a>
 			</div>
 		</div>
 	</div>
@@ -235,14 +219,10 @@ const { bookCta, learnMore } = ui[locale];
 		transform: translate(67%, 0%);
 	}
 
-	.intro {
-		box-shadow: 0 1px 8px color-mix(in srgb, var(--color-ink) 15%, transparent);
-	}
-
 	/* Bio section */
 	.bio-grid {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 1fr;
 		gap: 4rem;
 		align-items: start;
 	}
@@ -256,7 +236,7 @@ const { bookCta, learnMore } = ui[locale];
 
 	.bio-photo {
 		width: 100%;
-		aspect-ratio: 3 / 4;
+		aspect-ratio: 1 / 1;
 		object-fit: cover;
 		border-radius: 4px;
 		background-color: var(--color-overlay);

@@ -44,6 +44,8 @@ export const ui = {
 		safeSpace: "A queer and neurodivergent-safe space 🏳️‍🌈🏳️‍⚧️♾️",
 		termsLabel: "Terms & Conditions",
 		termsHref: "/terms",
+		aboutCta: "About me",
+		aboutCtaHref: "/about",
 		newsletterHeading: "Newsletter",
 		newsletterFormSrc:
 			"https://subscribe-forms.beehiiv.com/3af7cb73-fa6d-4831-9c56-773ce888c7f2",
@@ -60,6 +62,8 @@ export const ui = {
 		safeSpace: "Um espaço seguro para pessoas queer e neurodivergentes 🏳️‍🌈🏳️‍⚧️♾️",
 		termsLabel: "Termos e Condições",
 		termsHref: "/pt/termos",
+		aboutCta: "Sobre mim",
+		aboutCtaHref: "/pt/sobre",
 		newsletterHeading: "Newsletter",
 		newsletterFormSrc:
 			"https://subscribe-forms.beehiiv.com/c16033c5-d868-480e-bc29-89806791202f",

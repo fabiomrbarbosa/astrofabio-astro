@@ -168,7 +168,7 @@
 	.button,
 	[type="button"],
 	[type="submit"] {
-		@apply text-base text-sm bg-ink rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-contrast hover:no-underline transition-colors duration-150 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_0_rgba(0,0,0,0.2)] active:translate-y-0.75;
+		@apply inline-block text-base text-sm bg-ink rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-contrast hover:no-underline transition-colors duration-150 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_0_rgba(0,0,0,0.2)] active:translate-y-0.75;
 	}
 
 	.button-alt {

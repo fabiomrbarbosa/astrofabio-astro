@@ -131,6 +131,8 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Components
 
 - [x] Newsletter signup form embedded in footer second column — beehiiv iframe embed, locale-specific `newsletterFormSrc` URL in `site.ts` (`ui` map), single `<iframe>` driven by `t.newsletterFormSrc`
+- [x] Homepage bio section: dark intro band removed; photo + `content.intro.paragraphs` side by side (1:1 grid); "About me / Sobre mim" CTA links to `/about` / `/pt/sobre` via `aboutCta`/`aboutCtaHref` in `ui`
+- [x] About page bio content synced to homepage intro paragraphs (both locales)
 - [x] `Footer.astro` — site-wide footer (logo, nav links, locale switcher, copyright)
 - [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
 - [x] Footer wired into `Layout.astro`
