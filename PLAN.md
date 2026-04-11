@@ -130,7 +130,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ### Components
 
-- [x] Newsletter signup form embedded in footer second column — Buttondown embed, EN + PT strings in `site.ts`, pill-split input+button, "Powered by Buttondown" credit link
+- [x] Newsletter signup form embedded in footer second column — beehiiv iframe embed, locale-specific `newsletterFormSrc` URL in `site.ts` (`ui` map), single `<iframe>` driven by `t.newsletterFormSrc`
 - [x] `Footer.astro` — site-wide footer (logo, nav links, locale switcher, copyright)
 - [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
 - [x] Footer wired into `Layout.astro`

@@ -45,8 +45,8 @@ export const ui = {
 		termsLabel: "Terms & Conditions",
 		termsHref: "/terms",
 		newsletterHeading: "Newsletter",
-		newsletterLabel: "Your email address",
-		newsletterSubmit: "Subscribe",
+		newsletterFormSrc:
+			"https://subscribe-forms.beehiiv.com/3af7cb73-fa6d-4831-9c56-773ce888c7f2",
 	},
 	pt: {
 		menuOpen: "Abrir menu",
@@ -61,8 +61,8 @@ export const ui = {
 		termsLabel: "Termos e Condições",
 		termsHref: "/pt/termos",
 		newsletterHeading: "Newsletter",
-		newsletterLabel: "O seu endereço de email",
-		newsletterSubmit: "Subscrever",
+		newsletterFormSrc:
+			"https://subscribe-forms.beehiiv.com/c16033c5-d868-480e-bc29-89806791202f",
 	},
 } as const;
 
