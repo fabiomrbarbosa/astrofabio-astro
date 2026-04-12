@@ -57,7 +57,9 @@
 	--color-ink: #30302e;
 	--color-contrast: #141413;
 
+	--color-rosewood: #b33951;
 	--color-orange: #d97757;
+	--color-orange-light: #e39070;
 	--color-orange-dark: #b75d46;
 	--color-orange-darkest: #753742;
 	--color-amber: #d9b057;
@@ -65,11 +67,12 @@
 	--color-gold-light: #a08a48;
 	--color-green: #45503b;
 	--color-green-dark: #273c2c;
+	--color-charcoal: #2f4550;
 	--color-blue: #76a5d3;
 	--color-periwinkle: #9890b5;
 
-	--color-accent: var(--color-gold);
-	--color-secondary: var(--color-gold-light);
+	--color-accent: var(--color-orange-dark);
+	--color-secondary: var(--color-orange-light);
 	--color-tertiary: var(--color-amber);
 	--color-quaternary: var(--color-blue);
 	--color-quinary: var(--color-periwinkle);
