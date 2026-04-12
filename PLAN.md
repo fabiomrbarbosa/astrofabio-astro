@@ -133,7 +133,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Newsletter signup form embedded in footer second column — beehiiv iframe embed, locale-specific `newsletterFormSrc` URL in `site.ts` (`ui` map), single `<iframe>` driven by `t.newsletterFormSrc`
 - [x] Homepage bio section: dark intro band removed; photo + `content.intro.paragraphs` side by side (1:1 grid); "About me / Sobre mim" CTA links to `/about` / `/pt/sobre` via `aboutCta`/`aboutCtaHref` in `ui`
 - [x] About page bio content synced to homepage intro paragraphs (both locales)
-- [x] `BookingForm.astro` owns its full `<section id="book">` — heading, advisory paragraphs, two-column layout (sticky advisory + glass form card), gradient orbs, all styles. `booking/en.yaml` and `booking/pt.yaml` carry `heading` and `advisory`. Page components render bare `<BookingForm />`. `consultation` block removed from home YAML and schema. `#book` styles removed from `global.css`. `clip-path: inset(0)` used instead of `overflow: hidden` to preserve sticky behaviour.
+- [x] `BookingForm.astro` owns its full `<section id="book">` — heading, advisory paragraphs, two-column layout (sticky advisory + glass form card), gradient orbs, all styles. `booking/en.yaml` and `booking/pt.yaml` carry `heading` and `advisory`. Page components render bare `<BookingForm />`. `consultation` block removed from home YAML and schema. `#book` styles removed from `global.css`. `overflow: clip` used on `#book` to contain orb bleed on mobile without creating a scroll container (preserves sticky advisory). `#consultation-form` has `min-width: 0` (prevents grid item overflow) and `padding: 1rem` on mobile (halved from `2rem`).
 - [x] `Footer.astro` — site-wide footer (logo, nav links, locale switcher, copyright)
 - [x] `LangSwitcher.astro` — extracted language switcher component, used in Header (desktop + mobile) and Footer
 - [x] Footer wired into `Layout.astro`
@@ -152,7 +152,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
-- [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed.
+- [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed. `.hero-background` has `overflow: hidden` to clip the orbs' `-25%` offset bleed on mobile.
 - [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
 - [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
 - [ ] Real photo at `public/images/fabio.jpg`
@@ -192,6 +192,7 @@ Overall: ~92%
 - `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
+- `overflow: clip` (not `overflow: hidden`) is used to contain orb bleed inside `#book` and inside `.hero-background`. `overflow: hidden` would create a scroll container and break `position: sticky` on `.booking-advisory`. `overflow: clip` clips paint without creating a scroll container. `clip-path: inset(0)` was tried first but only clips visually — it does not prevent the element from contributing to scrollable overflow.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.
 - App nav link points to `https://app.astrofabio.com` (both locales), labelled "App" / "App".
 - Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.

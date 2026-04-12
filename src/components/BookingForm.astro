@@ -393,7 +393,7 @@ const form = entry!.data;
 	/* Section */
 	:global(#book) {
 		position: relative;
-		clip-path: inset(0);
+		overflow: clip;
 	}
 
 	:global(#book > *) {
@@ -438,7 +438,7 @@ const form = entry!.data;
 		border: 1px solid color-mix(in srgb, var(--color-base) 80%, transparent);
 		border-radius: 12px;
 		padding: 2rem;
-		overflow-x: hidden;
+		min-width: 0;
 	}
 
 	.booking-wrapper {
@@ -457,6 +457,10 @@ const form = entry!.data;
 		.booking-wrapper {
 			grid-template-columns: 1fr;
 			gap: 2rem;
+		}
+
+		#consultation-form {
+			padding: 1rem;
 		}
 
 		.booking-advisory {
