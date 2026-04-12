@@ -136,17 +136,17 @@
 	/* Headings */
 	h1 {
 		font-size: var(--text-4xl-fluid);
-		line-height: var(--leading-tight);
+		line-height: var(--);
 		font-weight: 400;
 	}
 	h2 {
 		font-size: var(--text-3xl-fluid);
-		line-height: var(--leading-tight);
+		line-height: var(--);
 		font-weight: 400;
 	}
 	h3 {
 		font-size: var(--text-2xl-fluid);
-		line-height: var(--leading-tight);
+		line-height: var(--);
 		font-weight: 400;
 	}
 	h4 {
