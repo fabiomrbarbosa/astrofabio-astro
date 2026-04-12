@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname;
 							<li>
 								<a
 									href={href}
-									class="text-base text-sm tracking-widest uppercase font-semibold no-underline transition-colors duration-150 hover:text-accent hover:no-underline aria-[current=page]:text-accent"
+									class="text-base text-sm tracking-widest uppercase font-semibold no-underline transition-colors duration-150 hover:text-secondary hover:no-underline aria-[current=page]:text-accent"
 									aria-current={currentPath === href ? "page" : undefined}
 								>
 									{label}
