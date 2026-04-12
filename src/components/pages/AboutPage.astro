@@ -1,8 +1,10 @@
 ---
 import { getEntry } from "astro:content";
-import { defaultLocale, type Locale, ui } from "../../i18n/site";
+import { Image } from "astro:assets";
+import { defaultLocale, type Locale } from "../../i18n/site";
 import HeroBackground from "../HeroBackground.astro";
 import BookingForm from "../BookingForm.astro";
+import headshot from "../../assets/images/headshot.jpg";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("about", locale);
@@ -27,7 +29,7 @@ const content = entry!.data;
 	<div class="mx-auto max-w-(--width-wide) px-(--spacing-outer)">
 		<div class="bio-grid">
 			<div class="bio-image">
-				<img src="/images/fabio.jpg" alt="Fábio Barbosa" class="bio-photo" />
+				<Image src={headshot} alt="Fábio Barbosa" class="bio-photo" />
 			</div>
 			<div class="bio-text">
 				{
