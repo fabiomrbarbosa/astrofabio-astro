@@ -152,7 +152,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
-- [x] Hero background images preloaded via `preloadImage` prop on `Layout.astro`
+- [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed.
 - [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
 - [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
 - [ ] Real photo at `public/images/fabio.jpg`
