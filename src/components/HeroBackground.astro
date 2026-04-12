@@ -2,21 +2,24 @@
 interface Props {
 	orb1?: string;
 	orb2?: string;
+	orb3?: string;
 	flip?: boolean;
 }
 
 const {
 	orb1 = "var(--color-base)",
-	orb2 = "var(--color-tertiary)",
+	orb2 = "var(--color-base)",
+	orb3,
 	flip = false,
 } = Astro.props;
 ---
 
 <div
 	class:list={["hero-background", { "hero-background--flip": flip }]}
-	style={`--orb1: ${orb1}; --orb2: ${orb2};`}
+	style={`--orb1: ${orb1}; --orb2: ${orb2};${orb3 ? ` --orb3: ${orb3};` : ""}`}
 	aria-hidden="true"
 >
+	{orb3 && <div class="orb-3" />}
 </div>
 
 <style>
@@ -35,12 +38,18 @@ const {
 		pointer-events: none;
 	}
 
+	.orb-3 {
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
 	/* orb1 — top right, orb2 — bottom left (default) */
 	.hero-background::before {
 		width: 90vw;
 		height: 90vh;
 		background: color-mix(in srgb, var(--orb1) 25%, transparent);
-		filter: blur(90px) saturate(150%);
+		filter: blur(90px);
 		top: -25%;
 		right: -25%;
 	}
@@ -52,6 +61,17 @@ const {
 		filter: blur(90px);
 		bottom: -25%;
 		left: -25%;
+	}
+
+	/* orb3 — centre */
+	.orb-3 {
+		width: 90vw;
+		height: 90vh;
+		background: color-mix(in srgb, var(--orb3) 20%, transparent);
+		filter: blur(90px);
+		top: 50%;
+		left: 50%;
+		translate: -50% -50%;
 	}
 
 	/* flipped: orb1 — bottom left, orb2 — top right (and above, since ::after paints last) */

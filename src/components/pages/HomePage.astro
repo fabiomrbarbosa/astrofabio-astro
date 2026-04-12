@@ -14,7 +14,11 @@ const content = entry!.data;
 const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 ---
 
-<HeroBackground />
+<HeroBackground
+	orb1="var(--color-amber)"
+	orb2="var(--color-periwinkle)"
+	orb3="var(--color-orange)"
+/>
 
 <section
 	id="hero-section"
@@ -223,5 +227,4 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		border-radius: 4px;
 		background-color: var(--color-overlay);
 	}
-
 </style>
