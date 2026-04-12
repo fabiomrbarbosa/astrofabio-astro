@@ -116,6 +116,14 @@
    ============================================================ */
 
 @layer base {
+	*,
+	*:before,
+	*:after {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
 	html {
 		background-color: var(--color-surface);
 		color: var(--color-contrast);
