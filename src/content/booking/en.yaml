@@ -1,3 +1,11 @@
+heading: Book a consultation
+advisory:
+  - "<strong>All consultations are booked in advance.</strong>"
+  - "Online consultations take place over Google Meet and will be recorded and made available to you."
+  - "To book, fill in the form and I will be in touch as soon as possible to suggest a time."
+  - "The consultation will be confirmed upon receipt of full payment."
+  - 'If you have any questions, you can reach me at <a href="mailto:fabio@astrofabio.com">fabio@astrofabio.com</a>.'
+
 name: Full name
 email: Email address
 dateOfBirth: Date of birth
@@ -48,7 +56,7 @@ synastry:
   concerns:
     label: Specific concerns
     placeholder: Is there a particular dynamic or question you would like to explore in this synastry?
-terms: 'I have read and accept the <a href="/terms" onclick="event.stopPropagation()">terms and conditions</a>.'
+terms: 'I have read and accept the <a target="_blank" href="/terms" onclick="event.stopPropagation()">terms and conditions</a>.'
 submit: Send enquiry
 messages:
   success: "Thank you — your enquiry has been received. I will be in touch within a few days to confirm a time."

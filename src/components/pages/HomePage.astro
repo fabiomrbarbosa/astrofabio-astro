@@ -89,25 +89,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 	</div>
 </section>
 
-<section id="book" class="bg-overlay py-(--spacing-section) scroll-mt-6">
-	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
-		<div class="consultation-grid">
-			<div class="consultation-intro">
-				<h2 class="text-4xl font-serif leading-tight mb-6">
-					{content.consultation.heading}
-				</h2>
-				{
-					content.consultation.advisory.map((p) => (
-						<p class="mb-4 last:mb-0" set:html={p} />
-					))
-				}
-			</div>
-			<div class="consultation-form">
-				<BookingForm />
-			</div>
-		</div>
-	</div>
-</section>
+<BookingForm />
 
 <script>
 	const rings = document.getElementById("circle-rings") as HTMLImageElement;
@@ -242,18 +224,4 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		background-color: var(--color-overlay);
 	}
 
-	/* Consultation section */
-	.consultation-grid {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
-		gap: 4rem;
-		align-items: start;
-	}
-
-	@media (max-width: 768px) {
-		.consultation-grid {
-			grid-template-columns: 100%;
-			gap: 2rem;
-		}
-	}
 </style>

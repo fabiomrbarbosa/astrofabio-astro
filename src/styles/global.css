@@ -63,12 +63,14 @@
 	--color-amber: #d9b057;
 	--color-green: #45503b;
 	--color-green-dark: #273c2c;
-	--color-periwinkle: #8f84c0;
+	--color-blue: #76a5d3;
+	--color-periwinkle: #9890b5;
 
 	--color-accent: var(--color-orange);
 	--color-secondary: var(--color-orange-dark);
 	--color-tertiary: var(--color-amber);
-	--color-quaternary: var(--color-periwinkle);
+	--color-quaternary: var(--color-blue);
+	--color-quinary: var(--color-periwinkle);
 
 	/* --- Font families --- */
 	--font-sans:
@@ -175,3 +177,4 @@
 		@apply bg-base text-contrast hover:bg-surface;
 	}
 }
+

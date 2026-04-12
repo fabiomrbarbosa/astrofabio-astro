@@ -19,20 +19,14 @@ const home = defineCollection({
 		intro: z.object({
 			paragraphs: z.array(z.string()),
 		}),
-		bio: z.object({
-			heading: z.string(),
-			paragraphs: z.array(z.string()),
-		}),
-		consultation: z.object({
-			heading: z.string(),
-			advisory: z.array(z.string()),
-		}),
 	}),
 });
 
 const booking = defineCollection({
 	loader: glob({ pattern: "*.yaml", base: "./src/content/booking" }),
 	schema: z.object({
+		heading: z.string(),
+		advisory: z.array(z.string()),
 		name: z.string(),
 		email: z.string(),
 		dateOfBirth: z.string(),
@@ -121,7 +115,7 @@ const terms = defineCollection({
 			z.object({
 				heading: z.string(),
 				paragraphs: z.array(z.string()),
-			})
+			}),
 		),
 	}),
 });

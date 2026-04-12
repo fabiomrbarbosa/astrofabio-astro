@@ -8,213 +8,265 @@ const entry = await getEntry("booking", locale);
 const form = entry!.data;
 ---
 
-<form
-	id="consultation-form"
-	method="POST"
-	action="/api/consultation"
-	novalidate
-	data-error-network={form.messages.errorNetwork}
->
-	<!-- Personal details -->
-	<fieldset class="form-section">
-		<div class="form-field">
-			<label for="cf-name">{form.name}</label>
-			<input
-				type="text"
-				id="cf-name"
-				name="name"
-				required
-				autocomplete="name"
-			/>
-		</div>
-		<div class="form-field">
-			<label for="cf-email">{form.email}</label>
-			<input
-				type="email"
-				id="cf-email"
-				name="email"
-				required
-				autocomplete="email"
-			/>
-		</div>
-		<div class="form-row">
-			<div class="form-field">
-				<label for="cf-dob">{form.dateOfBirth}</label>
-				<input type="date" id="cf-dob" name="dateOfBirth" required />
+<section id="book" class="bg-overlay py-(--spacing-section) scroll-mt-6">
+	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
+		<div class="booking-wrapper">
+			<div class="booking-advisory-track h-full">
+				<div class="booking-advisory">
+					<h2 class="text-4xl font-serif leading-loose mb-6">
+						{form.heading}
+					</h2>
+					{
+						form.advisory.map((p) => (
+							<p class="mb-4 last:mb-0 text-sm" set:html={p} />
+						))
+					}
+				</div>
 			</div>
-			<div class="form-field">
-				<label for="cf-tob">{form.timeOfBirth}</label>
-				<input type="time" id="cf-tob" name="timeOfBirth" required />
-				<p class="form-hint">{form.timeOfBirthHint}</p>
-			</div>
-		</div>
-		<div class="form-row">
-			<div class="form-field">
-				<label for="cf-city">{form.cityOfBirth}</label>
-				<input type="text" id="cf-city" name="cityOfBirth" required />
-			</div>
-			<div class="form-field">
-				<label for="cf-country">{form.countryOfBirth}</label>
-				<input
-					type="text"
-					id="cf-country"
-					name="countryOfBirth"
-					required
-					autocomplete="country-name"
-				/>
-			</div>
-		</div>
-	</fieldset>
-
-	<!-- Consultation type -->
-	<fieldset class="form-section">
-		<div class="form-field">
-			<label for="cf-type">{form.typeLabel}</label>
-			<select id="cf-type" name="consultationType" required autocomplete="off">
-				<option value="" disabled selected>{form.typePlaceholder}</option>
-				{form.types.map((t) => <option value={t.value}>{t.label}</option>)}
-			</select>
-		</div>
-	</fieldset>
-
-	<!-- Default concerns (natal, natal+SR) -->
-	<fieldset
-		class="form-section dynamic-section"
-		data-show-for="natal natal-solar-return"
-		hidden
-	>
-		<div class="form-field">
-			<label for="cf-concerns">{form.concerns.label}</label>
-			<textarea
-				id="cf-concerns"
-				name="concerns"
-				rows="5"
-				placeholder={form.concerns.placeholder}></textarea>
-		</div>
-	</fieldset>
-
-	<!-- Horary -->
-	<fieldset class="form-section dynamic-section" data-show-for="horary" hidden>
-		<div class="form-field">
-			<label for="cf-horary">{form.horary.label}</label>
-			<textarea
-				id="cf-horary"
-				name="horaryQuestion"
-				rows="6"
-				placeholder={form.horary.placeholder}></textarea>
-		</div>
-	</fieldset>
-
-	<!-- Elective -->
-	<fieldset
-		class="form-section dynamic-section"
-		data-show-for="elective"
-		hidden
-	>
-		<div class="form-field">
-			<label for="cf-elective-subject">{form.elective.subject.label}</label>
-			<textarea
-				id="cf-elective-subject"
-				name="electiveSubject"
-				rows="4"
-				placeholder={form.elective.subject.placeholder}></textarea>
-		</div>
-		<div class="form-field">
-			<label for="cf-elective-location">{form.elective.location.label}</label>
-			<input
-				type="text"
-				id="cf-elective-location"
-				name="electiveLocation"
-				placeholder={form.elective.location.placeholder}
-			/>
-		</div>
-		<div class="form-field">
-			<label for="cf-elective-timeframe">{form.elective.timeframe.label}</label>
-			<input
-				type="text"
-				id="cf-elective-timeframe"
-				name="electiveTimeframe"
-				placeholder={form.elective.timeframe.placeholder}
-			/>
-		</div>
-	</fieldset>
-
-	<!-- Synastry -->
-	<fieldset
-		class="form-section dynamic-section"
-		data-show-for="synastry"
-		hidden
-	>
-		<legend class="form-section-heading">{form.synastry.otherHeading}</legend>
-		<div class="form-field">
-			<label for="cf-synastry-relationship"
-				>{form.synastry.relationship.label}</label
+			<form
+				id="consultation-form"
+				method="POST"
+				action="/api/consultation"
+				novalidate
+				data-error-network={form.messages.errorNetwork}
 			>
-			<input
-				type="text"
-				id="cf-synastry-relationship"
-				name="synastryRelationship"
-				placeholder={form.synastry.relationship.placeholder}
-				required
-			/>
-		</div>
-		<div class="form-field">
-			<label for="cf-other-name">{form.synastry.name}</label>
-			<input type="text" id="cf-other-name" name="otherName" />
-		</div>
-		<div class="form-row">
-			<div class="form-field">
-				<label for="cf-other-dob">{form.synastry.dateOfBirth}</label>
-				<input type="date" id="cf-other-dob" name="otherDateOfBirth" />
-			</div>
-			<div class="form-field">
-				<label for="cf-other-tob">{form.synastry.timeOfBirth}</label>
-				<input type="time" id="cf-other-tob" name="otherTimeOfBirth" required />
-				<p class="form-hint">{form.synastry.timeOfBirthHint}</p>
-			</div>
-		</div>
-		<div class="form-row">
-			<div class="form-field">
-				<label for="cf-other-city">{form.synastry.cityOfBirth}</label>
-				<input type="text" id="cf-other-city" name="otherCityOfBirth" />
-			</div>
-			<div class="form-field">
-				<label for="cf-other-country">{form.synastry.countryOfBirth}</label>
-				<input type="text" id="cf-other-country" name="otherCountryOfBirth" />
-			</div>
-		</div>
-		<div class="form-field">
-			<label for="cf-synastry-concerns">{form.synastry.concerns.label}</label>
-			<textarea
-				id="cf-synastry-concerns"
-				name="synastryConcerns"
-				rows="5"
-				placeholder={form.synastry.concerns.placeholder}></textarea>
-		</div>
-	</fieldset>
+				<!-- Personal details -->
+				<fieldset class="form-section">
+					<div class="form-field">
+						<label for="cf-name">{form.name}</label>
+						<input
+							type="text"
+							id="cf-name"
+							name="name"
+							required
+							autocomplete="name"
+						/>
+					</div>
+					<div class="form-field">
+						<label for="cf-email">{form.email}</label>
+						<input
+							type="email"
+							id="cf-email"
+							name="email"
+							required
+							autocomplete="email"
+						/>
+					</div>
+					<div class="form-row">
+						<div class="form-field">
+							<label for="cf-dob">{form.dateOfBirth}</label>
+							<input type="date" id="cf-dob" name="dateOfBirth" required />
+						</div>
+						<div class="form-field">
+							<label for="cf-tob">{form.timeOfBirth}</label>
+							<input type="time" id="cf-tob" name="timeOfBirth" required />
+							<p class="form-hint">{form.timeOfBirthHint}</p>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-field">
+							<label for="cf-city">{form.cityOfBirth}</label>
+							<input type="text" id="cf-city" name="cityOfBirth" required />
+						</div>
+						<div class="form-field">
+							<label for="cf-country">{form.countryOfBirth}</label>
+							<input
+								type="text"
+								id="cf-country"
+								name="countryOfBirth"
+								required
+								autocomplete="country-name"
+							/>
+						</div>
+					</div>
+				</fieldset>
 
-	<div class="form-row mb-6">
-		<input type="hidden" name="locale" value={locale} />
+				<!-- Consultation type -->
+				<fieldset class="form-section">
+					<div class="form-field">
+						<label for="cf-type">{form.typeLabel}</label>
+						<select
+							id="cf-type"
+							name="consultationType"
+							required
+							autocomplete="off"
+						>
+							<option value="" disabled selected>{form.typePlaceholder}</option>
+							{
+								form.types.map((t) => (
+									<option value={t.value}>{t.label}</option>
+								))
+							}
+						</select>
+					</div>
+				</fieldset>
 
-		<!-- Terms -->
-		<div class="form-field form-terms">
-			<label class="form-checkbox">
-				<input type="checkbox" name="terms" required />
-				<span set:html={form.terms} />
-			</label>
+				<!-- Default concerns (natal, natal+SR) -->
+				<fieldset
+					class="form-section dynamic-section"
+					data-show-for="natal natal-solar-return"
+					hidden
+				>
+					<div class="form-field">
+						<label for="cf-concerns">{form.concerns.label}</label>
+						<textarea
+							id="cf-concerns"
+							name="concerns"
+							rows="5"
+							placeholder={form.concerns.placeholder}></textarea>
+					</div>
+				</fieldset>
+
+				<!-- Horary -->
+				<fieldset
+					class="form-section dynamic-section"
+					data-show-for="horary"
+					hidden
+				>
+					<div class="form-field">
+						<label for="cf-horary">{form.horary.label}</label>
+						<textarea
+							id="cf-horary"
+							name="horaryQuestion"
+							rows="6"
+							placeholder={form.horary.placeholder}></textarea>
+					</div>
+				</fieldset>
+
+				<!-- Elective -->
+				<fieldset
+					class="form-section dynamic-section"
+					data-show-for="elective"
+					hidden
+				>
+					<div class="form-field">
+						<label for="cf-elective-subject"
+							>{form.elective.subject.label}</label
+						>
+						<textarea
+							id="cf-elective-subject"
+							name="electiveSubject"
+							rows="4"
+							placeholder={form.elective.subject.placeholder}></textarea>
+					</div>
+					<div class="form-field">
+						<label for="cf-elective-location"
+							>{form.elective.location.label}</label
+						>
+						<input
+							type="text"
+							id="cf-elective-location"
+							name="electiveLocation"
+							placeholder={form.elective.location.placeholder}
+						/>
+					</div>
+					<div class="form-field">
+						<label for="cf-elective-timeframe"
+							>{form.elective.timeframe.label}</label
+						>
+						<input
+							type="text"
+							id="cf-elective-timeframe"
+							name="electiveTimeframe"
+							placeholder={form.elective.timeframe.placeholder}
+						/>
+					</div>
+				</fieldset>
+
+				<!-- Synastry -->
+				<fieldset
+					class="form-section dynamic-section"
+					data-show-for="synastry"
+					hidden
+				>
+					<legend class="form-section-heading"
+						>{form.synastry.otherHeading}</legend
+					>
+					<div class="form-field">
+						<label for="cf-synastry-relationship"
+							>{form.synastry.relationship.label}</label
+						>
+						<input
+							type="text"
+							id="cf-synastry-relationship"
+							name="synastryRelationship"
+							placeholder={form.synastry.relationship.placeholder}
+							required
+						/>
+					</div>
+					<div class="form-field">
+						<label for="cf-other-name">{form.synastry.name}</label>
+						<input type="text" id="cf-other-name" name="otherName" />
+					</div>
+					<div class="form-row">
+						<div class="form-field">
+							<label for="cf-other-dob">{form.synastry.dateOfBirth}</label>
+							<input type="date" id="cf-other-dob" name="otherDateOfBirth" />
+						</div>
+						<div class="form-field">
+							<label for="cf-other-tob">{form.synastry.timeOfBirth}</label>
+							<input
+								type="time"
+								id="cf-other-tob"
+								name="otherTimeOfBirth"
+								required
+							/>
+							<p class="form-hint">{form.synastry.timeOfBirthHint}</p>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-field">
+							<label for="cf-other-city">{form.synastry.cityOfBirth}</label>
+							<input type="text" id="cf-other-city" name="otherCityOfBirth" />
+						</div>
+						<div class="form-field">
+							<label for="cf-other-country"
+								>{form.synastry.countryOfBirth}</label
+							>
+							<input
+								type="text"
+								id="cf-other-country"
+								name="otherCountryOfBirth"
+							/>
+						</div>
+					</div>
+					<div class="form-field">
+						<label for="cf-synastry-concerns"
+							>{form.synastry.concerns.label}</label
+						>
+						<textarea
+							id="cf-synastry-concerns"
+							name="synastryConcerns"
+							rows="5"
+							placeholder={form.synastry.concerns.placeholder}></textarea>
+					</div>
+				</fieldset>
+
+				<div class="form-row mb-6">
+					<input type="hidden" name="locale" value={locale} />
+
+					<!-- Terms -->
+					<div class="form-field form-terms">
+						<label class="form-checkbox">
+							<input type="checkbox" name="terms" required />
+							<span set:html={form.terms} />
+						</label>
+					</div>
+					<!-- hCaptcha challenge -->
+					<HCaptcha />
+				</div>
+
+				<!-- Status messages -->
+				<div id="cf-success" class="form-status form-success" hidden></div>
+				<div id="cf-error" class="form-status form-error" hidden></div>
+
+				<button type="submit" class="button w-full mt-2" id="cf-submit">
+					{form.submit}
+				</button>
+			</form>
 		</div>
-		<!-- hCaptcha challenge -->
-		<HCaptcha />
 	</div>
-
-	<!-- Status messages -->
-	<div id="cf-success" class="form-status form-success" hidden></div>
-	<div id="cf-error" class="form-status form-error" hidden></div>
-
-	<button type="submit" class="button w-full mt-2" id="cf-submit">
-		{form.submit}
-	</button>
-</form>
+</section>
 
 <script>
 	const STORAGE_KEY = "cf-state";
@@ -327,7 +379,8 @@ const form = entry!.data;
 				(globalThis as any).hcaptcha?.reset();
 			}
 		} catch {
-			errorEl.textContent = form.dataset.errorNetwork ?? "Something went wrong. Please try again.";
+			errorEl.textContent =
+				form.dataset.errorNetwork ?? "Something went wrong. Please try again.";
 			errorEl.hidden = false;
 			(globalThis as any).hcaptcha?.reset();
 		} finally {
@@ -337,6 +390,79 @@ const form = entry!.data;
 </script>
 
 <style>
+	/* Section */
+	:global(#book) {
+		position: relative;
+		clip-path: inset(0);
+	}
+
+	:global(#book > *) {
+		position: relative;
+		z-index: 1;
+	}
+
+	:global(#book::before),
+	:global(#book::after) {
+		content: "";
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* Amber orb — top right */
+	:global(#book::before) {
+		width: 100vw;
+		height: 100vh;
+		background: color-mix(in srgb, var(--color-tertiary) 25%, transparent);
+		filter: blur(100px);
+		top: -25%;
+		right: -25%;
+	}
+
+	/* Periwinkle orb — bottom left */
+	:global(#book::after) {
+		width: 100vw;
+		height: 100vh;
+		background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+		filter: blur(90px);
+		bottom: 0;
+		left: -25%;
+	}
+
+	/* Glass card */
+	#consultation-form {
+		background: color-mix(in srgb, var(--color-base) 65%, transparent);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid color-mix(in srgb, var(--color-base) 80%, transparent);
+		border-radius: 12px;
+		padding: 2rem;
+	}
+
+	.booking-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.booking-advisory {
+		position: sticky;
+		top: 7rem;
+	}
+
+	@media (max-width: 768px) {
+		.booking-wrapper {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.booking-advisory {
+			position: static;
+		}
+	}
+
 	.form-section {
 		border: none;
 		padding: 0;
