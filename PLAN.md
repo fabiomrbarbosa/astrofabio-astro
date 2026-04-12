@@ -152,7 +152,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 ### Assets & Launch
 
 - [x] Plausible analytics added to `Layout.astro` (self-hosted at plausible.demiurgos.eu)
-- [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed. `.hero-background` has `overflow: hidden` to clip the orbs' `-25%` offset bleed on mobile.
+- [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed. `.hero-background` has `overflow-x: clip` to clip the orbs' `-25%` offset bleed without creating a scroll container.
 - [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
 - [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
 - [ ] Real photo at `public/images/fabio.jpg`
@@ -189,14 +189,14 @@ Overall: ~92%
 ## Notes
 
 - `set:html` is used on all paragraph renderers and the booking form terms label — i18n strings may contain safe HTML (links etc.). The terms checkbox label uses `stopPropagation()` on the link to prevent toggling the checkbox when the link is clicked.
-- `body` carries the page padding (not `html`), `overflow-x: hidden` is on `html`. Do not move this.
+- `body` carries the page padding (not `html`). `overflow-x: clip` is on `html` — do not change to `overflow-x: hidden`, as `hidden` creates a scroll container and breaks `position: sticky` on descendant elements.
 - Mailgun EU endpoint is hardcoded: `https://api.eu.mailgun.net`. Do not change to the global endpoint.
 - `security.checkOrigin: false` in `astro.config.mjs` is intentional — CSRF is handled by Turnstile instead.
 - `overflow: clip` (not `overflow: hidden`) is used to contain orb bleed inside `#book` and inside `.hero-background`. `overflow: hidden` would create a scroll container and break `position: sticky` on `.booking-advisory`. `overflow: clip` clips paint without creating a scroll container. `clip-path: inset(0)` was tried first but only clips visually — it does not prevent the element from contributing to scrollable overflow.
 - YAML strings containing a colon followed by a space must be quoted, otherwise YAML parses them as mappings.
 - App nav link points to `https://app.astrofabio.com` (both locales), labelled "App" / "App".
 - Desktop nav `<ul>` is absolutely centred in the header via `position: absolute; left: 50%; transform: translateX(-50%)` on `header > nav ul`. The lang switcher stays in flow on the right.
-- Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile.
+- Card scale animation in `ConsultationsPage.astro` is guarded by `if (window.innerWidth <= 641) return` — no effect on mobile. Each card's scale is `1 - depth * 0.05` where `depth` is the sum of progress values for all higher-index cards above it. Transition range = `7.5vh` (matches `margin-bottom`) so only one card transitions at a time and scales stay clean per-index multiples. `transform-origin: top center` keeps the card's top edge anchored at its sticky position during scaling. Do not increase the transition range beyond `margin-bottom` or multiple cards will transition simultaneously, producing chaotic intermediate scale values.
 - `routeEquivalents` in `site.ts` is the single source for EN↔PT path mapping — derived from `navLinks` (by index) plus manual entries for homepage and utility pages. Add new translated routes here.
 - `booking` content collection (formerly `consultation`) holds booking form UI strings. `BookingForm.astro` (formerly `ConsultationForm.astro`) self-loads it.
 - `.button` uses inset box-shadows only for the bevel effect (no background gradient) so alt variants inherit it without overrides. `button-alt-dark` was removed — use `.button-alt` instead (white bg, contrast text), which reads correctly on both light and dark surfaces.
