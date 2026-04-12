@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import { Image } from "astro:assets";
 import { defaultLocale, type Locale, ui } from "../../i18n/site";
 import BookingForm from "../BookingForm.astro";
 import HeroBackground from "../HeroBackground.astro";
@@ -7,6 +8,7 @@ import HeroBackground from "../HeroBackground.astro";
 import chartRings from "../../assets/images/chart-rings.svg?raw";
 import chartSpokes from "../../assets/images/chart-spokes.svg?raw";
 import chartTicks from "../../assets/images/chart-ticks.svg?raw";
+import homePicture from "../../assets/images/daniel-carmona-unsplash.jpg";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("home", locale);
@@ -77,11 +79,15 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 
 <section class="flex items-center py-(--spacing-section)">
 	<div class="max-w-(--width-wide) mx-auto px-(--spacing-outer)">
-		<div class="bio-grid">
-			<div class="bio-image">
-				<img src="/images/fabio.jpg" alt="Fábio Barbosa" class="bio-photo" />
+		<div class="intro-grid">
+			<div class="intro-image h-full">
+				<Image
+					src={homePicture}
+					alt="By Daniel Carmona on Unsplash"
+					class="intro-photo h-full"
+				/>
 			</div>
-			<div class="bio-text">
+			<div class="intro-text">
 				{
 					content.intro.paragraphs.map((p) => (
 						<p class="mb-4 last:mb-0" set:html={p} />
@@ -205,8 +211,8 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		transform: translate(67%, 0%);
 	}
 
-	/* Bio section */
-	.bio-grid {
+	/* Intro section */
+	.intro-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 4rem;
@@ -214,13 +220,13 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 	}
 
 	@media (max-width: 768px) {
-		.bio-grid {
+		.intro-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
 		}
 	}
 
-	.bio-photo {
+	.intro-photo {
 		width: 100%;
 		aspect-ratio: 1 / 1;
 		object-fit: cover;
