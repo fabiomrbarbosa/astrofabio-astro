@@ -88,6 +88,9 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 				/>
 			</div>
 			<div class="intro-text">
+				<h2 class="text-4xl font-serif leading-tight mb-6">
+					{content.intro.heading}
+				</h2>
 				{
 					content.intro.paragraphs.map((p) => (
 						<p class="mb-4 last:mb-0" set:html={p} />

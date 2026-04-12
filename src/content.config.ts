@@ -17,6 +17,7 @@ const home = defineCollection({
 			ctaSecondaryHref: z.string(),
 		}),
 		intro: z.object({
+			heading: z.string(),
 			paragraphs: z.array(z.string()),
 		}),
 	}),
