@@ -2,11 +2,11 @@
 import { getEntry } from "astro:content";
 import { defaultLocale, type Locale, ui } from "../../i18n/site";
 import HeroBackground from "../HeroBackground.astro";
+import BookingForm from "../BookingForm.astro";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("about", locale);
 const content = entry!.data;
-const { bookCta } = ui[locale];
 ---
 
 <HeroBackground orb1="var(--color-blue)" flip />
@@ -40,15 +40,7 @@ const { bookCta } = ui[locale];
 	</div>
 </section>
 
-<section class="bg-overlay py-(--spacing-section)">
-	<div class="mx-auto max-w-(--width-content) px-(--spacing-outer) text-center">
-		<h2 class="mb-6 font-serif text-4xl leading-tight">
-			{content.cta.heading}
-		</h2>
-		<p class="mx-auto mb-8 max-w-2xl text-lg" set:html={content.cta.body} />
-		<a href="{content.cta.href}" class="button">{bookCta}</a>
-	</div>
-</section>
+<BookingForm />
 
 <style>
 	.bio-grid {

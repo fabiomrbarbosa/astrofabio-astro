@@ -6,7 +6,7 @@ advisory:
   - "The consultation will be confirmed upon receipt of full payment."
   - 'If you have any questions, you can reach me at <a href="mailto:fabio@astrofabio.com">fabio@astrofabio.com</a>.'
 
-name: Full name
+name: Name and surname
 email: Email address
 dateOfBirth: Date of birth
 timeOfBirth: Time of birth
@@ -47,7 +47,7 @@ synastry:
   relationship:
     label: Your relationship to this person
     placeholder: "e.g. romantic partner, spouse, relative, friend, work colleague\u2026"
-  name: Their full name
+  name: Their name and surname
   dateOfBirth: Their date of birth
   timeOfBirth: Their time of birth
   timeOfBirthHint: Please be as precise as possible.

@@ -97,11 +97,6 @@ const about = defineCollection({
 		bio: z.object({
 			paragraphs: z.array(z.string()),
 		}),
-		cta: z.object({
-			heading: z.string(),
-			body: z.string(),
-			href: z.string(),
-		}),
 	}),
 });
 

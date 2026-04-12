@@ -6,7 +6,7 @@ advisory:
   - "A consulta será confirmada após recepção do pagamento integral."
   - 'Caso tenha alguma dúvida, contacte-me através de <a href="mailto:fabio@astrofabio.com">fabio@astrofabio.com</a>.'
 
-name: Nome completo
+name: Primeiro e último nome
 email: "Endereço de email"
 dateOfBirth: Data de nascimento
 timeOfBirth: Hora de nascimento
@@ -47,7 +47,7 @@ synastry:
   relationship:
     label: A sua relação com esta pessoa
     placeholder: "ex.: parceiro/a, cônjuge, familiar, amigo/a, colega de trabalho\u2026"
-  name: Nome completo
+  name: Primeiro e último nome
   dateOfBirth: Data de nascimento
   timeOfBirth: Hora de nascimento
   timeOfBirthHint: Seja o mais preciso possível.
