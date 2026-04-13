@@ -1,44 +1,52 @@
 hero:
   heading: Consultas
-  lead: "Uma consulta astrológica oferece ferramentas para compreender a própria vida ou uma determinada situação. Consoante o assunto em questão, aplicam-se diferentes técnicas por forma a esclarecer as suas circunstâncias e dar pistas sobre o rumo a seguir."
+  lead: "Uma consulta astrológica permite compreender a própria vida ou uma determinada situação com clareza. Consoante o assunto em questão, aplicam-se diferentes técnicas para esclarecer as suas circunstâncias e indicar possíveis direcções a seguir."
 
 types:
   - id: natal
     discipline: Astrologia Natal
     title: Estudo do mapa natal
+    price: 90
     paragraphs:
-      - "O seu mapa natal é uma representação do céu no momento em que nasceu, e por conseguinte, também das condições do mundo à sua volta. O mapa natal descreve não só a sua personalidade, mas também as suas circunstâncias: a sua família, os seus relacionamentos, o seu trabalho, o seu potencial de prosperidade."
-      - Para analisar o seu mapa natal, precisará de me fornecer a data, hora e local do seu nascimento. Peço que seja o mais preciso possível.
-      - Caso esteja em dúvida quanto à hora que nasceu e não possa aceder à sua certidão de nascimento, podemos arriscar uma estimativa através de uma rectificação baseada em certos momentos-chave da sua história pessoal.
+      - "O seu mapa natal é uma representação do céu no momento em que nasceu, e portanto, das condições em que veio ao mundo. Descreve não só a sua personalidade, mas também as circunstâncias que o moldam, como a sua família, os seus relacionamentos, o seu trabalho ou o seu potencial de prosperidade."
+      - "O objectivo desta sessão é dar-lhe uma compreensão clara da estrutura da sua vida, para que possa reconhecer melhor as suas circunstâncias e agir com maior consciência dentro delas."
+      - "<strong>Para esta análise, necessito da data, hora e local do seu nascimento.</strong> Peço que seja o mais preciso possível, ou que me informe de antemão caso esteja em dúvida quanto à hora em que nasceu."
 
   - id: natal-solar-return
+    highlight: true
     discipline: Astrologia Natal + Técnicas Preditivas
     title: Estudo do mapa natal e do ano em curso
+    price: 120
     paragraphs:
-      - O seu mapa natal corresponde a um momento fixo no tempo. Mas o céu continua em movimento, interagindo com as promessas inscritas na sua natividade e abrindo novos capítulos na sua vida de acordo com as condições presentes.
-      - "Nesta consulta, revisitamos o seu mapa natal em conjunto com os indicadores actuais (com recurso a técnicas como firdaria, profecções, revolução solar, trânsitos, direcções primárias) para lhe dar uma imagem clara do momento e das tendências futuras."
-      - Geralmente, este estudo é feito por altura do aniversário, mas pode ser realizado em qualquer altura.
+      - "O seu mapa natal descreve a estrutura da sua vida. Contudo, essa estrutura não é estática: ao longo do tempo, diferentes temas são activados, trazendo certas áreas para o primeiro plano enquanto outras se tornam menos relevantes."
+      - "<strong>Esta consulta articula o mapa natal com o momento presente.</strong> Para isso, recorro a técnicas tradicionais de previsão para compreender o que está em curso e o que tende a desenvolver-se nos próximos tempos."
+      - "O objectivo é dar-lhe uma imagem clara da fase em que se encontra, para que possa orientar-se com maior lucidez nas decisões que tem pela frente."
+      - "Este estudo é geralmente feito por altura do aniversário, mas pode ser realizado em qualquer momento do ano."
 
   - id: horary
     discipline: Astrologia Horária
-    title: Questão concreta
+    title: Questão específica
+    price: 60
     paragraphs:
-      - A astrologia horária propõe-se responder a questões específicas sobre algum tema que lhe esteja a afectar pessoalmente em determinado momento.
-      - "Como é prática neste ramo, levantarei um mapa para o instante em que compreender devidamente a sua pergunta. Caso eu precise de mais contexto, entrarei em contacto antes de prosseguir. Uma pergunta bem formulada é essencial para um mapa válido."
-      - "<strong>Reservo o direito de não responder a questões que considere eticamente dúbias. Não faço diagnósticos médicos nem presto aconselhamento financeiro ou jurídico.</strong> Em qualquer situação crítica, recomendo que recorra também aos especialistas relevantes para o seu caso para que possa fazer uma decisão plenamente informada."
+      - A astrologia horária responde a questões concretas sobre situações que o afectam no momento presente.
+      - "Levantarei um mapa para o instante em que compreender devidamente a sua pergunta. Caso precise de mais contexto, entrarei em contacto antes de prosseguir. Uma pergunta bem formulada é essencial para um mapa válido."
+      - "<strong>Reservo o direito de não responder a questões que considere eticamente dúbias. Não faço diagnósticos médicos nem presto aconselhamento financeiro ou jurídico.</strong> Em qualquer situação crítica, recomendo que recorra também aos especialistas relevantes, de modo a poder tomar uma decisão plenamente informada."
 
   - id: elective
     discipline: Astrologia Electiva
     title: Eleição de um momento
+    price: 80
     paragraphs:
-      - Nem todos os momentos oferecem as mesmas condições para concretizarmos os nossos objectivos. A astrologia electiva identifica os momentos mais favoráveis para determinados empreendimentos, como por exemplo a assinatura de um contrato, o lançamento de um negócio ou uma viagem.
-      - "Para tal, peço-lhe que me forneça um período realista dentro do qual pretende pôr em prática os seus planos. Quanto mais específico for o prazo, melhor. Também me será útil dispor dos seus dados de nascimento."
-      - "<strong>Uma eleição astrológica não é garantia absoluta de sucesso.</strong> O objectivo é maximizar as oportunidades ao seu dispor, segundo as configurações do momento e do seu próprio mapa natal."
+      - Nem todos os momentos oferecem as mesmas condições para agir. A astrologia electiva permite identificar os momentos mais favoráveis para determinados empreendimentos, como por exemplo a assinatura de um contrato, o lançamento de um negócio ou uma viagem.
+      - "Para tal, peço-lhe que me indique um período realista dentro do qual pretende pôr em prática os seus planos. Quanto mais específico for o intervalo, melhor. Os seus dados de nascimento são também tidos em conta nesta análise."
+      - "<strong>Uma eleição astrológica não é garantia absoluta de sucesso.</strong> O objectivo é maximizar as oportunidades disponíveis, segundo as configurações do momento e do seu próprio mapa natal."
 
   - id: synastry
     discipline: Sinastria
     title: Estudo das relações
+    price: 140
     paragraphs:
-      - "Através da sinastria, podemos fazer a análise da relação entre duas pessoas (parceiros amorosos, familiares, amigos, colegas) a partir de ambos os seus mapas natais."
-      - "A comparação das configurações de uma e outra natividade permite identificar traços em comum e factores de harmonia, e também alertar para eventuais pontos de atrito. Não se pretende gerar um ambiente de confronto, mas sim de interesse pelo bem-estar um do outro e da relação."
-      - "Para esta consulta, <strong>é fundamental que ambos os participantes estejam presentes e dêem o seu pleno consentimento</strong>. "
+      - "A sinastria analisa a relação entre duas pessoas — parceiros amorosos, familiares, amigos ou colegas — através da comparação dos seus mapas natais."
+      - "Este estudo permite compreender como cada pessoa tende a viver a relação: onde há facilidade e afinidade, onde podem surgir tensões, e que dinâmicas se estabelecem entre ambos."
+      - "O objectivo não é promover confronto, mas sim uma compreensão mais clara da relação, que permita cuidar dela com maior consciência."
+      - "Para esta consulta, <strong>é fundamental que ambos os participantes estejam presentes e dêem o seu pleno consentimento</strong>."

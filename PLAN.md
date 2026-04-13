@@ -142,6 +142,9 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `SiteLogo` and `LangSwitcher` `variant` prop (`"light"` | `"dark"`) — footer passes `variant="dark"` to both; dark variant flips stroke and text from `color-contrast`/`color-ink` to `color-base`
 - [x] `SiteLogo` `layout` prop (`"horizontal"` | `"stacked"`) — stacked uses `flex-col items-start` and always shows the text block; footer passes `layout="stacked"`
 - [x] Email and Instagram icon links in `Header.astro` — desktop: between nav links and `LangSwitcher`; mobile: below the nav list, left-aligned with text links. `.social-link` uses `color: var(--color-ink)` and `stroke="currentColor"` so icons react to the same color transitions as nav text links. Hover turns icon to `--color-accent`.
+- [x] Consultation type `price` field — `z.number()` in schema, prices in EN + PT YAML (natal 90, natal+SR 120, horary 60, elective 80, synastry 140), displayed as `{feeLabel}{price}€` under the card title. `feeLabel` UI string in `site.ts` (EN: "Fee: ", PT: "Valor: ").
+- [x] `card--highlight` modifier on consultation cards — `type.highlight: true` adds an inset left box-shadow in `--color-accent`; ambient amber glow added to all cards via inset `color-mix` shadow.
+- [x] Consultation icon accent colour updated to `#b8975a` (desaturated warm gold, between `--color-gold-light` and `--color-amber`) across all five SVG icons.
 
 ### Booking Form i18n
 

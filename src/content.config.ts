@@ -73,8 +73,10 @@ const booking = defineCollection({
 
 const consultationType = z.object({
 	id: z.string(),
+	highlight: z.boolean().optional(),
 	discipline: z.string().optional(),
 	title: z.string(),
+	price: z.number(),
 	paragraphs: z.array(z.string()),
 });
 

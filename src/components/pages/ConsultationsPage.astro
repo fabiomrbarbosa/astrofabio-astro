@@ -21,7 +21,7 @@ const icons: Record<string, string> = {
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("consultations", locale);
 const content = entry!.data;
-const { bookCta, learnMore } = ui[locale];
+const { bookCta, learnMore, feeLabel } = ui[locale];
 ---
 
 <HeroBackground
@@ -55,7 +55,10 @@ const { bookCta, learnMore } = ui[locale];
 >
 	{
 		content.types.map((type, i) => (
-			<article class="card rounded-2xl" style={{ "--i": i }}>
+			<article
+				class:list={["card rounded-2xl", { "card--highlight": type.highlight }]}
+				style={{ "--i": i }}
+			>
 				<div class="card-header">
 					<div class="card-heading">
 						{type.discipline && (
@@ -63,9 +66,13 @@ const { bookCta, learnMore } = ui[locale];
 								{type.discipline}
 							</p>
 						)}
-						<h2 class="card-title mb-6 font-serif tracking-tight">
+						<h2 class="card-title mb-2 font-serif tracking-tight">
 							{type.title}
 						</h2>
+						<p class="mb-6 font-semibold text-ink">
+							{feeLabel}
+							{type.price}€
+						</p>
 					</div>
 
 					<div class="card-icon" aria-hidden="true" set:html={icons[type.id]} />
@@ -153,9 +160,11 @@ const { bookCta, learnMore } = ui[locale];
 		align-items: start;
 		background-color: var(--color-base);
 		border: 1px solid var(--color-overlay);
-		padding: 3rem;
+		padding: calc(3rem + 1vh) 3rem;
 		margin-bottom: 2rem;
-		box-shadow: 0 1px 8px color-mix(in srgb, var(--color-ink) 4%, transparent);
+		box-shadow:
+			inset 0 0 100px color-mix(in srgb, var(--color-amber) 6%, transparent),
+			0 1px 8px color-mix(in srgb, var(--color-ink) 4%, transparent);
 	}
 
 	@media (min-width: 641px) {

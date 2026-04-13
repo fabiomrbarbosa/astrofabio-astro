@@ -1,44 +1,52 @@
 hero:
   heading: Consultations
-  lead: "Astrological consultation offers tools to understand one’s life or a given situation. Different techniques are applied according to the matter at hand, in order to clarify circumstances and give guidance on the way forward."
+  lead: "An astrological consultation allows you to understand your life or a particular situation with clarity. Depending on the matter at hand, different techniques are applied to clarify your circumstances and suggest possible ways forward."
 
 types:
   - id: natal
     discipline: Natal Astrology
     title: Birth Chart Reading
+    price: 90
     paragraphs:
-      - "Your birth chart is a map of the sky at the moment you were born — and by extension, of the conditions of the world around you at that time. It describes not only your personality, but also your circumstances: your family, your relationships, your work, your potential for prosperity."
-      - To read your birth chart, I will need your date, time, and place of birth. Please be as precise as possible.
-      - If you are uncertain about your birth time and cannot access your birth certificate, we can attempt an estimate through a rectification based on certain key moments from your personal history.
+      - "Your birth chart is a representation of the sky at the moment you were born, and therefore of the conditions into which you entered the world. It describes not only your temperament, but also the circumstances that shape your life, such as your family, your relationships, your work, and your potential for prosperity."
+      - "The aim of this session is to give you a clear understanding of the structure of your life, so that you can better recognise your circumstances and act within them with greater awareness."
+      - "<strong>For this consultation, I will need your date, time, and place of birth.</strong> Please be as precise as possible, or let me know in advance if you are unsure of your birth time."
 
   - id: natal-solar-return
+    highlight: true
     discipline: Natal Astrology + Predictive Techniques
     title: Birth Chart and Current Year
+    price: 120
     paragraphs:
-      - Your birth chart corresponds to a fixed moment in time. But the sky continues to move, engaging with the promises inscribed in your nativity and opening new chapters in your life according to present conditions.
-      - "In this consultation, we revisit your birth chart alongside current indicators (using techniques such as firdaria, profections, solar return, transits, and primary directions) to give you a clear picture of the present moment and the tendencies lying ahead."
-      - This reading is typically done around the time of a birthday, but it can be carried out at any point in the year.
+      - "Your birth chart describes the structure of your life. However, that structure is not static: over time, different themes are activated, bringing certain areas to the foreground while others recede."
+      - "<strong>This consultation brings the birth chart into relation with the present moment.</strong> To do this, I draw on traditional predictive techniques to understand what is currently unfolding and what is likely to develop in the near future."
+      - "The aim is to give you a clear sense of the phase you are in, so that you can approach the decisions ahead with greater clarity."
+      - "This study is often carried out around the time of your birthday, but it can be undertaken at any point in the year."
 
   - id: horary
     discipline: Horary Astrology
     title: A Specific Question
+    price: 60
     paragraphs:
-      - Horary astrology addresses concrete questions about something that is personally affecting you at a given moment.
-      - "As is customary in this branch, I will cast a chart for the moment I properly understand your question. If I need more context, I will be in touch before proceeding. A well-formed question is essential for a valid chart."
-      - "<strong>I reserve the right not to answer questions I consider ethically dubious. I do not make medical diagnoses or provide financial or legal advice.</strong> In any critical situation, I will always encourage you to also consult the specialists relevant to your situation so that you can make a fully informed decision."
+      - "Horary astrology addresses concrete questions about situations that are affecting you at the present time."
+      - "As is customary in this branch, I will cast a chart for the moment I fully understand your question. If I need further context, I will be in touch before proceeding. A well-formulated question is essential for a valid chart."
+      - "<strong>I reserve the right not to answer questions I consider ethically questionable. I do not provide medical diagnoses or financial or legal advice.</strong> In any serious situation, I recommend that you also consult the appropriate specialists so that you can make a properly informed decision."
 
   - id: elective
     discipline: Electional Astrology
-    title: Choosing a Moment
+    title: Choosing the Right Moment
+    price: 80
     paragraphs:
-      - Not all moments offer the same conditions for pursuing our goals. Electional astrology identifies the most favourable moments for specific undertakings — such as signing a contract, a business launch, or a journey.
-      - To do this, I ask that you provide a realistic time window within which you intend to act. The more specific the timeframe, the better. Your birth data will also be useful.
-      - "<strong>An astrological election is not an absolute guarantee of success.</strong> The aim is to maximise the opportunities available to you, according to the configurations of the moment and your own birth chart."
+      - "Not all moments offer the same conditions for action. Electional astrology makes it possible to identify the most favourable times for specific undertakings, such as signing a contract, launching a business, or setting out on a journey."
+      - "For this, I ask that you indicate a realistic time window within which you intend to carry out your plans. The more specific the timeframe, the better. Your birth data is also taken into account in this analysis."
+      - "<strong>An astrological election is not a guarantee of success.</strong> The aim is to make the most of the opportunities available, according to the configurations of the moment and your own birth chart."
 
   - id: synastry
     discipline: Synastry
     title: Relationship Reading
+    price: 140
     paragraphs:
-      - "Through synastry, we can analyse the relationship between two people — romantic partners, family members, friends, colleagues — by comparing both birth charts."
-      - "The comparison of the configurations in each nativity makes it possible to identify shared traits and factors of harmony, and to flag potential points of friction. The desired attitude is not one of confrontation, but a genuine interest in one another's wellbeing and in the health of the relationship."
-      - "For this consultation, <strong>it is essential that both participants are present and give their full consent</strong>. "
+      - "Synastry examines the relationship between two people — romantic partners, family members, friends, or colleagues — by comparing their birth charts."
+      - "This makes it possible to understand how each person tends to experience the relationship: where there is ease and compatibility, where tensions may arise, and what dynamics emerge between them."
+      - "The aim is not to encourage confrontation, but to arrive at a clearer understanding of the relationship, so that it can be approached with greater awareness and care."
+      - "For this consultation, <strong>it is essential that both participants are present and give their full consent</strong>."
