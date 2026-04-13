@@ -18,13 +18,13 @@ export const siteMeta: Record<
 > = {
 	en: {
 		tagline: "Astrology",
-		title: "Fábio Barbosa | Astrology",
+		title: "Fábio Barbosa ✶ Astrology",
 		description:
 			"Traditional astrology consultations with Fábio Barbosa. Better understand your natal chart, the cycles you move through, and the moments most suited for action.",
 	},
 	pt: {
 		tagline: "Astrologia",
-		title: "Fábio Barbosa | Astrologia",
+		title: "Fábio Barbosa ✶ Astrologia",
 		description:
 			"Consultas de astrologia tradicional com Fábio Barbosa. Compreenda melhor o seu mapa natal, os ciclos que atravessa e os momentos mais propícios para agir.",
 	},
@@ -35,7 +35,7 @@ export const ui = {
 	en: {
 		menuOpen: "Open menu",
 		menuClose: "Close menu",
-		logoAriaLabel: "Fábio Barbosa | Astrology — Home",
+		logoAriaLabel: "Fábio Barbosa ✶ Astrology — Home",
 		switchLang: "PT",
 		switchLangHref: "/pt",
 		switchLangAriaLabel: "Ver em Português",
@@ -53,7 +53,7 @@ export const ui = {
 	pt: {
 		menuOpen: "Abrir menu",
 		menuClose: "Fechar menu",
-		logoAriaLabel: "Fábio Barbosa | Astrologia — Página inicial",
+		logoAriaLabel: "Fábio Barbosa ✶ Astrologia — Página inicial",
 		switchLang: "EN",
 		switchLangHref: "/",
 		switchLangAriaLabel: "Switch to English",
