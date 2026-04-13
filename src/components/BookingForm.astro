@@ -16,11 +16,7 @@ const form = entry!.data;
 					<h2 class="text-4xl font-serif tracking-tight mb-8">
 						{form.heading}
 					</h2>
-					{
-						form.advisory.map((p) => (
-							<p class="mb-4 last:mb-0 text-sm" set:html={p} />
-						))
-					}
+					{form.advisory.map((p) => <p class="mb-4 last:mb-0" set:html={p} />)}
 				</div>
 			</div>
 			<form
