@@ -8,7 +8,7 @@ import HeroBackground from "../HeroBackground.astro";
 import chartRings from "../../assets/images/chart-rings.svg?raw";
 import chartSpokes from "../../assets/images/chart-spokes.svg?raw";
 import chartTicks from "../../assets/images/chart-ticks.svg?raw";
-import homePicture from "../../assets/images/alciato_augsburg.png";
+import homePicture from "../../assets/images/celestial_map.jpg";
 
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("home", locale);
@@ -83,7 +83,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 			<div class="intro-image h-full">
 				<Image
 					src={homePicture}
-					alt="in Emblematum Liber, Andrea Alciato (Augsburg 1531)"
+					alt="in Zubdat-al Tawarikh"
 					class="intro-photo h-full"
 				/>
 			</div>
@@ -232,7 +232,6 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 	.intro-photo {
 		width: 100%;
 		height: auto;
-		opacity: 0.75;
 		mix-blend-mode: multiply;
 	}
 </style>
