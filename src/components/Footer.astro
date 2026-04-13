@@ -20,8 +20,8 @@ const currentPath = Astro.url.pathname;
 
 <footer class="py-(--spacing-section) bg-contrast text-base">
 	<div class="footer-inner w-full mx-auto px-(--spacing-outer)">
-		<div class="flex flex-col md:flex-row gap-12 mb-20 items-start">
-			<div class="shrink-0 md:w-[20%]">
+		<div class="flex flex-col md:flex-row gap-12 items-start">
+			<div class="shrink-0 flex flex-col gap-5 md:gap-11 md:w-[20%]">
 				<SiteLogo
 					locale={locale}
 					instanceId="footer"
@@ -29,6 +29,12 @@ const currentPath = Astro.url.pathname;
 					variant="dark"
 					layout="stacked"
 				/>
+				<div>
+					<a
+						class="text-base hover:text-secondary font-semibold no-underline hover:no-underline transition-colors duration-150"
+						href="mailto:fabio@astrofabio.com">fabio@astrofabio.com</a
+					>
+				</div>
 			</div>
 			<nav
 				class="flex flex-col grow gap-10 justify-between"
