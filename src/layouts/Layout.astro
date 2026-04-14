@@ -17,7 +17,7 @@ const meta = siteMeta[locale];
 const pageTitle = title ? `${title} | ${meta.title}` : meta.title;
 const pageDescription = description ?? meta.description;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = new URL("/images/og.jpg", Astro.site).href;
+const ogImage = new URL("/images/og.png", Astro.site).href;
 ---
 
 <!doctype html>
@@ -50,7 +50,11 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 				var hash = window.location.hash;
 				if (!hash) return;
 				var id = hash.slice(1);
-				history.replaceState(null, "", window.location.pathname + window.location.search);
+				history.replaceState(
+					null,
+					"",
+					window.location.pathname + window.location.search,
+				);
 				document.addEventListener("DOMContentLoaded", function () {
 					var el = document.getElementById(id);
 					if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -61,7 +65,11 @@ const ogImage = new URL("/images/og.jpg", Astro.site).href;
 		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/images/apple-touch-icon.png"
+		/>
 
 		<!-- Plausible Analytics -->
 		<script
