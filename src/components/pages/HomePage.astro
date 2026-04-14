@@ -218,7 +218,8 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 
 	@media (max-width: 768px) {
 		.intro-grid {
-			grid-template-columns: 1fr;
+			display: flex;
+			flex-direction: column-reverse;
 			gap: 2rem;
 		}
 	}
