@@ -1,7 +1,7 @@
 hero:
   heading:
     - Take a look at your life
-    - through the mirror of the sky.
+    - through the mirror of the sky
   subheading: Astrology describes your life and the circumstances in which it unfolds, so you can understand them clearly and make more informed decisions.
   ctaHref: "#book"
   ctaSecondaryHref: "/consultations"

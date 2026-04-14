@@ -30,6 +30,14 @@
 	src: url("/fonts/instrument-serif-regular.woff2") format("woff2");
 }
 
+@font-face {
+	font-family: "Instrument Serif";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
+}
+
 /* ============================================================
    THEME TOKENS
    All values map directly to Tailwind v4 utility classes:
