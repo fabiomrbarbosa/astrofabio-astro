@@ -11,16 +11,10 @@ const entry = await getEntry("about", locale);
 const content = entry!.data;
 ---
 
-<HeroBackground
-	orb1="var(--color-periwinkle)"
-	orb3="var(--color-blue)"
-	short
-	flip
-/>
-
 <section
 	class="relative flex min-h-[40vh] w-full items-center overflow-hidden pt-[calc(var(--spacing-section)*2)] pb-[calc(var(--spacing-section)*1.25)]"
 >
+	<HeroBackground orb1="var(--color-periwinkle)" flip />
 	<div
 		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
 	>
