@@ -4,6 +4,7 @@ interface Props {
 	orb2?: string;
 	orb3?: string;
 	flip?: boolean;
+	short?: boolean;
 }
 
 const {
@@ -11,11 +12,12 @@ const {
 	orb2 = "var(--color-base)",
 	orb3,
 	flip = false,
+	short = false,
 } = Astro.props;
 ---
 
 <div
-	class:list={["hero-background", { "hero-background--flip": flip }]}
+	class:list={["hero-background", { "hero-background--flip": flip, "hero-background--short": short }]}
 	style={`--orb1: ${orb1}; --orb2: ${orb2};${orb3 ? ` --orb3: ${orb3};` : ""}`}
 	aria-hidden="true"
 >
@@ -78,6 +80,10 @@ const {
 		left: 50%;
 		translate: -50% -50%;
 		z-index: 10;
+	}
+
+	.hero-background--short {
+		height: 70vh;
 	}
 
 	/* flipped: orb1 — bottom left, orb2 — top right (and above, since ::after paints last) */
