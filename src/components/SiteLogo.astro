@@ -131,15 +131,13 @@ const titleId = `logo-title-${instanceId}`;
 		}
 	}
 
-	:global(.site-logo:hover .logo__trace path),
-	:global(.site-logo:focus .logo__trace path),
-	:global(.site-logo:active .logo__trace path) {
-		stroke: var(--color-accent);
-	}
-
 	:global(.logo-no-animate .logo__trace path) {
 		animation: none;
 		stroke-dashoffset: 0;
+	}
+
+	:global(.site-logo:focus-visible .logo__trace path) {
+		stroke: var(--color-accent);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -149,3 +147,25 @@ const titleId = `logo-title-${instanceId}`;
 		}
 	}
 </style>
+
+<script>
+	if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		document.querySelectorAll(".site-logo").forEach((logo) => {
+			logo.addEventListener("mouseenter", () => {
+				if (logo.classList.contains("logo-no-animate")) return;
+				logo.querySelectorAll(".logo__trace path").forEach((path, i) => {
+					path.getAnimations().forEach((a) => a.cancel());
+					path.animate(
+						[{ strokeDashoffset: "1870" }, { strokeDashoffset: "0" }],
+						{
+							duration: 1500,
+							delay: i === 0 ? 0 : 750,
+							easing: "cubic-bezier(0.83, 0, 0.17, 1)",
+							fill: "forwards",
+						},
+					);
+				});
+			});
+		});
+	}
+</script>
