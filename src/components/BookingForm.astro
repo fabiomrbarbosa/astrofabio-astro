@@ -410,8 +410,8 @@ const form = entry!.data;
 	:global(#book::before) {
 		width: 100vw;
 		height: 100vh;
-		background: color-mix(in srgb, var(--color-amber) 25%, transparent);
-		filter: blur(100px);
+		background: color-mix(in srgb, var(--color-amber) 35%, transparent);
+		filter: blur(clamp(60px, 6vw, 140px));
 		top: -25%;
 		right: -25%;
 	}
@@ -420,8 +420,8 @@ const form = entry!.data;
 	:global(#book::after) {
 		width: 100vw;
 		height: 100vh;
-		background: color-mix(in srgb, var(--color-orange) 20%, transparent);
-		filter: blur(90px);
+		background: color-mix(in srgb, var(--color-orange) 25%, transparent);
+		filter: blur(clamp(60px, 6vw, 140px));
 		bottom: 0;
 		left: 25%;
 	}
