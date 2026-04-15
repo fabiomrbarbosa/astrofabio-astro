@@ -166,6 +166,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Zodiac sign glyphs added to `chart-spokes.svg` — 12 `<text>` elements in the outer ring band (r≈264, between r=290 and r=242), baseline toward centre, scaled 2× wide × 1.5× tall, `&#xFE0E;` text-presentation selector on each glyph to suppress emoji rendering. Sequence starts with Aries at the 8–9 o'clock position (255°), continues clockwise.
 - [x] `chart-rings.svg` ring radii adjusted: 290, 242, 218, 194, 55 — inner three evenly spaced at 24px gaps.
 - [x] `chart-ticks.svg` tick baseline shifted to align with second ring from outside (r=242, y=58); all three tick lengths preserved.
+- [x] `icon-natal.svg` and `icon-horary.svg` inner ring reduced from `r=32` to `r=27.36` (−14.5% cumulative); all 12 sign dividers lengthened from `v12` to `v16.64` to stay flush with the new inner edge.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
