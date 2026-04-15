@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import { defaultLocale, type Locale } from "../i18n/site";
 import HCaptcha from "./HCaptcha.astro";
 
-const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const { locale = defaultLocale } = Astro.props;
 const entry = await getEntry("booking", locale);
 const form = entry!.data;
 ---
@@ -299,7 +299,7 @@ const form = entry!.data;
 		form
 			.querySelectorAll<
 				HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-			>('input:not([type="checkbox"]):not([name="h-captcha-response"]), select, textarea')
+			>('input:not([type="checkbox"]):not([name="h-captcha-response"]):not([name="locale"]),, select, textarea')
 			.forEach((el) => {
 				if (el.name) state[el.name] = el.value;
 			});
@@ -318,6 +318,7 @@ const form = entry!.data;
 		try {
 			const state = JSON.parse(raw) as Record<string, string>;
 			Object.entries(state).forEach(([name, value]) => {
+				if (name === "locale") return;
 				const el = form.elements.namedItem(name) as
 					| HTMLInputElement
 					| HTMLSelectElement
