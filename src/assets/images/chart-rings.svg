@@ -1,7 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
   <circle cx="300" cy="300" r="290"      stroke="#ffffff" stroke-width="1.5"/>
-  <circle cx="300" cy="300" r="242" stroke="#ffffff" stroke-width="1"/>
-  <circle cx="300" cy="300" r="218"      stroke="#ffffff" stroke-width="1"/>
-  <circle cx="300" cy="300" r="194" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="242"    stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="215.29" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="188.57" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="161.86" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="135.14" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="108.43" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="300" cy="300" r="81.71"  stroke="#ffffff" stroke-width="1"/>
   <circle cx="300" cy="300" r="55"     stroke="#ffffff" stroke-width="1"/>
+
+  <!-- Classical planets outermost→innermost. Astronomicon: Q=Sun R=Moon S=Mercury T=Venus U=Mars V=Jupiter W=Saturn -->
+  <text x="300" y="71.36"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">W</text>
+  <text x="300" y="98.07"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">V</text>
+  <text x="300" y="124.79" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">U</text>
+  <text x="300" y="151.5"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">Q</text>
+  <text x="300" y="178.22" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">T</text>
+  <text x="300" y="204.93" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">S</text>
+  <text x="300" y="231.65" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">R</text>
 </svg>

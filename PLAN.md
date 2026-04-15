@@ -167,6 +167,9 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `chart-rings.svg` ring radii adjusted: 290, 242, 218, 194, 55 — inner three evenly spaced at 24px gaps.
 - [x] `chart-ticks.svg` tick baseline shifted to align with second ring from outside (r=242, y=58); all three tick lengths preserved.
 - [x] `icon-natal.svg` and `icon-horary.svg` inner ring reduced from `r=32` to `r=27.36` (−14.5% cumulative); all 12 sign dividers lengthened from `v12` to `v16.64` to stay flush with the new inner edge.
+- [x] `chart-rings.svg` rings 3–4 replaced with 6 equally-spaced rings between r=242 and r=55, creating 7 rows; classical planet glyphs (Saturn→Moon, outermost→innermost) placed on vertical axis via Astronomicon font (W V U Q T S R), font-size 22.
+- [x] `chart-spokes.svg` zodiac glyphs switched to Astronomicon font (A–L for Aries–Pisces, `\`=Sagittarius), font-size 30, stretch removed.
+- [x] Astronomicon.ttf added to `public/fonts/`; `@font-face` declared in `global.css`.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
