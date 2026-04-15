@@ -12,7 +12,7 @@ types:
       - "The aim of this session is to give you a clear understanding of the structure of your life, so that you can better recognise your circumstances and act within them with greater awareness."
       - "<strong>For this consultation, I will need your date, time, and place of birth.</strong> Please be as precise as possible, or let me know in advance if you are unsure of your birth time."
 
-  - id: natal-solar-return
+  - id: natalsolarreturn
     highlight: true
     discipline: Natal Astrology + Predictive Techniques
     title: Birth Chart and Current Year

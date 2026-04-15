@@ -12,7 +12,7 @@ import HeroBackground from "../HeroBackground.astro";
 
 const icons: Record<string, string> = {
 	natal: iconNatal,
-	"natal-solar-return": iconNatalSolarReturn,
+	natalsolarreturn: iconNatalSolarReturn,
 	horary: iconHorary,
 	elective: iconElective,
 	synastry: iconSynastry,
@@ -27,7 +27,7 @@ const { bookCta, learnMore, feeLabel } = ui[locale];
 <section
 	class="relative flex min-h-[70vh] w-full items-center overflow-hidden pt-[calc(var(--spacing-section)*2)] pb-[calc(var(--spacing-section)*1.25)]"
 >
-	<HeroBackground orb1="var(--color-amber)" flip />
+	<HeroBackground orb1="var(--color-amber)" orb2="var(--color-orange)" flip />
 	<div
 		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
 	>

@@ -141,7 +141,10 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `SiteLogo` `animated` prop (default `true`) — footer passes `animated={false}` via `logo-no-animate` class
 - [x] `SiteLogo` and `LangSwitcher` `variant` prop (`"light"` | `"dark"`) — footer passes `variant="dark"` to both; dark variant flips stroke and text from `color-contrast`/`color-ink` to `color-base`
 - [x] `SiteLogo` `layout` prop (`"horizontal"` | `"stacked"`) — stacked uses `flex-col items-start` and always shows the text block; footer passes `layout="stacked"`
-- [x] Email and Instagram icon links in `Header.astro` — desktop: between nav links and `LangSwitcher`; mobile: below the nav list, left-aligned with text links. `.social-link` uses `color: var(--color-ink)` and `stroke="currentColor"` so icons react to the same color transitions as nav text links. Hover turns icon to `--color-accent`.
+- [x] Email and Instagram icon links in `Header.astro` — desktop: between nav links and `LangSwitcher`; mobile: below the nav list, left-aligned with text links. `.social-link` uses `color: var(--color-ink)` and `stroke="currentColor"` so icons react to the same color transitions as nav text links. Desktop: round semi-transparent white background (`border-radius: 50%`), hover/focus-visible → solid white; no accent colour change. Mobile retains original behaviour.
+- [x] Desktop header `LangSwitcher` gets pill semi-transparent white background; active locale is the prominent label, switch link is dimmed (opacity 0.4) and goes to `color-contrast` on hover/`focus-visible`. No hover effect on the pill itself.
+- [x] All header interactive states use `:focus-visible` (not `:focus`) for correct keyboard navigation parity.
+- [x] App nav link opens in new tab — `external: true` flag on nav entry drives `target="_blank" rel="noopener noreferrer"` on both desktop and mobile; label includes `↗` arrow (non-breaking space + U+2197, with `&#xFE0E;` text-presentation selector).
 - [x] Consultation type `price` field — `z.number()` in schema, prices in EN + PT YAML (natal 90, natal+SR 120, horary 60, elective 80, synastry 140), displayed as `{feeLabel}{price}€` under the card title. `feeLabel` UI string in `site.ts` (EN: "Fee: ", PT: "Valor: ").
 - [x] `card--highlight` modifier on consultation cards — `type.highlight: true` adds an inset left box-shadow in `--color-accent`; ambient amber glow added to all cards via inset `color-mix` shadow.
 - [x] Consultation icon accent colour updated to `#b8975a` (desaturated warm gold, between `--color-gold-light` and `--color-amber`) across all five SVG icons.
@@ -159,6 +162,10 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Hero background images replaced with CSS orb blobs in `HeroBackground.astro` — `orb1`/`orb2`/`orb3` props accept any CSS color value; `flip` prop swaps orb positions (so `::after` / orb2 always paints on top). SVG files and `preloadImage` prop removed. Component is placed **inside** each hero section (which has `position: relative`); uses `inset: 0` so it fills exactly the section's rendered height with no fixed or viewport-clamped height. Orb height uses `90%` (of the container) rather than `90vh`. `overflow-x: clip` clips horizontal orb bleed; `mask-image` bottom fade (`black 50% → transparent 100%`) prevents orbs bleeding into sections below. Orb blur uses `clamp(60px, 6vw, 140px)`; same clamp in `BookingForm`'s inline orbs.
 - [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
 - [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
+- [x] Hero orbs 1 & 2 use irregular `border-radius` blob shapes (asymmetric 8-value radii) instead of perfect circles; orb3 (centred ambient) unchanged.
+- [x] Zodiac sign glyphs added to `chart-spokes.svg` — 12 `<text>` elements in the outer ring band (r≈264, between r=290 and r=242), baseline toward centre, scaled 2× wide × 1.5× tall, `&#xFE0E;` text-presentation selector on each glyph to suppress emoji rendering. Sequence starts with Aries at the 8–9 o'clock position (255°), continues clockwise.
+- [x] `chart-rings.svg` ring radii adjusted: 290, 242, 218, 194, 55 — inner three evenly spaced at 24px gaps.
+- [x] `chart-ticks.svg` tick baseline shifted to align with second ring from outside (r=242, y=58); all three tick lengths preserved.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
@@ -170,7 +177,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~92%
+Overall: ~95%
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
@@ -178,7 +185,7 @@ Overall: ~92%
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
 | 4 — Secondary Pages      | Complete    | 100% |
-| 5 — Polish & Launch      | In progress | 40%  |
+| 5 — Polish & Launch      | In progress | 60%  |
 
 ---
 

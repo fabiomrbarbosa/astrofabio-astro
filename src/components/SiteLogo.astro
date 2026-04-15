@@ -78,12 +78,15 @@ const titleId = `logo-title-${instanceId}`;
 	>
 		<span
 			class:list={[
-				"text-sm font-semibold",
+				"text-sm font-semibold leading-4 ",
 				variant === "dark" ? "text-base" : "text-contrast",
 			]}>{siteName}</span
 		>
-		<span class="text-xs text-muted uppercase tracking-widest"
-			>{meta.tagline}</span
+		<span
+			class:list={[
+				"text-sm leading-4 ",
+				variant === "dark" ? "text-base" : "text-contrast",
+			]}>{meta.tagline}</span
 		>
 	</div>
 </a>

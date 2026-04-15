@@ -74,12 +74,12 @@ export const navLinks = {
 	en: [
 		{ href: "/about", label: "About" },
 		{ href: "/consultations", label: "Consultations" },
-		{ href: "https://app.astrofabio.com", label: "App" },
+		{ href: "https://app.astrofabio.com", label: "App\u00a0↗", external: true },
 	],
 	pt: [
 		{ href: "/pt/sobre", label: "Sobre" },
 		{ href: "/pt/consultas", label: "Consultas" },
-		{ href: "https://app.astrofabio.com", label: "App" },
+		{ href: "https://app.astrofabio.com", label: "App\u00a0↗", external: true },
 	],
 } as const;
 

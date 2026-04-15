@@ -36,12 +36,14 @@ const currentPath = Astro.url.pathname;
 	>
 		<ul class="flex items-center gap-2 list-none m-0 p-0">
 			{
-				navLinks.map(({ href, label }) => (
+				navLinks.map(({ href, label, external }) => (
 					<li>
 						<a
 							href={href}
 							class="nav-link text-sm tracking-widest font-semibold"
 							aria-current={currentPath === href ? "page" : undefined}
+							target={external ? "_blank" : undefined}
+							rel={external ? "noopener noreferrer" : undefined}
 						>
 							{label}
 						</a>
@@ -49,7 +51,7 @@ const currentPath = Astro.url.pathname;
 				))
 			}
 		</ul>
-		<div class="flex items-center">
+		<div class="flex gap-2 items-center">
 			<a
 				href="mailto:fabio@astrofabio.com"
 				class="social-link"
@@ -134,10 +136,10 @@ const currentPath = Astro.url.pathname;
 			aria-label={t.logoAriaLabel}
 			class="flex flex-col hover:no-underline"
 		>
-			<span class="text-sm font-semibold text-contrast">{siteName}</span>
-			<span class="text-xs text-muted uppercase tracking-widest"
-				>{meta.tagline}</span
+			<span class="text-sm font-semibold leading-4 text-contrast"
+				>{siteName}</span
 			>
+			<span class="text-sm leading-4 text-contrast">{meta.tagline}</span>
 		</a>
 		<div class="flex items-center gap-2">
 			<LangSwitcher locale={locale} />
@@ -165,12 +167,14 @@ const currentPath = Astro.url.pathname;
 	<nav class="px-(--spacing-outer) pt-8" aria-label="Mobile navigation">
 		<ul class="flex flex-col gap-6 list-none m-0 p-0">
 			{
-				navLinks.map(({ href, label }) => (
+				navLinks.map(({ href, label, external }) => (
 					<li>
 						<a
 							href={href}
 							class="nav-link text-sm font-semibold"
 							aria-current={currentPath === href ? "page" : undefined}
+							target={external ? "_blank" : undefined}
+							rel={external ? "noopener noreferrer" : undefined}
 						>
 							{label}
 						</a>
@@ -329,14 +333,14 @@ const currentPath = Astro.url.pathname;
 	}
 
 	header .nav-primary > ul .nav-link[aria-current="page"],
-	header .nav-primary > ul .nav-link:focus,
+	header .nav-primary > ul .nav-link:focus-visible,
 	header .nav-primary > ul .nav-link:hover {
 		background: white;
 		text-decoration: none;
 	}
 
 	header.header--scrolled .nav-primary > ul .nav-link[aria-current="page"],
-	header.header--scrolled .nav-primary > ul .nav-link:focus,
+	header.header--scrolled .nav-primary > ul .nav-link:focus-visible,
 	header.header--scrolled .nav-primary > ul .nav-link:hover {
 		background: var(--color-surface);
 	}
@@ -352,5 +356,31 @@ const currentPath = Astro.url.pathname;
 
 	.social-link:hover {
 		color: var(--color-accent);
+	}
+
+	/* Desktop nav: social icons — round semi-transparent white background */
+	header .nav-primary .social-link {
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		transition: background 150ms ease;
+	}
+
+	header .nav-primary .social-link:hover,
+	header .nav-primary .social-link:focus-visible {
+		background: white;
+		color: var(--color-ink);
+	}
+
+	header.header--scrolled .nav-primary .social-link:hover,
+	header.header--scrolled .nav-primary .social-link:focus-visible {
+		background: var(--color-surface);
+	}
+
+	/* Desktop nav: lang switcher — pill semi-transparent white background */
+	header .nav-primary .lang-switcher {
+		background: rgba(255, 255, 255, 0.3);
+		border-radius: 2em;
+		padding: 0.5rem 1rem;
+		transition: background 150ms ease;
 	}
 </style>

@@ -20,7 +20,11 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 	id="hero-section"
 	class="relative w-full min-h-[95vh] flex items-center pt-[calc(var(--spacing-section)*2)] pb-[calc(var(--spacing-section)*2)] overflow-hidden"
 >
-	<HeroBackground orb2="var(--color-orange-light)" orb3="var(--color-amber)" />
+	<HeroBackground
+		orb1="var(--color-amber)"
+		orb2="var(--color-periwinkle)"
+		orb3="var(--color-blue)"
+	/>
 	<div class="hero-circles" aria-hidden="true">
 		<div class="circles-stack">
 			<div id="circle-rings" class="circle-layer" set:html={chartRings} />
@@ -49,7 +53,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
 	>
 		<h1
-			class="text-7xl max-md:text-5xl font-serif tracking-tight leading-none mb-6"
+			class="text-5xl md:text-7xl font-serif tracking-tight leading-none mb-6"
 		>
 			{
 				content.hero.heading.map((line, i) => (
@@ -162,8 +166,9 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		opacity: 0.8;
+		opacity: 0.9;
 		will-change: transform;
+		mix-blend-mode: lighten;
 	}
 
 	.circle-layer :global(svg) {

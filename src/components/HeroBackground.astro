@@ -36,7 +36,6 @@ const {
 	.hero-background::after {
 		content: "";
 		position: absolute;
-		border-radius: 50%;
 		pointer-events: none;
 	}
 
@@ -50,8 +49,9 @@ const {
 	.hero-background::before {
 		width: 90vw;
 		height: 90%;
-		background: color-mix(in srgb, var(--orb1) 60%, transparent);
+		background: color-mix(in srgb, var(--orb1) 55%, transparent);
 		filter: blur(clamp(60px, 6vw, 140px));
+		border-radius: 70% 30% 55% 45% / 50% 65% 35% 50%;
 		top: -25%;
 		right: -25%;
 	}
@@ -59,8 +59,9 @@ const {
 	.hero-background::after {
 		width: 90vw;
 		height: 90%;
-		background: color-mix(in srgb, var(--orb2) 60%, transparent);
+		background: color-mix(in srgb, var(--orb2) 55%, transparent);
 		filter: blur(clamp(60px, 6vw, 140px));
+		border-radius: 40% 60% 38% 62% / 62% 44% 56% 38%;
 		bottom: -25%;
 		left: -25%;
 	}
@@ -69,7 +70,7 @@ const {
 	.orb-3 {
 		width: 90vw;
 		height: 90%;
-		background: color-mix(in srgb, var(--orb3) 60%, transparent);
+		background: color-mix(in srgb, var(--orb3) 55%, transparent);
 		filter: blur(clamp(60px, 6vw, 140px));
 		top: 50%;
 		left: 50%;

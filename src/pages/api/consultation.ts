@@ -5,7 +5,7 @@ import Mailgun from "mailgun.js";
 
 const KNOWN_TYPES: Record<string, string> = {
 	natal: "Natal chart",
-	"natal-solar-return": "Natal chart & annual revolution",
+	natalsolarreturn: "Natal chart & annual revolution",
 	horary: "Horary",
 	elective: "Elective",
 	synastry: "Synastry",
@@ -31,7 +31,10 @@ export const POST: APIRoute = async ({ request }) => {
 		data = await request.formData();
 	} catch {
 		const entry = await getEntry("booking", "en");
-		return Response.json({ message: entry!.data.messages.errorServer }, { status: 400 });
+		return Response.json(
+			{ message: entry!.data.messages.errorServer },
+			{ status: 400 },
+		);
 	}
 
 	const get = (key: string) => (data.get(key) as string | null)?.trim() ?? "";
@@ -89,7 +92,7 @@ export const POST: APIRoute = async ({ request }) => {
 		`Form language: ${locale}`,
 	];
 
-	if (consultationType === "natal" || consultationType === "natal-solar-return") {
+	if (consultationType === "natal" || consultationType === "natalsolarreturn") {
 		const concerns = get("concerns");
 		if (concerns) lines.push(``, `Specific concerns:`, concerns);
 	}
@@ -124,7 +127,9 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 
 	try {
-		const mailgun = new Mailgun(globalThis.FormData ?? (await import("form-data")).default);
+		const mailgun = new Mailgun(
+			globalThis.FormData ?? (await import("form-data")).default,
+		);
 		const mg = mailgun.client({
 			username: "api",
 			key: apiKey,

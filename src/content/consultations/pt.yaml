@@ -12,7 +12,7 @@ types:
       - "O objectivo desta sessão é dar-lhe uma compreensão clara da estrutura da sua vida, para que possa reconhecer melhor as suas circunstâncias e agir com maior consciência dentro delas."
       - "<strong>Para esta análise, necessito da data, hora e local do seu nascimento.</strong> Peço que seja o mais preciso possível, ou que me informe de antemão caso esteja em dúvida quanto à hora em que nasceu."
 
-  - id: natal-solar-return
+  - id: natalsolarreturn
     highlight: true
     discipline: Astrologia Natal + Técnicas Preditivas
     title: Estudo do mapa natal e do ano em curso

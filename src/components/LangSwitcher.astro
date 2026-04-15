@@ -40,7 +40,11 @@ const switchLangHref = routeEquivalents[currentPath] ?? t.switchLangHref;
 		text-transform: uppercase;
 	}
 
-	.lang-current,
+	.lang-current {
+		color: var(--color-ink);
+		font-weight: 600;
+	}
+
 	.lang-sep {
 		color: var(--color-ink);
 		opacity: 0.4;
@@ -49,20 +53,19 @@ const switchLangHref = routeEquivalents[currentPath] ?? t.switchLangHref;
 	a {
 		color: var(--color-ink);
 		text-decoration: none;
-		font-weight: 600;
-		transition: color 150ms ease;
+		opacity: 0.4;
+		transition: color 150ms ease, opacity 150ms ease;
 	}
 
-	a:hover {
-		color: var(--color-accent);
+	a:hover,
+	a:focus-visible {
+		color: var(--color-contrast);
+		opacity: 1;
 		text-decoration: none;
 	}
 
 	.lang-switcher--dark .lang-current,
-	.lang-switcher--dark .lang-sep {
-		color: var(--color-base);
-	}
-
+	.lang-switcher--dark .lang-sep,
 	.lang-switcher--dark a {
 		color: var(--color-base);
 	}

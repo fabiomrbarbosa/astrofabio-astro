@@ -18,7 +18,7 @@ typePlaceholder: Por favor seleccione um tipo de consulta
 types:
   - value: natal
     label: Mapa Natal
-  - value: natal-solar-return
+  - value: natalsolarreturn
     label: Mapa Natal e Revolução Solar
   - value: horary
     label: "Horária"
