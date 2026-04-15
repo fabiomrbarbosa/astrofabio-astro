@@ -76,8 +76,9 @@
 	--color-green: #45503b;
 	--color-green-dark: #273c2c;
 	--color-charcoal: #2f4550;
+	--color-teal: #7aaec0;
 	--color-blue: #76a5d3;
-	--color-periwinkle: #9890b5;
+	--color-periwinkle: #9088bc;
 
 	--color-accent: var(--color-orange-dark);
 	--color-secondary: var(--color-orange-light);

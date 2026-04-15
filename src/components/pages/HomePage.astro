@@ -20,7 +20,11 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 	id="hero-section"
 	class="relative w-full min-h-[95vh] flex items-center pt-[calc(var(--spacing-section)*2)] pb-[calc(var(--spacing-section)*2)] overflow-hidden"
 >
-	<HeroBackground orb2="var(--color-periwinkle)" orb3="var(--color-blue)" />
+	<HeroBackground
+		orb1="var(--color-teal)"
+		orb2="var(--color-periwinkle)"
+		orb3="var(--color-blue)"
+	/>
 	<div class="hero-circles" aria-hidden="true">
 		<div class="circles-stack">
 			<div id="circle-rings" class="circle-layer" set:html={chartRings} />
