@@ -36,16 +36,16 @@ const currentPath = Astro.url.pathname;
 	>
 		<ul class="flex items-center gap-2 list-none m-0 p-0">
 			{
-				navLinks.map(({ href, label, external }) => (
+				navLinks.map((link) => (
 					<li>
 						<a
-							href={href}
+							href={link.href}
 							class="nav-link text-sm tracking-widest font-semibold"
-							aria-current={currentPath === href ? "page" : undefined}
-							target={external ? "_blank" : undefined}
-							rel={external ? "noopener noreferrer" : undefined}
+							aria-current={currentPath === link.href ? "page" : undefined}
+							target={"external" in link ? "_blank" : undefined}
+							rel={"external" in link ? "noopener noreferrer" : undefined}
 						>
-							{label}
+							{link.label}
 						</a>
 					</li>
 				))

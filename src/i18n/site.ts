@@ -70,7 +70,9 @@ export const ui = {
 	},
 } as const;
 
-export const navLinks = {
+type NavLink = { href: string; label: string; external?: boolean };
+
+export const navLinks: Record<Locale, NavLink[]> = {
 	en: [
 		{ href: "/about", label: "About" },
 		{ href: "/consultations", label: "Consultations" },
@@ -81,7 +83,7 @@ export const navLinks = {
 		{ href: "/pt/consultas", label: "Consultas" },
 		{ href: "https://app.astrofabio.com", label: "App\u00a0↗", external: true },
 	],
-} as const;
+};
 
 // Complete map of every path to its equivalent in the other locale.
 // Derived from navLinks (same index = same page) plus manually listed routes.
