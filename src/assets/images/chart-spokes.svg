@@ -13,41 +13,42 @@
   <line x1="300" y1="10" x2="300" y2="245" stroke="#ffffff" stroke-width="1" transform="rotate(330, 300, 300)"/>
 
   <!-- Zodiac signs centred between each spoke pair, in the outer ring (r≈264, midpoint y≈36) -->
-  <!-- Astronomicon font: A=Aries B=Taurus C=Gemini D=Cancer E=Leo F=Virgo G=Libra H=Scorpio \=Sagittarius J=Capricorn K=Aquarius L=Pisces -->
+  <!-- Astronomicon font: A=Aries B=Taurus C=Gemini D=Cancer E=Leo F=Virgo G=Libra H=Scorpio I=Sagittarius J=Capricorn K=Aquarius L=Pisces -->
+  <!-- Rising sign (9 o'clock) is Cancer. Signs run counter-clockwise in zodiac order. -->
   <g transform="rotate(15, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">E</text>
-  </g>
-  <g transform="rotate(45, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">F</text>
-  </g>
-  <g transform="rotate(75, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">G</text>
-  </g>
-  <g transform="rotate(105, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">H</text>
-  </g>
-  <g transform="rotate(135, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">\</text>
-  </g>
-  <g transform="rotate(165, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">J</text>
-  </g>
-  <g transform="rotate(195, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">K</text>
-  </g>
-  <g transform="rotate(225, 300, 300)">
     <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">L</text>
   </g>
+  <g transform="rotate(45, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">K</text>
+  </g>
+  <g transform="rotate(75, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">J</text>
+  </g>
+  <g transform="rotate(105, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">I</text>
+  </g>
+  <g transform="rotate(135, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">H</text>
+  </g>
+  <g transform="rotate(165, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">G</text>
+  </g>
+  <g transform="rotate(195, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">F</text>
+  </g>
+  <g transform="rotate(225, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">E</text>
+  </g>
   <g transform="rotate(255, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">A</text>
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">D</text>
   </g>
   <g transform="rotate(285, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">B</text>
-  </g>
-  <g transform="rotate(315, 300, 300)">
     <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">C</text>
   </g>
+  <g transform="rotate(315, 300, 300)">
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">B</text>
+  </g>
   <g transform="rotate(345, 300, 300)">
-    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">D</text>
+    <text x="300" y="29.4" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="30" font-family="Astronomicon">A</text>
   </g>
 </svg>

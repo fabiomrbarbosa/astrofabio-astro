@@ -163,12 +163,11 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Favicons: `favicon.ico` (32×32 PNG-in-ICO) and `apple-touch-icon.png` (180×180) generated from SVG
 - [x] Nav "App" link updated to `https://app.astrofabio.com` (EN + PT)
 - [x] Hero orbs 1 & 2 use irregular `border-radius` blob shapes (asymmetric 8-value radii) instead of perfect circles; orb3 (centred ambient) unchanged.
-- [x] Zodiac sign glyphs added to `chart-spokes.svg` — 12 `<text>` elements in the outer ring band (r≈264, between r=290 and r=242), baseline toward centre, scaled 2× wide × 1.5× tall, `&#xFE0E;` text-presentation selector on each glyph to suppress emoji rendering. Sequence starts with Aries at the 8–9 o'clock position (255°), continues clockwise.
+- [x] Zodiac sign glyphs added to `chart-spokes.svg` — 12 `<text>` elements in the outer ring band (r≈264, between r=290 and r=242), Astronomicon font (A–L, I=Sagittarius), font-size 30. Cancer (D) sits at the 9 o'clock / rising position (255°); signs run counter-clockwise in zodiac order.
 - [x] `chart-rings.svg` ring radii adjusted: 290, 242, 218, 194, 55 — inner three evenly spaced at 24px gaps.
 - [x] `chart-ticks.svg` tick baseline shifted to align with second ring from outside (r=242, y=58); all three tick lengths preserved.
 - [x] `icon-natal.svg` and `icon-horary.svg` inner ring reduced from `r=32` to `r=27.36` (−14.5% cumulative); all 12 sign dividers lengthened from `v12` to `v16.64` to stay flush with the new inner edge.
-- [x] `chart-rings.svg` rings 3–4 replaced with 6 equally-spaced rings between r=242 and r=55, creating 7 rows; classical planet glyphs (Saturn→Moon, outermost→innermost) placed on vertical axis via Astronomicon font (W V U Q T S R), font-size 22.
-- [x] `chart-spokes.svg` zodiac glyphs switched to Astronomicon font (A–L for Aries–Pisces, `\`=Sagittarius), font-size 30, stretch removed.
+- [x] `chart-rings.svg` rings 3–4 replaced with 6 equally-spaced rings between r=242 and r=55, creating 7 rows; classical planet glyphs placed in their domicile signs (thrones) — Moon/Cancer (255°), Sun/Leo (225°), Mercury/Virgo (195°), Venus/Libra (165°), Mars/Scorpio (135°), Jupiter/Sag (105°), Saturn/Cap (75°) — each rotated to its sign midpoint via a `<g transform="rotate(…)">` wrapper, with a local `rotate(180)` so the glyph baseline faces outward.
 - [x] Astronomicon.ttf added to `public/fonts/`; `@font-face` declared in `global.css`.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`

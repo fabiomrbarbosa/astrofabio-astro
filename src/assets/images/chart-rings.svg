@@ -9,12 +9,27 @@
   <circle cx="300" cy="300" r="81.71"  stroke="#ffffff" stroke-width="1"/>
   <circle cx="300" cy="300" r="55"     stroke="#ffffff" stroke-width="1"/>
 
-  <!-- Classical planets outermost→innermost. Astronomicon: Q=Sun R=Moon S=Mercury T=Venus U=Mars V=Jupiter W=Saturn -->
-  <text x="300" y="71.36"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">W</text>
-  <text x="300" y="98.07"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">V</text>
-  <text x="300" y="124.79" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">U</text>
-  <text x="300" y="151.5"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">Q</text>
-  <text x="300" y="178.22" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">T</text>
-  <text x="300" y="204.93" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">S</text>
-  <text x="300" y="231.65" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon">R</text>
+  <!-- Classical planets in their domicile signs (thrones). Astronomicon: Q=Sun R=Moon S=Mercury T=Venus U=Mars V=Jupiter W=Saturn -->
+  <!-- Signs run counter-clockwise from Cancer at 9 o'clock (255°). Glyphs flipped so baseline faces outward. -->
+  <g transform="rotate(255, 300, 300)">
+    <text x="300" y="231.65" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 231.65)">R</text>
+  </g>
+  <g transform="rotate(225, 300, 300)">
+    <text x="300" y="151.5"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 151.5)">Q</text>
+  </g>
+  <g transform="rotate(195, 300, 300)">
+    <text x="300" y="204.93" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 204.93)">S</text>
+  </g>
+  <g transform="rotate(165, 300, 300)">
+    <text x="300" y="178.22" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 178.22)">T</text>
+  </g>
+  <g transform="rotate(135, 300, 300)">
+    <text x="300" y="124.79" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 124.79)">U</text>
+  </g>
+  <g transform="rotate(105, 300, 300)">
+    <text x="300" y="98.07"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 98.07)">V</text>
+  </g>
+  <g transform="rotate(75, 300, 300)">
+    <text x="300" y="71.36"  text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="22" font-family="Astronomicon" transform="rotate(180, 300, 71.36)">W</text>
+  </g>
 </svg>
