@@ -175,6 +175,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `SiteLogo` and Header mobile logo link are locale-aware (`/pt` when locale is `pt`).
 - [x] Middleware locale detection simplified: custom `detectLocale()` / `Accept-Language` parser replaced with Astro's built-in `preferredLocale` context property.
 - [x] Footer columns use `items-stretch` so all three columns (logo/email, nav, newsletter) share the same height.
+- [x] `leading-none` removed from all page hero `h1`s (HomePage, ConsultationsPage, AboutPage, TermsPage) — `text-7xl` already sets `line-height: 1`; the class was redundant.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [ ] OG image at `public/images/og.jpg`
 - [ ] Final EN copy review
