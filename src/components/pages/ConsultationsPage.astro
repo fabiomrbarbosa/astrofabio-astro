@@ -21,7 +21,7 @@ const icons: Record<string, string> = {
 const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
 const entry = await getEntry("consultations", locale);
 const content = entry!.data;
-const { bookCta, learnMore, feeLabel } = ui[locale];
+const { bookCta, learnMore, durationLabel, feeLabel } = ui[locale];
 ---
 
 <section
@@ -66,6 +66,10 @@ const { bookCta, learnMore, feeLabel } = ui[locale];
 						<h2 class="card-title mb-2 text-4xl font-serif tracking-tight">
 							{type.title}
 						</h2>
+						<p class="font-semibold text-ink">
+							{durationLabel}
+							{type.length}
+						</p>
 						<p class="mb-6 font-semibold text-ink">
 							{feeLabel}
 							{type.price}€

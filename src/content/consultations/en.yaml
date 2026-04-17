@@ -6,6 +6,7 @@ types:
   - id: natal
     discipline: Natal Astrology
     title: Birth Chart Reading
+    length: 60–90 min
     price: 90
     paragraphs:
       - "Your birth chart is a representation of the sky at the moment you were born, and therefore of the conditions into which you entered the world. It describes not only your temperament, but also the circumstances that shape your life, such as your family, your relationships, your work, and your potential for prosperity."
@@ -16,6 +17,7 @@ types:
     highlight: true
     discipline: Natal Astrology + Predictive Techniques
     title: Birth Chart and Current Year
+    length: 90–120 min
     price: 120
     paragraphs:
       - "Your birth chart describes the structure of your life. However, that structure is not static: over time, different themes are activated, bringing certain areas to the foreground while others recede."
@@ -26,6 +28,7 @@ types:
   - id: horary
     discipline: Horary Astrology
     title: A Specific Question
+    length: 60 min
     price: 60
     paragraphs:
       - "Horary astrology addresses concrete questions about situations that are affecting you at the present time."
@@ -35,6 +38,7 @@ types:
   - id: elective
     discipline: Electional Astrology
     title: Choosing the Right Moment
+    length: 60 min
     price: 80
     paragraphs:
       - "Not all moments offer the same conditions for action. Electional astrology makes it possible to identify the most favourable times for specific undertakings, such as signing a contract, launching a business, or setting out on a journey."
@@ -44,6 +48,7 @@ types:
   - id: synastry
     discipline: Synastry
     title: Relationship Reading
+    length: 120 min
     price: 140
     paragraphs:
       - "Synastry examines the relationship between two people — romantic partners, family members, friends, or colleagues — by comparing their birth charts."

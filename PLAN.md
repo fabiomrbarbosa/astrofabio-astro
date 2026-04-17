@@ -187,7 +187,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~96% — `package.json` version: `0.9.6`
+Overall: ~96% — `package.json` version: `0.9.7`
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
