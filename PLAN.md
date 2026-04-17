@@ -177,7 +177,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] Footer columns use `items-stretch` so all three columns (logo/email, nav, newsletter) share the same height.
 - [x] `leading-none` removed from all page hero `h1`s (HomePage, ConsultationsPage, AboutPage, TermsPage) — `text-7xl` already sets `line-height: 1`; the class was redundant.
 - [ ] Real photo at `public/images/fabio.jpg`
-- [ ] OG image at `public/images/og.jpg`
+- [x] OG image at `public/images/og_blue.png`
 - [ ] Final EN copy review
 - [ ] Final PT copy review (about bio known to need a looser rewrite)
 - [ ] Lighthouse audit (performance, a11y, SEO)
@@ -187,7 +187,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~95% — `package.json` version: `0.9.4`
+Overall: ~96% — `package.json` version: `0.9.5`
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |
