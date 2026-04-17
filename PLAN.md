@@ -169,13 +169,14 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `icon-natal.svg` and `icon-horary.svg` inner ring reduced from `r=32` to `r=27.36` (−14.5% cumulative); all 12 sign dividers lengthened from `v12` to `v16.64` to stay flush with the new inner edge.
 - [x] `chart-rings.svg` rings 3–4 replaced with 6 equally-spaced rings between r=242 and r=55, creating 7 rows; classical planet glyphs placed in their domicile signs (thrones) — Moon/Cancer (255°), Sun/Leo (225°), Mercury/Virgo (195°), Venus/Libra (165°), Mars/Scorpio (135°), Jupiter/Sag (105°), Saturn/Cap (75°) — each rotated to its sign midpoint via a `<g transform="rotate(…)">` wrapper, with a local `rotate(180)` so the glyph baseline faces outward.
 - [x] Astronomicon.ttf added to `public/fonts/`; `@font-face` declared in `global.css`.
-- [x] `--font-serif` switched to Libre Caslon Condensed italic (`librecasloncondensed-regular.woff2` in `public/fonts/`); `@font-face` added to `global.css`.
+- [x] `--font-serif` switched to Libre Caslon Condensed (`librecasloncondensed-regular.woff2` in `public/fonts/`); `@font-face` declared with `font-style: normal` in `global.css`.
 - [x] Colour tokens updated: `--color-teal` lightened, `--color-blue` shifted, `--color-periwinkle` renamed `--color-purple`; `--color-quinary` updated to match.
 - [x] Header nav breakpoint raised from `md` (768px) to `lg` (1024px) — fixes iPad mini 4th/5th gen portrait (768px CSS) showing desktop nav.
 - [x] `SiteLogo` and Header mobile logo link are locale-aware (`/pt` when locale is `pt`).
 - [x] Middleware locale detection simplified: custom `detectLocale()` / `Accept-Language` parser replaced with Astro's built-in `preferredLocale` context property.
 - [x] Footer columns use `items-stretch` so all three columns (logo/email, nav, newsletter) share the same height.
 - [x] `leading-none` removed from all page hero `h1`s (HomePage, ConsultationsPage, AboutPage, TermsPage) — `text-7xl` already sets `line-height: 1`; the class was redundant.
+- [x] `duration` field added to each consultation type (EN + PT YAML, Zod schema) — displayed above price as "Duration: / Duração:" via `durationLabel` UI string in `site.ts`.
 - [ ] Real photo at `public/images/fabio.jpg`
 - [x] OG image at `public/images/og_blue.png`
 - [ ] Final EN copy review
@@ -195,7 +196,7 @@ Overall: ~96% — `package.json` version: `0.9.7`
 | 2 — Homepage             | Complete    | 100% |
 | 3 — Content Architecture | Complete    | 100% |
 | 4 — Secondary Pages      | Complete    | 100% |
-| 5 — Polish & Launch      | In progress | 60%  |
+| 5 — Polish & Launch      | In progress | 70%  |
 
 ---
 
