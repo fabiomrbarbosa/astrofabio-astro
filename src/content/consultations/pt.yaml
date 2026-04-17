@@ -6,7 +6,7 @@ types:
   - id: natal
     discipline: Astrologia Natal
     title: Estudo do mapa natal
-    length: 60–90 min
+    duration: 60–90 min
     price: 90
     paragraphs:
       - "O seu mapa natal é uma representação do céu no momento em que nasceu, e portanto, das condições em que veio ao mundo. Descreve não só a sua personalidade, mas também as circunstâncias que o moldam, como a sua família, os seus relacionamentos, o seu trabalho ou o seu potencial de prosperidade."
@@ -17,7 +17,7 @@ types:
     highlight: true
     discipline: Astrologia Natal + Técnicas Preditivas
     title: Estudo do mapa natal e do ano em curso
-    length: 90–120 min
+    duration: 90–120 min
     price: 120
     paragraphs:
       - "O seu mapa natal descreve a estrutura da sua vida. Contudo, essa estrutura não é estática: ao longo do tempo, diferentes temas são activados, trazendo certas áreas para o primeiro plano enquanto outras se tornam menos relevantes."
@@ -28,7 +28,7 @@ types:
   - id: horary
     discipline: Astrologia Horária
     title: Questão específica
-    length: 60 min
+    duration: 60 min
     price: 60
     paragraphs:
       - A astrologia horária responde a questões concretas sobre situações que o afectam no momento presente.
@@ -38,7 +38,7 @@ types:
   - id: elective
     discipline: Astrologia Electiva
     title: Eleição de um momento
-    length: 60 min
+    duration: 60 min
     price: 80
     paragraphs:
       - Nem todos os momentos oferecem as mesmas condições para agir. A astrologia electiva permite identificar os momentos mais favoráveis para determinados empreendimentos, como por exemplo a assinatura de um contrato, o lançamento de um negócio ou uma viagem.
@@ -48,7 +48,7 @@ types:
   - id: synastry
     discipline: Sinastria
     title: Estudo das relações
-    length: 120 min
+    duration: 120 min
     price: 140
     paragraphs:
       - "A sinastria analisa a relação entre duas pessoas — parceiros amorosos, familiares, amigos ou colegas — através da comparação dos seus mapas natais."

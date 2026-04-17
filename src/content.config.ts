@@ -76,7 +76,7 @@ const consultationType = z.object({
 	highlight: z.boolean().optional(),
 	discipline: z.string().optional(),
 	title: z.string(),
-	length: z.string(),
+	duration: z.string(),
 	price: z.number(),
 	paragraphs: z.array(z.string()),
 });
