@@ -22,7 +22,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 >
 	<HeroBackground
 		orb1="var(--color-teal)"
-		orb2="var(--color-periwinkle)"
+		orb2="var(--color-purple)"
 		orb3="var(--color-blue)"
 	/>
 	<div class="hero-circles" aria-hidden="true">
@@ -49,11 +49,9 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 		</svg>
 	</div>
 
-	<div
-		class="relative z-2 w-full max-w-(--width-content) mx-auto px-(--spacing-outer) text-center"
-	>
+	<div class="relative z-2 w-full mx-auto px-(--spacing-outer) text-center">
 		<h1
-			class="text-5xl md:text-7xl font-serif tracking-tight leading-none mb-6"
+			class="text-5xl md:text-7xl font-serif tracking-[-0.04em] leading-none mb-6"
 		>
 			{
 				content.hero.heading.map((line, i) => (
@@ -64,7 +62,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 				))
 			}
 		</h1>
-		<p class="text-xl md:text-2xl">
+		<p class="text-xl md:text-2xl max-w-2xl mx-auto">
 			{content.hero.subheading}
 		</p>
 		<div class="flex max-md:flex-col gap-4 items-center justify-center mt-8">

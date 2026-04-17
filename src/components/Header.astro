@@ -31,7 +31,7 @@ const currentPath = Astro.url.pathname;
 	<SiteLogo locale={locale} instanceId="header" />
 
 	<nav
-		class="nav-primary hidden md:flex items-center gap-6"
+		class="nav-primary hidden lg:flex items-center gap-6"
 		aria-label="Primary navigation"
 	>
 		<ul class="flex items-center gap-2 list-none m-0 p-0">
@@ -101,7 +101,7 @@ const currentPath = Astro.url.pathname;
 
 	<button
 		id="menu-toggle"
-		class="md:hidden border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
+		class="lg:hidden border-0 rounded-none bg-transparent p-2 text-contrast cursor-pointer"
 		aria-label={t.menuOpen}
 		aria-expanded="false"
 		aria-controls="mobile-menu"
@@ -132,7 +132,7 @@ const currentPath = Astro.url.pathname;
 		class="flex items-center justify-between py-5 px-(--spacing-outer) border-b border-border"
 	>
 		<a
-			href="/"
+			href={locale === "pt" ? "/pt" : "/"}
 			aria-label={t.logoAriaLabel}
 			class="flex flex-col hover:no-underline"
 		>
@@ -318,7 +318,7 @@ const currentPath = Astro.url.pathname;
 		transition: color 150ms ease;
 	}
 
-	@media screen and (min-device-width: 768px) {
+	@media screen and (min-device-width: 1024px) {
 		header > nav ul {
 			position: absolute;
 			left: 50%;

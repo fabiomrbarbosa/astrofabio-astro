@@ -29,7 +29,7 @@ const titleId = `logo-title-${instanceId}`;
 ---
 
 <a
-	href="/"
+	href={locale === "pt" ? "/pt" : "/"}
 	aria-label={t.logoAriaLabel}
 	class:list={[
 		"site-logo flex gap-4 shrink-0 hover:no-underline",

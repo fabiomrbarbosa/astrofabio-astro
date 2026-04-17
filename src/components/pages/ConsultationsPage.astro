@@ -32,15 +32,15 @@ const { bookCta, learnMore, feeLabel } = ui[locale];
 		orb2="var(--color-orange-light)"
 		flip
 	/>
-	<div
-		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
-	>
+	<div class="relative z-2 mx-auto w-full px-(--spacing-outer) text-center">
 		<h1
-			class="mb-6 font-serif text-7xl leading-none tracking-tight max-md:text-5xl"
+			class="mb-6 font-serif text-5xl md:text-7xl leading-none tracking-[-0.04em]"
 		>
 			{content.hero.heading}
 		</h1>
-		<p class="mx-auto max-w-2xl text-l md:text-xl">{content.hero.lead}</p>
+		<p class="mx-auto max-w-2xl text-l md:text-xl">
+			{content.hero.lead}
+		</p>
 		<div class="mt-8 flex items-center justify-center gap-4 max-md:flex-col">
 			<a href="#book" class="button">{bookCta}</a>
 			<a href="#cards-track" class="button button-alt">{learnMore}</a>

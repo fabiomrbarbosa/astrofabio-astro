@@ -46,6 +46,14 @@
 	src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
 }
 
+@font-face {
+	font-family: "Libre Caslon Condensed";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/librecasloncondensed-regular.woff2") format("woff2");
+}
+
 /* ============================================================
    THEME TOKENS
    All values map directly to Tailwind v4 utility classes:
@@ -76,22 +84,22 @@
 	--color-green: #45503b;
 	--color-green-dark: #273c2c;
 	--color-charcoal: #2f4550;
-	--color-teal: #7aaec0;
-	--color-blue: #76a5d3;
-	--color-periwinkle: #9088bc;
+	--color-teal: #a4d9de;
+	--color-blue: #76bfde;
+	--color-purple: #8b7ecc;
 
 	--color-accent: var(--color-orange-dark);
 	--color-secondary: var(--color-orange-light);
 	--color-tertiary: var(--color-amber);
 	--color-quaternary: var(--color-blue);
-	--color-quinary: var(--color-periwinkle);
+	--color-quinary: var(--color-purple);
 
 	/* --- Font families --- */
 	--font-sans:
 		"Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--font-serif:
-		"Instrument Serif", "Iowan Old Style", "Palatino Linotype",
+		"Libre Caslon Condensed", "Iowan Old Style", "Palatino Linotype",
 		"URW Palladio L", P052, serif;
 	--font-mono:
 		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
