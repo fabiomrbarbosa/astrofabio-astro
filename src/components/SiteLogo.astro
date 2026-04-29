@@ -74,17 +74,21 @@ const titleId = `logo-title-${instanceId}`;
 		</g>
 	</svg>
 	<div
-		class:list={[layout === "stacked" ? "flex" : "hidden md:flex", "flex-col "]}
+		class:list={[
+			"uppercase tracking-wider ",
+			layout === "stacked" ? "flex" : "hidden md:flex",
+			"flex-col",
+		]}
 	>
 		<span
 			class:list={[
-				"text-sm font-semibold leading-4 ",
+				"text-sm font-bold leading-4 ",
 				variant === "dark" ? "text-base" : "text-contrast",
 			]}>{siteName}</span
 		>
 		<span
 			class:list={[
-				"text-sm leading-4 ",
+				"text-sm leading-4 font-features-['ss03'] ",
 				variant === "dark" ? "text-base" : "text-contrast",
 			]}>{meta.tagline}</span
 		>

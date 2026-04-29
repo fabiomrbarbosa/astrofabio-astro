@@ -13,7 +13,7 @@ const content = entry!.data;
 	<div
 		class="relative z-2 mx-auto w-full max-w-(--width-content) px-(--spacing-outer) text-center"
 	>
-		<h1 class="font-serif text-5xl md:text-7xl tracking-[-0.04em]">
+		<h1 class="font-serif text-5xl md:text-7xl">
 			{content.hero.heading}
 		</h1>
 	</div>
@@ -28,7 +28,7 @@ const content = entry!.data;
 						{section.heading}
 					</h2>
 					{section.paragraphs.map((p) => (
-						<p class="mb-4 last:mb-0 text-muted" set:html={p} />
+						<p class="mb-4 last:mb-0 " set:html={p} />
 					))}
 				</div>
 			))

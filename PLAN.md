@@ -170,6 +170,8 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 - [x] `chart-rings.svg` rings 3–4 replaced with 6 equally-spaced rings between r=242 and r=55, creating 7 rows; classical planet glyphs placed in their domicile signs (thrones) — Moon/Cancer (255°), Sun/Leo (225°), Mercury/Virgo (195°), Venus/Libra (165°), Mars/Scorpio (135°), Jupiter/Sag (105°), Saturn/Cap (75°) — each rotated to its sign midpoint via a `<g transform="rotate(…)">` wrapper, with a local `rotate(180)` so the glyph baseline faces outward.
 - [x] Astronomicon.ttf added to `public/fonts/`; `@font-face` declared in `global.css`.
 - [x] `--font-serif` switched to Libre Caslon Condensed (`librecasloncondensed-regular.woff2` in `public/fonts/`); `@font-face` declared with `font-style: normal` in `global.css`.
+- [x] Reforma type system introduced — Reforma1918 (serif), Reforma1969 (serif), Reforma2018 (sans-serif); all three families in woff2 under `public/fonts/`; `@font-face` declared for weights 400 (Blanca), 600 (Gris), 700 (Negra) in normal and italic. `--font-sans` → Reforma2018; `--font-serif` → Reforma1918. Instrument Sans and Libre Caslon Condensed @font-face declarations commented out.
+- [x] OpenType features: `font-variant-ligatures: common-ligatures discretionary-ligatures` on `html`; `h1` explicitly enables `liga`, `clig`, `dlig`, `ss09` via `font-feature-settings`. `letter-spacing: -0.05em` centralised on `h1` in `global.css`; `tracking-[-0.04em]` removed from individual page components.
 - [x] Colour tokens updated: `--color-teal` lightened, `--color-blue` shifted, `--color-periwinkle` renamed `--color-purple`; `--color-quinary` updated to match.
 - [x] Header nav breakpoint raised from `md` (768px) to `lg` (1024px) — fixes iPad mini 4th/5th gen portrait (768px CSS) showing desktop nav.
 - [x] `SiteLogo` and Header mobile logo link are locale-aware (`/pt` when locale is `pt`).
@@ -188,7 +190,7 @@ Core Astro setup, SSR, Tailwind v4, bilingual routing, header, layout, middlewar
 
 ## d) Progress
 
-Overall: ~96% — `package.json` version: `0.9.7`
+Overall: ~97% — `package.json` version: `0.9.7`
 
 | Stage                    | Status      | %    |
 | ------------------------ | ----------- | ---- |

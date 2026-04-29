@@ -14,6 +14,7 @@
 	src: url("/fonts/Astronomicon.ttf") format("truetype");
 }
 
+/*
 @font-face {
 	font-family: "Instrument Sans";
 	font-weight: 100 900;
@@ -36,6 +37,153 @@
 	font-style: normal;
 	font-display: swap;
 	src: url("/fonts/librecasloncondensed-regular.woff2") format("woff2");
+}*/
+
+/* Reforma1918 — serif */
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-Blanca.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-BlancaItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-Gris.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-GrisItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-Negra.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1918";
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1918/Reforma1918-NegraItalica.woff2") format("woff2");
+}
+
+/* Reforma1969 — serif */
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-Blanca.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-BlancaItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-Gris.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-GrisItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-Negra.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma1969";
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma1969/Reforma1969-NegraItalica.woff2") format("woff2");
+}
+
+/* Reforma2018 — sans-serif */
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-Blanca.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-BlancaItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-Gris.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-GrisItalica.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-Negra.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Reforma2018";
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+	src: url("/fonts/Reforma2018/Reforma2018-NegraItalica.woff2") format("woff2");
 }
 
 /* ============================================================
@@ -80,11 +228,11 @@
 
 	/* --- Font families --- */
 	--font-sans:
-		"Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Reforma2018", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	--font-serif:
-		"Libre Caslon Condensed", "Iowan Old Style", "Palatino Linotype",
-		"URW Palladio L", P052, serif;
+		"Reforma1918", "Iowan Old Style", "Palatino Linotype", "URW Palladio L",
+		P052, serif;
 	--font-mono:
 		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
 		"DejaVu Sans Mono", monospace;
@@ -99,16 +247,9 @@
    ============================================================ */
 
 :root {
-	/* Fluid spacing values from theme.json custom.spacing */
+	/* Fluid spacing values  */
 	--spacing-outer: clamp(1.25rem, 5vw, 4rem);
 	--spacing-section: clamp(3rem, 8vw, 7rem);
-
-	/* Fluid font sizes for headings (clamp mirrors WP fluid config) */
-	--text-xl-fluid: clamp(1.125rem, calc(1.125rem + 0.278vw), 1.25rem);
-	--text-2xl-fluid: clamp(1.25rem, calc(1.25rem + 0.417vw), 1.5rem);
-	--text-3xl-fluid: clamp(1.5rem, calc(1.5rem + 0.833vw), 2rem);
-	--text-4xl-fluid: clamp(1.75rem, calc(1.75rem + 1.25vw), 2.5rem);
-	--text-5xl-fluid: clamp(2.25rem, calc(2.25rem + 2.083vw), 3.5rem);
 }
 
 /* ============================================================
@@ -132,37 +273,40 @@
 		font-size: 1rem;
 		line-height: var(--leading-relaxed);
 		overflow-x: clip;
+		font-variant-ligatures: common-ligatures discretionary-ligatures;
 	}
 
 	/* Headings */
 	h1 {
-		font-size: var(--text-4xl-fluid);
-		line-height: var(--);
-		font-weight: 400;
+		line-height: 1;
+		font-weight: 600;
+		letter-spacing: -0.05em;
+		font-feature-settings:
+			"liga" 1,
+			"clig" 1,
+			"dlig" 1,
+			"ss09" 1;
 	}
 	h2 {
-		font-size: var(--text-3xl-fluid);
-		line-height: var(--);
-		font-weight: 400;
+		line-height: 1;
+		font-weight: 600;
 	}
 	h3 {
-		font-size: var(--text-2xl-fluid);
-		line-height: var(--);
+		line-height: 1;
 		font-weight: 400;
 	}
 	h4 {
-		font-size: var(--text-xl-fluid);
-		line-height: var(--leading-snug);
+		line-height: 1.25;
 		font-weight: 400;
 	}
 	h5 {
 		font-size: var(--text-lg);
-		line-height: var(--leading-snug);
+		line-height: 1.25;
 		font-weight: 400;
 	}
 	h6 {
 		font-size: var(--text-base);
-		line-height: var(--leading-snug);
+		line-height: 1.25;
 		font-weight: 400;
 	}
 
@@ -184,7 +328,7 @@
 	.button,
 	[type="button"],
 	[type="submit"] {
-		@apply inline-block text-base text-sm bg-ink rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-contrast hover:no-underline transition-colors duration-150 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_0_rgba(0,0,0,0.2)] active:translate-y-0.75;
+		@apply inline-block  text-base text-sm bg-ink rounded-[2em] px-6 py-2 uppercase tracking-widest font-semibold hover:bg-contrast hover:no-underline transition-colors duration-150 cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_0_rgba(0,0,0,0.2)] active:translate-y-0.75;
 	}
 
 	.button-alt {
