@@ -2,12 +2,11 @@
 import {
 	ui,
 	defaultLocale,
-	siteName,
-	siteMeta,
 	navLinks as allNavLinks,
 	type Locale,
 } from "../i18n/site";
 import SiteLogo from "./SiteLogo.astro";
+import SiteTitle from "./SiteTitle.astro";
 import LangSwitcher from "./LangSwitcher.astro";
 
 interface Props {
@@ -17,7 +16,6 @@ interface Props {
 
 const { locale = defaultLocale, theme = "light" } = Astro.props;
 const t = ui[locale];
-const meta = siteMeta[locale];
 const navLinks = allNavLinks[locale];
 const currentPath = Astro.url.pathname;
 ---
@@ -134,12 +132,9 @@ const currentPath = Astro.url.pathname;
 		<a
 			href={locale === "pt" ? "/pt" : "/"}
 			aria-label={t.logoAriaLabel}
-			class="flex flex-col uppercase tracking-wider hover:no-underline"
+			class="hover:no-underline"
 		>
-			<span class="text-sm font-bold leading-4 text-contrast"
-				>{siteName}</span
-			>
-			<span class="text-sm leading-4 font-features-['ss03'] text-contrast">{meta.tagline}</span>
+			<SiteTitle locale={locale} />
 		</a>
 		<div class="flex items-center gap-2">
 			<LangSwitcher locale={locale} />
