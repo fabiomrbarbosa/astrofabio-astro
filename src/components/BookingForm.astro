@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import { defaultLocale, type Locale } from "../i18n/site";
 import HCaptcha from "./HCaptcha.astro";
 
-const { locale = defaultLocale } = Astro.props;
+const { locale = defaultLocale }: { locale?: Locale } = Astro.props;
 const entry = await getEntry("booking", locale);
 const form = entry!.data;
 ---
@@ -86,6 +86,7 @@ const form = entry!.data;
 							name="consultationType"
 							required
 							autocomplete="off"
+							tabindex="0"
 						>
 							<option value="" disabled selected>{form.typePlaceholder}</option>
 							{
