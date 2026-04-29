@@ -1,6 +1,6 @@
 hero:
   heading: Consultations
-  lead: "An astrological consultation allows you to understand your life or a particular situation with clarity. Depending on the matter at hand, I'll apply different techniques to clarify your circumstances and suggest possible ways forward."
+  lead: "An astrological consultation allows you to understand your life or a particular situation with clarity. Depending on the matter at hand different techniques are applied to clarify your circumstances and suggest possible ways forward."
 
 types:
   - id: natal
