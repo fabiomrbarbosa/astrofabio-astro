@@ -55,7 +55,7 @@ const { bookCta, learnMore, aboutCta, aboutCtaHref } = ui[locale];
 				content.hero.heading.map((line, i) => (
 					<>
 						{line}
-						{i < content.hero.heading.length - 1 && <br />}
+						{i < content.hero.heading.length - 1 && <>{" "}<br class="hidden lg:inline" /></>}
 					</>
 				))
 			}
