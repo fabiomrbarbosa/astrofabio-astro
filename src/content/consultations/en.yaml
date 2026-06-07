@@ -6,24 +6,23 @@ types:
   - id: natal
     discipline: Natal Astrology
     title: Birth Chart Reading
-    duration: 60–90 min
-    price: 90
+    duration: 90–120 min
+    price: 100
     paragraphs:
-      - "Your birth chart is a representation of the sky at the moment you were born, and therefore of the conditions into which you entered the world. It describes not only your temperament, but also the circumstances that shape your life, such as your family, your relationships, your work, and your potential for prosperity."
-      - "The aim of this session is to give you a clear understanding of the structure of your life, so that you can better recognise your circumstances and act within them with greater awareness."
+      - "<strong>Your birth chart describes the conditions into which you were born, and with them the dynamics of your life</strong> — your temperament, your circumstances, your relationships, your work, and your potential for prosperity."
+      - "This consultation brings the birth chart into relation with the present moment, drawing on traditional predictive techniques to understand what is currently unfolding and what is likely to develop in the near future. The aim is to give you a clear picture of the structure of your life and the phase you are in, so that you can act within your circumstances with greater awareness."
       - "<strong>For this consultation, I will need your date, time, and place of birth.</strong> Please be as precise as possible, or let me know in advance if you are unsure of your birth time."
 
-  - id: natalsolarreturn
-    highlight: true
-    discipline: Natal Astrology + Predictive Techniques
-    title: Birth Chart and Current Year
-    duration: 90–120 min
-    price: 120
+  - id: synastry
+    discipline: Synastry
+    title: Relationship Reading
+    duration: 120 min
+    price: 140
     paragraphs:
-      - "Your birth chart describes the structure of your life. However, that structure is not static: over time, different themes are activated, bringing certain areas to the foreground while others recede."
-      - "<strong>This consultation brings the birth chart into relation with the present moment.</strong> To do this, I draw on traditional predictive techniques to understand what is currently unfolding and what is likely to develop in the near future."
-      - "The aim is to give you a clear sense of the phase you are in, so that you can approach the decisions ahead with greater clarity."
-      - "This study is often carried out around the time of your birthday, but it can be undertaken at any point in the year."
+      - "Synastry examines the relationship between two people — romantic partners, family members, friends, or colleagues — by comparing their birth charts."
+      - "This makes it possible to understand how each person tends to experience the relationship: where there is ease and compatibility, where tensions may arise, and what dynamics emerge between them."
+      - "The aim is not to encourage confrontation, but to arrive at a clearer understanding of the relationship, so that it can be approached with greater awareness and care."
+      - "For this consultation, <strong>it is essential that both participants are present and give their full consent</strong>."
 
   - id: horary
     discipline: Horary Astrology
@@ -44,14 +43,3 @@ types:
       - "Not all moments offer the same conditions for action. Electional astrology makes it possible to identify the most favourable times for specific undertakings, such as signing a contract, launching a business, or setting out on a journey."
       - "For this, I ask that you indicate a realistic time window within which you intend to carry out your plans. The more specific the timeframe, the better. Your birth data is also taken into account in this analysis."
       - "<strong>An astrological election is not a guarantee of success.</strong> The aim is to make the most of the opportunities available, according to the configurations of the moment and your own birth chart."
-
-  - id: synastry
-    discipline: Synastry
-    title: Relationship Reading
-    duration: 120 min
-    price: 140
-    paragraphs:
-      - "Synastry examines the relationship between two people — romantic partners, family members, friends, or colleagues — by comparing their birth charts."
-      - "This makes it possible to understand how each person tends to experience the relationship: where there is ease and compatibility, where tensions may arise, and what dynamics emerge between them."
-      - "The aim is not to encourage confrontation, but to arrive at a clearer understanding of the relationship, so that it can be approached with greater awareness and care."
-      - "For this consultation, <strong>it is essential that both participants are present and give their full consent</strong>."

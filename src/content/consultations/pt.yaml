@@ -6,24 +6,23 @@ types:
   - id: natal
     discipline: Astrologia Natal
     title: Estudo do mapa natal
-    duration: 60–90 min
-    price: 90
-    paragraphs:
-      - "O seu mapa natal é uma representação do céu no momento em que nasceu, e portanto, das condições em que veio ao mundo. Descreve não só a sua personalidade, mas também as circunstâncias que o moldam, como a sua família, os seus relacionamentos, o seu trabalho ou o seu potencial de prosperidade."
-      - "O objectivo desta sessão é dar-lhe uma compreensão clara da estrutura da sua vida, para que possa reconhecer melhor as suas circunstâncias e agir com maior consciência dentro delas."
-      - "<strong>Para esta análise, necessito da data, hora e local do seu nascimento.</strong> Peço que seja o mais preciso possível, ou que me informe de antemão caso esteja em dúvida quanto à hora em que nasceu."
-
-  - id: natalsolarreturn
-    highlight: true
-    discipline: Astrologia Natal + Técnicas Preditivas
-    title: Estudo do mapa natal e do ano em curso
     duration: 90–120 min
-    price: 120
+    price: 100
     paragraphs:
-      - "O seu mapa natal descreve a estrutura da sua vida. Contudo, essa estrutura não é estática: ao longo do tempo, diferentes temas são activados, trazendo certas áreas para o primeiro plano enquanto outras se tornam menos relevantes."
-      - "<strong>Esta consulta articula o mapa natal com o momento presente.</strong> Para isso, recorro a técnicas tradicionais de previsão para compreender o que está em curso e o que tende a desenvolver-se nos próximos tempos."
-      - "O objectivo é dar-lhe uma imagem clara da fase em que se encontra, para que possa orientar-se com maior lucidez nas decisões que tem pela frente."
-      - "Este estudo é geralmente feito por altura do aniversário, mas pode ser realizado em qualquer momento do ano."
+      - "<strong>O seu mapa natal descreve as condições em que veio ao mundo, e com elas as dinâmicas da sua vida</strong> — a sua personalidade, as suas circunstâncias, os seus relacionamentos, o seu trabalho, o seu potencial de prosperidade."
+      - "Esta consulta articula o mapa natal com o momento presente, recorrendo a técnicas tradicionais de previsão para compreender o que está em curso e o que tende a desenvolver-se. O objectivo é dar-lhe uma imagem clara da estrutura da sua vida e da fase em que se encontra, para que possa agir com maior consciência dentro dela."
+      - "Para esta análise, <strong>necessito da data, hora e local do seu nascimento</strong>. Peço que seja o mais preciso possível, ou que me informe caso esteja em dúvida quanto à hora."
+
+  - id: synastry
+    discipline: Sinastria
+    title: Estudo das relações
+    duration: 120 min
+    price: 140
+    paragraphs:
+      - "A sinastria analisa a relação entre duas pessoas — parceiros amorosos, familiares, amigos ou colegas — através da comparação dos seus mapas natais."
+      - "Este estudo permite compreender como cada pessoa tende a viver a relação: onde há facilidade e afinidade, onde podem surgir tensões, e que dinâmicas se estabelecem entre ambos."
+      - "O objectivo não é promover confronto, mas sim uma compreensão mais clara da relação que permita cuidar dela com maior consciência."
+      - "Para esta consulta, <strong>é fundamental que ambos os participantes estejam presentes e dêem o seu pleno consentimento</strong>."
 
   - id: horary
     discipline: Astrologia Horária
@@ -44,14 +43,3 @@ types:
       - Nem todos os momentos oferecem as mesmas condições para agir. A astrologia electiva permite identificar os momentos mais favoráveis para determinados empreendimentos, como por exemplo a assinatura de um contrato, o lançamento de um negócio ou uma viagem.
       - "Para tal, peço-lhe que me indique um período realista dentro do qual pretende pôr em prática os seus planos. Quanto mais específico for o intervalo, melhor. Os seus dados de nascimento são também tidos em conta nesta análise."
       - "<strong>Uma eleição astrológica não é garantia absoluta de sucesso.</strong> O objectivo é maximizar as oportunidades disponíveis, segundo as configurações do momento e do seu próprio mapa natal."
-
-  - id: synastry
-    discipline: Sinastria
-    title: Estudo das relações
-    duration: 120 min
-    price: 140
-    paragraphs:
-      - "A sinastria analisa a relação entre duas pessoas — parceiros amorosos, familiares, amigos ou colegas — através da comparação dos seus mapas natais."
-      - "Este estudo permite compreender como cada pessoa tende a viver a relação: onde há facilidade e afinidade, onde podem surgir tensões, e que dinâmicas se estabelecem entre ambos."
-      - "O objectivo não é promover confronto, mas sim uma compreensão mais clara da relação que permita cuidar dela com maior consciência."
-      - "Para esta consulta, <strong>é fundamental que ambos os participantes estejam presentes e dêem o seu pleno consentimento</strong>."
