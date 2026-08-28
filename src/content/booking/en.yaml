@@ -18,8 +18,6 @@ typePlaceholder: Please select a consultation type
 types:
   - value: natal
     label: Birth Chart
-  - value: natalsolarreturn
-    label: Birth Chart & Solar Return
   - value: horary
     label: Horary
   - value: elective

@@ -5,7 +5,6 @@ import Mailgun from "mailgun.js";
 
 const KNOWN_TYPES: Record<string, string> = {
 	natal: "Natal chart",
-	natalsolarreturn: "Natal chart & annual revolution",
 	horary: "Horary",
 	elective: "Elective",
 	synastry: "Synastry",
@@ -92,7 +91,7 @@ export const POST: APIRoute = async ({ request }) => {
 		`Form language: ${locale}`,
 	];
 
-	if (consultationType === "natal" || consultationType === "natalsolarreturn") {
+	if (consultationType === "natal") {
 		const concerns = get("concerns");
 		if (concerns) lines.push(``, `Specific concerns:`, concerns);
 	}
